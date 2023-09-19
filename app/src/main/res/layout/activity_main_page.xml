@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="메인화면"
+        android:textSize="50dp" />
+
+    <Button
+        android:id="@+id/button_seat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="좌석선택" />
+
+    <Button
+        android:id="@+id/button_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메뉴판" />
+
+    <Button
+        android:id="@+id/button_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="주문정보" />
+
+
+</LinearLayout>
