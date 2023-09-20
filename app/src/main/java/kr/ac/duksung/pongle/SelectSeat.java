@@ -9,7 +9,6 @@ import android.widget.Button;
 public class SelectSeat extends Activity {
     Button choice;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
