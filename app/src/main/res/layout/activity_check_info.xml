@@ -4,35 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center|center_horizontal|center_vertical"
     android:orientation="vertical"
     tools:context=".CheckInfo">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:orientation="vertical"></LinearLayout>
+
+    <TextView
+        android:id="@+id/orderInfo"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
         android:gravity="center"
-        android:text="주문 정보 확인"
-        android:textSize="25dp"
+        android:text="나의 주문 정보"
+        android:textSize="20dp"
         android:textStyle="bold" />
+
+    <!--QR코드 -->
+    <TextView
+        android:id="@+id/QR"
+        android:layout_width="match_parent"
+        android:layout_height="184dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        app:srcCompat="@drawable/profile"/>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="덕반이" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="271dp"
-        android:orientation="vertical">
+        android:layout_height="26dp"
+        android:orientation="vertical"></LinearLayout>
 
-        <TextView
-            android:id="@+id/inSquare"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="0px"
-            android:layout_marginBottom="50px"
-            android:layout_marginRight="0px"
-            android:background="@drawable/bg_gis_result_items_count"
-            android:text="네모"
-            android:textSize="32px" />
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        app:srcCompat="@drawable/ordermenu" />
 
-    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:orientation="vertical"></LinearLayout>
+
+    <Button
+        android:id="@+id/btn_checkSeat"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:text="좌석 확인"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="vertical"></LinearLayout>
 
 </LinearLayout>
