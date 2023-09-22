@@ -52,7 +52,7 @@ public class MenuPan extends Activity {
 
 
 
-        // 데이터 베이스 연동!! 조심!!
+        /*
         OkHttpClient client = new OkHttpClient();
 
         String url = "http://10.0.2.2:5000/restCount";
@@ -101,7 +101,7 @@ public class MenuPan extends Activity {
                 }
             }
         });
-        // 데이터 베이스 연동!! 조심!!
+        */
 
         btn_han.setOnClickListener(new View.OnClickListener() {
             @Override
