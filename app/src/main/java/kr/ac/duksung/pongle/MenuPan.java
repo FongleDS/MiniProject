@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MenuPan extends Activity {
     Button btn_han;
@@ -12,6 +13,13 @@ public class MenuPan extends Activity {
     Button btn_il;
     Button btn_yang;
     Button btn_bun;
+
+    TextView han_waiting;
+    TextView joong_waiting;
+    TextView il_waiting;
+    TextView yang_waiting;
+    TextView bun_waiting;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,12 @@ public class MenuPan extends Activity {
         btn_il = findViewById(R.id.button_japan);
         btn_yang = findViewById(R.id.button_western);
         btn_bun = findViewById(R.id.button_snack);
+
+        han_waiting = findViewById(R.id.text_han);
+        joong_waiting = findViewById(R.id.text_joong);
+        il_waiting = findViewById(R.id.text_il);
+        yang_waiting = findViewById(R.id.text_yang);
+        bun_waiting = findViewById(R.id.text_bun);
 
         btn_han.setOnClickListener(new View.OnClickListener() {
             @Override
