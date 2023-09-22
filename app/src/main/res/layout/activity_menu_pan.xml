@@ -98,7 +98,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="일식 / 대기인원 :"
+                    android:text="일식 / 대기인원 : "
                     android:layout_marginLeft="10dp"/>
                 <TextView
                     android:id="@+id/text_il"
@@ -187,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:text="양식 / 대기인원 :" />
+                    android:text="양식 / 대기인원 : " />
                 <TextView
                     android:id="@+id/text_yang"
                     android:layout_width="wrap_content"
@@ -251,7 +251,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="분식 / 대기인원 :" />
+                android:text="분식 / 대기인원 : " />
             <TextView
                 android:id="@+id/text_boon"
                 android:layout_width="wrap_content"
@@ -264,8 +264,7 @@
         </LinearLayout>
     </LinearLayout>
 
+
+
 </LinearLayout>
-
-
-
 </LinearLayout>
