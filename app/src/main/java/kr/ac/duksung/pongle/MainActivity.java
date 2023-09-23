@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_main = findViewById(R.id.button_main);
 
-/*
+
         // 학번
         stdID = findViewById(R.id.stdID);
         // 비밀 번호
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
 
-
+/*
         //login 버튼 작동
         btn_login.setOnClickListener(v -> {
             ID = String.valueOf(stdID.getText());
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
+/*
     OkHttpClient client = new OkHttpClient();
     public void fetchPassword(String stdID) {
         RequestBody formBody = new FormBody.Builder()
@@ -130,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-     */
-
+*/
 }
 
