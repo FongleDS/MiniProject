@@ -1,8 +1,11 @@
 package kr.ac.duksung.pongle;
 
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 public class OrderData {
     private static final OrderData instance = new OrderData();
-
     private String seatID;
     private String menuID;
     private String stdID;
