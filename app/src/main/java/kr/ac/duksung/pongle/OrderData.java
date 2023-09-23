@@ -10,6 +10,8 @@ public class OrderData {
     private String menuID;
     private String stdID;
 
+    private String orderDate;
+
     private OrderData() {}
 
     public static OrderData getInstance() {
@@ -20,9 +22,13 @@ public class OrderData {
         return seatID;
     }
 
-    // Setter for name
     public void setSeatID(String seatID) {
         this.seatID = seatID;
+    }
+
+    public String getOrderDate() { return orderDate; }
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
     public String getMenuID() {
