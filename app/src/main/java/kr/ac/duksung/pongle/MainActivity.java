@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn_main = findViewById(R.id.button_main);
+
+/*
         // 학번
         stdID = findViewById(R.id.stdID);
         // 비밀 번호
@@ -54,16 +56,15 @@ public class MainActivity extends AppCompatActivity {
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
 
-        test = findViewById(R.id.test);
 
         //login 버튼 작동
         btn_login.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainPage.class);
             ID = String.valueOf(stdID.getText());
             PW = String.valueOf(stdPW.getText());
+            // 비밀번호가 일치하는지 확인하는 class 호출
             fetchPassword(ID);
         });
-
+*/
 
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
     OkHttpClient client = new OkHttpClient();
     public void fetchPassword(String stdID) {
         RequestBody formBody = new FormBody.Builder()
@@ -100,12 +102,25 @@ public class MainActivity extends AppCompatActivity {
                         if (jsonObject.has("password")) {
                             String password = jsonObject.getString("password");
                             runOnUiThread(() -> {
+                                System.out.println(password);
                                 realPW = password;
+                                System.out.println(realPW);
+                                System.out.println(PW);
+
+                                // 입력한 비밀번호가 학번의 비밀 번호와 같을 떄
+                                if (realPW.equals(PW)) {
+                                    Intent intent = new Intent(getApplicationContext(),MainPage.class);
+                                    startActivity(intent);
+                                }
+                                // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
+                                else {
+                                    stdPW.setText(null);
+                                }
                             });
                         } else if (jsonObject.has("error")) {
                             String error = jsonObject.getString("error");
                             runOnUiThread(() -> {
-                                // 에러 메시지 처리
+                                System.out.println("error");
                             });
                         }
                     } catch (JSONException e) {
@@ -115,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+     */
 
 }
 
