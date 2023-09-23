@@ -1,6 +1,7 @@
 package kr.ac.duksung.pongle;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -13,13 +14,16 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Locale;
 
 import okhttp3.Call;
@@ -37,6 +41,11 @@ public class CheckInfo extends AppCompatActivity {
     TextView orderID;
     TextView orderTime;
     ImageView QRCode;
+    OrderData orderData = new OrderData();
+    String orderStr = new String();
+
+    ArrayList infoList = new ArrayList();
+    //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
 
 
     @Override
@@ -49,20 +58,29 @@ public class CheckInfo extends AppCompatActivity {
         orderID = findViewById(R.id.orderID);
         orderTime = findViewById(R.id.orderTime);
 
-        QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode("20210796"));
+
+        //SharedPreferences.Editor editor = prefs.edit();
+        //String stdID = prefs.getString("stdID", null);
+        //editor.apply();
+
+        String stdID = "20210796";
 
         // 주문 정보 불러오기
-        OrderData orderData = new OrderData();
-        String stdID = orderData.getStdID(); // 학번 불러오기
+        System.out.println(stdID);
+        getOrderInfo(stdID);
 
+        QRCode = findViewById(R.id.qrcodeImage);
+        QRCode.setImageBitmap(generateQRCode(stdID));
+
+        orderID.setText((CharSequence) infoList.get(0));
+        orderTime.setText((CharSequence) infoList.get(1));
         // 실시간 현재 시간 받아오기
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        String Realtime = sdf.format(calendar.getTime());
+        //Calendar calendar = Calendar.getInstance();
+        //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        //String Realtime = sdf.format(calendar.getTime());
 
 
-        //학번 불러오고나서 학번 관련된 orderData불러와서 실시간 현재 시간이랑 같은 날짜(시간은 비교)하고 pay가 NO인 데이터불러오기
+        //orderID로만 조회
     }
 
 
@@ -88,14 +106,14 @@ public class CheckInfo extends AppCompatActivity {
         return null;
     }
 
-/*
+
     OkHttpClient client = new OkHttpClient();
     public void getOrderInfo(String stdID) {
         RequestBody formBody = new FormBody.Builder()
                 .add("stdID", stdID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/get_password")
+                .url("http://10.0.2.2:5000/getOrderInfo")
                 .post(formBody)
                 .build();
 
@@ -110,31 +128,20 @@ public class CheckInfo extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     String responseBody = response.body().string();
                     try {
-                        JSONObject jsonObject = new JSONObject(responseBody);
-                        if (jsonObject.has("password")) {
-                            String password = jsonObject.getString("password");
-                            runOnUiThread(() -> {
-                                System.out.println(password);
-                                realPW = password;
-                                System.out.println(realPW);
-                                System.out.println(PW);
+                        JSONArray jsonArray = new JSONArray(responseBody);
+                        System.out.println(jsonArray);
 
-                                // 입력한 비밀번호가 학번의 비밀 번호와 같을 떄
-                                if (realPW.equals(PW)) {
-                                    Intent intent = new Intent(getApplicationContext(),MainPage.class);
-                                    startActivity(intent);
-                                }
-                                // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
-                                else {
-                                    stdPW.setText(null);
-                                }
-                            });
-                        } else if (jsonObject.has("error")) {
-                            String error = jsonObject.getString("error");
-                            runOnUiThread(() -> {
-                                System.out.println("error");
-                            });
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            Iterator<String> keys = jsonObject.keys();
+
+                            while(keys.hasNext()) {
+                                String key = keys.next();
+                                infoList.add(jsonObject.getString(key));
+                                System.out.println(infoList);
+                            }
                         }
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -142,5 +149,4 @@ public class CheckInfo extends AppCompatActivity {
             }
         });
     }
-    */
 }

@@ -22,7 +22,6 @@ public class SelectSeat extends Activity {
                 Intent intent = new Intent(getApplicationContext(), ChooseMenu.class);
                 startActivity(intent);
 
-
                 //자리 정보 넣어주기
                 //orderData.setSeatID();
             }

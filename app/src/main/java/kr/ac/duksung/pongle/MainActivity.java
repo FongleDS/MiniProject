@@ -2,6 +2,7 @@ package kr.ac.duksung.pongle;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     String realPW;
     boolean loginBool = false;
     OrderData orderData = new OrderData();
+    //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
 
 
 
@@ -56,27 +58,30 @@ public class MainActivity extends AppCompatActivity {
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
 
-/*
         //login 버튼 작동
         btn_login.setOnClickListener(v -> {
             ID = String.valueOf(stdID.getText());
             PW = String.valueOf(stdPW.getText());
-            // 비밀번호가 일치하는지 확인하는 class 호출
+
+            //SharedPreferences.Editor editor = prefs.edit();
+            //editor.putString("stdID", ID);
+            //editor.apply();
+
             fetchPassword(ID);
         });
-*/
+
+
 
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),MainPage.class);
+                Intent intent = new Intent(getApplicationContext(), MainPage.class);
                 startActivity(intent);
             }
         });
 
     }
 
-/*
     OkHttpClient client = new OkHttpClient();
     public void fetchPassword(String stdID) {
         RequestBody formBody = new FormBody.Builder()
@@ -111,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
                                 if (realPW.equals(PW)) {
                                     Intent intent = new Intent(getApplicationContext(),MainPage.class);
                                     startActivity(intent);
-                                    orderData.setStdID(ID);
                                 }
                                 // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
                                 else {
@@ -131,6 +135,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-*/
 }
 
