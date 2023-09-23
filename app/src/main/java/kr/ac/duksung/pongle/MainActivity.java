@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     String PW;
     String realPW;
     boolean loginBool = false;
+    OrderData orderData = new OrderData();
 
 
 
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn_main = findViewById(R.id.button_main);
-
 
         // 학번
         stdID = findViewById(R.id.stdID);
@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (realPW.equals(PW)) {
                                     Intent intent = new Intent(getApplicationContext(),MainPage.class);
                                     startActivity(intent);
+                                    orderData.setStdID(ID);
                                 }
                                 // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
                                 else {

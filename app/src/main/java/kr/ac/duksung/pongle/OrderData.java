@@ -12,7 +12,7 @@ public class OrderData {
 
     private String orderDate;
 
-    private OrderData() {}
+    OrderData() {}
 
     public static OrderData getInstance() {
         return instance;

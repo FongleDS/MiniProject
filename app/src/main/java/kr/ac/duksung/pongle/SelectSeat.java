@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class SelectSeat extends Activity {
     Button choice;
+    OrderData orderData = new OrderData();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,10 @@ public class SelectSeat extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChooseMenu.class);
                 startActivity(intent);
+
+
+                //자리 정보 넣어주기
+                //orderData.setSeatID();
             }
         });
     }
