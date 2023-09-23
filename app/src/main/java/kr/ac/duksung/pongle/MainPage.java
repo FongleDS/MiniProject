@@ -1,6 +1,8 @@
 package kr.ac.duksung.pongle;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -21,6 +23,12 @@ public class MainPage extends Activity {
         btn_seat = findViewById(R.id.button_seat);
         btn_menu = findViewById(R.id.button_menu);
         btn_info = findViewById(R.id.button_info);
+
+
+        //PackageManager pm = getPackageManager();
+        //pm.setComponentEnabledSetting(new ComponentName(getApplicationContext(), MainActivity.class),
+                //PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+
 
         btn_seat.setOnClickListener(new View.OnClickListener() {
             @Override
