@@ -49,7 +49,12 @@ public class MainPage extends Activity {
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent getintent = getIntent();
+                Bundle bundle = getintent.getExtras();
+                String stdNum = bundle.getString("stdNum");
+
                 Intent intent = new Intent(getApplicationContext(),CheckInfo.class);
+                intent.putExtra("stdNum", stdNum);
                 startActivity(intent);
             }
         });

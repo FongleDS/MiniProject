@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                                 // 입력한 비밀번호가 학번의 비밀 번호와 같을 떄
                                 if (realPW.equals(PW)) {
                                     Intent intent = new Intent(getApplicationContext(),MainPage.class);
+                                    intent.putExtra("stdNum", stdID);
                                     startActivity(intent);
                                 }
                                 // 입력한 비밀번호가 학번의 비밀 번호와 다를 때

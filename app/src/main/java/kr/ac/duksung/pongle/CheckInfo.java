@@ -17,10 +17,12 @@ import com.google.zxing.common.BitMatrix;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
@@ -53,34 +55,49 @@ public class CheckInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_info);
 
-        stdName = findViewById(R.id.studentName);
+
+        Intent getintent = getIntent();
+        Bundle bundle = getintent.getExtras();
+        String stdID = bundle.getString("stdNum");
+        System.out.println(stdID);
+
+        stdName = findViewById(R.id.userName);
         orderMenu = findViewById(R.id.orderMenu);
         orderID = findViewById(R.id.orderID);
         orderTime = findViewById(R.id.orderTime);
 
+        TextView seatID = findViewById(R.id.seatID);
 
         //SharedPreferences.Editor editor = prefs.edit();
         //String stdID = prefs.getString("stdID", null);
         //editor.apply();
 
-        String stdID = "20210796";
-
         // 주문 정보 불러오기
         System.out.println(stdID);
         getOrderInfo(stdID);
+        System.out.println(infoList);
 
+        // QRCODE 생성
         QRCode = findViewById(R.id.qrcodeImage);
         QRCode.setImageBitmap(generateQRCode(stdID));
 
+        // 주문 시간 가져오기
+        String orderTimeStr = (String) infoList.get(1);
+        String[] orderingTime = (orderTimeStr.split(" "));
+        System.out.println("orderingTime" + orderingTime);
+
+
+        //주문 번호, 주문 시간, 학생 이름 설정
         orderID.setText((CharSequence) infoList.get(0));
-        orderTime.setText((CharSequence) infoList.get(1));
+        System.out.println();
+        orderTime.setText(orderingTime[1]);
+        seatID.setText((CharSequence) infoList.get(2));
+        stdName.setText((CharSequence) infoList.get(3));
+
         // 실시간 현재 시간 받아오기
         //Calendar calendar = Calendar.getInstance();
         //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         //String Realtime = sdf.format(calendar.getTime());
-
-
-        //orderID로만 조회
     }
 
 
@@ -138,7 +155,6 @@ public class CheckInfo extends AppCompatActivity {
                             while(keys.hasNext()) {
                                 String key = keys.next();
                                 infoList.add(jsonObject.getString(key));
-                                System.out.println(infoList);
                             }
                         }
 
