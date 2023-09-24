@@ -42,6 +42,7 @@ public class CheckInfo extends AppCompatActivity {
     TextView orderMenu;
     TextView orderID;
     TextView orderTime;
+    TextView seatID;
     ImageView QRCode;
     OrderData orderData = new OrderData();
     String orderStr = new String();
@@ -65,8 +66,7 @@ public class CheckInfo extends AppCompatActivity {
         orderMenu = findViewById(R.id.orderMenu);
         orderID = findViewById(R.id.orderID);
         orderTime = findViewById(R.id.orderTime);
-
-        TextView seatID = findViewById(R.id.seatID);
+        seatID = findViewById(R.id.seatID);
 
         //SharedPreferences.Editor editor = prefs.edit();
         //String stdID = prefs.getString("stdID", null);
@@ -84,12 +84,11 @@ public class CheckInfo extends AppCompatActivity {
         // 주문 시간 가져오기
         String orderTimeStr = (String) infoList.get(1);
         String[] orderingTime = (orderTimeStr.split(" "));
-        System.out.println("orderingTime" + orderingTime);
+        System.out.println(orderingTime[1]);
 
 
         //주문 번호, 주문 시간, 학생 이름 설정
         orderID.setText((CharSequence) infoList.get(0));
-        System.out.println();
         orderTime.setText(orderingTime[1]);
         seatID.setText((CharSequence) infoList.get(2));
         stdName.setText((CharSequence) infoList.get(3));
