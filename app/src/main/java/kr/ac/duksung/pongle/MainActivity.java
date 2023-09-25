@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     String PW;
     String realPW;
     boolean loginBool = false;
-    OrderData orderData = new OrderData();
     //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
 
 

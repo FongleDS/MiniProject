@@ -32,38 +32,41 @@ public class ChooseMenu extends AppCompatActivity {
 
         ordercomplete = findViewById(R.id.orderComplete);
 
-
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
         String seatID = bundle.getString("seatNum");
         String menuID = bundle.getString("menuNum");
 
-
         // 실시간 현재 시간 받아오기
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        String Realtime = sdf.format(calendar.getTime());
 
 
-        /*
+
+
         ordercomplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
 
+                String Realtime = sdf.format(calendar.getTime());
+                getOrderID(stdID, seatID, menuID, Realtime);
 
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("menuNum", menuID);
+                intent.putExtra("Realtime", Realtime);
 
-                intent.putExtra("orderID", orderID);
                 startActivity(intent);
             }
-        })
+        });
 
 
     }
 
     OkHttpClient client = new OkHttpClient();
-    public void fetchPassword(String stdID, String menuID, String orderDate, String seatID) {
+    public void getOrderID(String stdID, String menuID, String orderDate, String seatID) {
         RequestBody formBody = new FormBody.Builder()
                 .add("stdID", stdID)
                 .add("menuID", menuID)
@@ -91,9 +94,6 @@ public class ChooseMenu extends AppCompatActivity {
                             String password = jsonObject.getString("orderID");
                             runOnUiThread(() -> {
                                 System.out.println(password);
-                                realPW = password;
-                                System.out.println(realPW);
-                                System.out.println(PW);
                             });
                         } else if (jsonObject.has("error")) {
                             String error = jsonObject.getString("error");
@@ -108,6 +108,5 @@ public class ChooseMenu extends AppCompatActivity {
             }
         });
 
-         */
     }
 }

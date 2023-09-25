@@ -39,13 +39,13 @@ import okhttp3.Response;
 
 public class CheckInfo extends AppCompatActivity {
     TextView stdName;
-    TextView orderMenu;
-    TextView orderID;
-    TextView orderTime;
-    TextView seatID;
+    TextView orderedMenu;
+    TextView orderedID;
+    TextView orderedTime;
+    TextView selectedSeat;
     ImageView QRCode;
-    OrderData orderData = new OrderData();
-    String orderStr = new String();
+    //OrderData orderData = new OrderData();
+    //String orderStr = new String();
 
     ArrayList infoList = new ArrayList();
     //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
@@ -56,42 +56,35 @@ public class CheckInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_info);
 
+        // button 요소 연결
+        stdName = findViewById(R.id.userName);
+        orderedMenu = findViewById(R.id.orderMenu);
+        orderedID = findViewById(R.id.orderID);
+        orderedTime = findViewById(R.id.orderTime);
+        selectedSeat = findViewById(R.id.seatID);
 
+        // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
-        System.out.println(stdID);
+        String seatID = bundle.getString("seatNum");
+        String menuID = bundle.getString("menuNum");
+        String orderTime = (String) bundle.get("orderTime");
 
-        stdName = findViewById(R.id.userName);
-        orderMenu = findViewById(R.id.orderMenu);
-        orderID = findViewById(R.id.orderID);
-        orderTime = findViewById(R.id.orderTime);
-        seatID = findViewById(R.id.seatID);
-
-        //SharedPreferences.Editor editor = prefs.edit();
-        //String stdID = prefs.getString("stdID", null);
-        //editor.apply();
 
         // 주문 정보 불러오기
         System.out.println(stdID);
         getOrderInfo(stdID);
         System.out.println(infoList);
 
-        // 주문 시간 가져오기
-        String orderTimeStr = (String) infoList.get(1);
-        String[] orderingTime = (orderTimeStr.split(" "));
-        System.out.println(orderingTime[1]);
-
-        String orderedID = (String) infoList.get(0);
-
         // QRCODE 생성
         QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode(orderedID));
+        QRCode.setImageBitmap(generateQRCode(stdID));
 
         //주문 번호, 주문 시간, 학생 이름 설정
-        orderID.setText((CharSequence) infoList.get(0));
-        orderTime.setText(orderingTime[1]);
-        seatID.setText((CharSequence) infoList.get(2));
+        orderedID.setText((CharSequence) infoList.get(0));
+        orderedTime.setText(orderTime);
+        selectedSeat.setText((CharSequence) infoList.get(2));
         stdName.setText((CharSequence) infoList.get(3));
 
         // 실시간 현재 시간 받아오기
