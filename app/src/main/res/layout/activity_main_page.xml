@@ -6,29 +6,57 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="메인화면"
+        android:background="#EFEFEF"
+        android:text="날짜"
         android:textSize="50dp" />
 
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="95dp"
+        android:gravity="center"
+        android:background="#EFEFEF"
+        android:text="좌석선택"
+        android:textSize="30dp" />
     <Button
         android:id="@+id/button_seat"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="좌석선택" />
+        android:background="@drawable/round_button"
+        android:text="View"
+        android:textColor="@color/white"/>
 
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="95dp"
+        android:gravity="center"
+        android:background="#EFEFEF"
+        android:text="메뉴판"
+        android:textSize="30dp" />
     <Button
         android:id="@+id/button_menu"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="메뉴판" />
+        android:background="@drawable/round_button"
+        android:text="View"
+        android:textColor="@color/white"/>
 
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="95dp"
+        android:gravity="center"
+        android:background="#EFEFEF"
+        android:text="주문정보"
+        android:textSize="30dp" />
     <Button
         android:id="@+id/button_info"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:text="주문정보" />
+        android:background="@drawable/round_button"
+        android:text="View"
+        android:textColor="@color/white" />
 
 
 </LinearLayout>
