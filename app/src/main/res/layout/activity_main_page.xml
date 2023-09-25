@@ -19,6 +19,7 @@
         android:gravity="center"
         android:background="#EFEFEF"
         android:text="좌석선택"
+        android:textColor="@color/black"
         android:textSize="30dp" />
     <Button
         android:id="@+id/button_seat"
@@ -34,6 +35,7 @@
         android:gravity="center"
         android:background="#EFEFEF"
         android:text="메뉴판"
+        android:textColor="@color/black"
         android:textSize="30dp" />
     <Button
         android:id="@+id/button_menu"
@@ -49,6 +51,7 @@
         android:gravity="center"
         android:background="#EFEFEF"
         android:text="주문정보"
+        android:textColor="@color/black"
         android:textSize="30dp" />
     <Button
         android:id="@+id/button_info"
