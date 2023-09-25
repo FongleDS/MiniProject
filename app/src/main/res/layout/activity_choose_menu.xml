@@ -15,5 +15,10 @@
         android:text="메뉴 선택하는 페이지"
         android:textSize="50dp" />
 
+    <Button
+        android:id="@+id/orderComplete"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="주문하기"/>
 
 </LinearLayout>
