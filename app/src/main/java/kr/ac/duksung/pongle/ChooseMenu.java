@@ -46,6 +46,7 @@ public class ChooseMenu extends AppCompatActivity {
         String Realtime = sdf.format(calendar.getTime());
 
 
+        /*
         ordercomplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,8 +57,7 @@ public class ChooseMenu extends AppCompatActivity {
                 intent.putExtra("orderID", orderID);
                 startActivity(intent);
             }
-        });
-
+        })
 
 
     }
@@ -107,5 +107,7 @@ public class ChooseMenu extends AppCompatActivity {
                 }
             }
         });
+
+         */
     }
 }
