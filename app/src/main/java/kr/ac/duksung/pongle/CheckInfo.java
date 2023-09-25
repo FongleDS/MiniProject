@@ -77,15 +77,16 @@ public class CheckInfo extends AppCompatActivity {
         getOrderInfo(stdID);
         System.out.println(infoList);
 
-        // QRCODE 생성
-        QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode(stdID));
-
         // 주문 시간 가져오기
         String orderTimeStr = (String) infoList.get(1);
         String[] orderingTime = (orderTimeStr.split(" "));
         System.out.println(orderingTime[1]);
 
+        String orderedID = (String) infoList.get(0);
+
+        // QRCODE 생성
+        QRCode = findViewById(R.id.qrcodeImage);
+        QRCode.setImageBitmap(generateQRCode(orderedID));
 
         //주문 번호, 주문 시간, 학생 이름 설정
         orderID.setText((CharSequence) infoList.get(0));
