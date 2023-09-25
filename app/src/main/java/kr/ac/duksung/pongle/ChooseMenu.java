@@ -9,9 +9,6 @@ import java.util.Locale;
 
 public class ChooseMenu extends AppCompatActivity {
 
-    OrderData orderData = new OrderData();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +19,5 @@ public class ChooseMenu extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         String Realtime = sdf.format(calendar.getTime());
 
-        //메뉴 정보 넣기
-        //orderData.setMenuID();
     }
 }
