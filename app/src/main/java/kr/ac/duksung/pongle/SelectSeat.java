@@ -15,7 +15,8 @@ public class SelectSeat extends Activity {
         setContentView(R.layout.activity_select_seat);
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String stdNum = bundle.getString("stdNum");
+        String stdID = bundle.getString("stdNum");
+        String seatID = bundle.getString("seatNum");
 
 
         choice = findViewById(R.id.select_seat);
@@ -23,9 +24,9 @@ public class SelectSeat extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ChooseMenu.class);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
                 startActivity(intent);
-                intent.putExtra("stdNum", stdNum);
-                // intent.putExtra("seatID", seatNum);
             }
         });
     }
