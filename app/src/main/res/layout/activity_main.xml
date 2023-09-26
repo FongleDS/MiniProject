@@ -8,30 +8,40 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="457dp"
+        android:layout_gravity="top"
+        app:srcCompat="@drawable/Group32" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="로그인화면"
-        android:textSize="50dp" />
+        android:text="로그인"
+        android:textSize="34sp" />
 
     <EditText
         android:id="@+id/stdID"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:hint="학번을 입력하세요" />
 
     <EditText
         android:id="@+id/stdPW"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:hint="비밀번호를 입력하세요"
+        android:text="" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:text="login"/>
+        android:text="login"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/round_button"/>
 
 
     <Button
