@@ -40,7 +40,7 @@
             android:id="@+id/plan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/seat" />
+            app:srcCompat="@drawable/seat"/>
 
         <Button
             android:layout_width="11dp"
