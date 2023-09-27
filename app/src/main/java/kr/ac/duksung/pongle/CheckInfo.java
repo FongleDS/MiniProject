@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
@@ -41,6 +42,8 @@ public class CheckInfo extends AppCompatActivity {
     TextView orderID;
     TextView orderTime;
     ImageView QRCode;
+    Button seat_view;
+    ImageView exitButton;
     OrderData orderData = new OrderData();
     String orderStr = new String();
 
@@ -57,6 +60,25 @@ public class CheckInfo extends AppCompatActivity {
         orderMenu = findViewById(R.id.orderMenu);
         orderID = findViewById(R.id.orderID);
         orderTime = findViewById(R.id.orderTime);
+        seat_view = findViewById(R.id.seat_view);
+        exitButton = findViewById(R.id.exitButton);
+
+        seat_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SelectSeat.class);
+                startActivity(intent);
+            }
+        });
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainPage.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         //SharedPreferences.Editor editor = prefs.edit();
