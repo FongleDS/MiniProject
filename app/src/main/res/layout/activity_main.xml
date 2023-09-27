@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal|top"
+    android:gravity="center|top"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="457dp"
-        android:layout_gravity="top"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/group32" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
         android:text="       로그인"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -38,22 +37,16 @@
         android:text=""
         tools:ignore="TouchTargetSizeCheck" />
 
+
     <Button
         android:id="@+id/login"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:background="@drawable/round_button"
+        android:gravity="center"
         android:text="login"
         android:textColor="#FFFFFF"
         tools:ignore="TouchTargetSizeCheck" />
-
-
-    <Button
-        android:id="@+id/button_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="메인화면 전환"
-        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/test"

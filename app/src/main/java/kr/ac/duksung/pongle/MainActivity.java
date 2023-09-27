@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_main = findViewById(R.id.button_main);
+        //btn_main = findViewById(R.id.button_main);
 
         // 학번
         stdID = findViewById(R.id.stdID);
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+/*
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+ */
 
     }
 
