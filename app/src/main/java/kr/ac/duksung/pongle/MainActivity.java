@@ -1,5 +1,4 @@
 package kr.ac.duksung.pongle;
-
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,14 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.HashMap;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -26,9 +22,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-
 public class MainActivity extends AppCompatActivity {
-
     Button btn_main;
     EditText stdID; // edittext생성해서 학번
     EditText stdPW; // edittext생성해서 비번
@@ -38,18 +32,12 @@ public class MainActivity extends AppCompatActivity {
     String ID;
     String PW;
     String realPW;
-    boolean loginBool = false;
-    //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
 
-//나연
-
+//수정사항 반영 되어라...제발...tlqkf!!!!
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //btn_main = findViewById(R.id.button_main);
-
         // 학번
         stdID = findViewById(R.id.stdID);
         // 비밀 번호
@@ -57,32 +45,14 @@ public class MainActivity extends AppCompatActivity {
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
 
+
         //login 버튼 작동
         btn_login.setOnClickListener(v -> {
             ID = String.valueOf(stdID.getText());
             PW = String.valueOf(stdPW.getText());
-
-            //SharedPreferences.Editor editor = prefs.edit();
-            //editor.putString("stdID", ID);
-            //editor.apply();
-
             fetchPassword(ID);
         });
-
-
-/*
-        btn_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainPage.class);
-                startActivity(intent);
-            }
-        });
-
- */
-
     }
-
     OkHttpClient client = new OkHttpClient();
     public void fetchPassword(String stdID) {
         RequestBody formBody = new FormBody.Builder()
@@ -92,13 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 .url("http://10.0.2.2:5000/get_password")
                 .post(formBody)
                 .build();
-
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
-
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
@@ -112,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                                 realPW = password;
                                 System.out.println(realPW);
                                 System.out.println(PW);
-
                                 // 입력한 비밀번호가 학번의 비밀 번호와 같을 떄
                                 if (realPW.equals(PW)) {
                                     Intent intent = new Intent(getApplicationContext(),MainPage.class);
@@ -138,4 +105,3 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
-
