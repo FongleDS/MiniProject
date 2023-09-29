@@ -48,7 +48,7 @@ public class ChooseMenu extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
 
                 String Realtime = sdf.format(calendar.getTime());
-                getOrderID(stdID, seatID, menuID, Realtime);
+                orderUpdate(stdID, seatID, menuID, Realtime);
 
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -60,7 +60,7 @@ public class ChooseMenu extends AppCompatActivity {
     }
 
     OkHttpClient client = new OkHttpClient();
-    public void getOrderID(String stdID, String menuID, String orderDate, String seatID) {
+    public void orderUpdate(String stdID, String menuID, String orderDate, String seatID) {
         RequestBody formBody = new FormBody.Builder()
                 .add("stdID", stdID)
                 .add("menuID", menuID)
