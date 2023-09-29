@@ -10,8 +10,6 @@ import android.widget.ImageView;
 public class SelectSeat extends Activity {
     Button choice;
     ImageView exitButton;
-    OrderData orderData = new OrderData();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,7 +12,6 @@ import java.util.Locale;
 
 public class ChooseMenu extends AppCompatActivity {
 
-    OrderData orderData = new OrderData();
     Button btn_choose;
 
     @Override
