@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.concurrent.atomic.AtomicReference;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -24,6 +25,7 @@ import okhttp3.Response;
 
 public class ChooseMenu extends AppCompatActivity {
      Button ordercomplete;
+     String info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +34,14 @@ public class ChooseMenu extends AppCompatActivity {
 
         ordercomplete = findViewById(R.id.orderComplete);
 
-        Intent getintent = getIntent();
-        Bundle bundle = getintent.getExtras();
-        String stdID = bundle.getString("stdNum");
-        String seatID = bundle.getString("seatNum");
-        String menuID = bundle.getString("menuNum");
+        //Intent getintent = getIntent();
+        //Bundle bundle = getintent.getExtras();
+        //String stdID = bundle.getString("stdNum");
+        //String seatID = bundle.getString("seatNum");
+        //String menuID = bundle.getString("menuNum");
+        String stdID = "20210796";
+        String seatID = "20";
+        String menuID = "4";
 
         // 실시간 현재 시간 받아오기
         Calendar calendar = Calendar.getInstance();
@@ -51,12 +56,15 @@ public class ChooseMenu extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
 
                 String Realtime = sdf.format(calendar.getTime());
-                getOrderID(stdID, seatID, menuID, Realtime);
+                info = String.valueOf(orderUpdate(stdID, seatID, menuID, Realtime));
 
-                intent.putExtra("seatNum", seatID);
-                intent.putExtra("stdNum", stdID);
-                intent.putExtra("menuNum", menuID);
-                intent.putExtra("Realtime", Realtime);
+                //intent.putExtra("seatNum", seatID);
+                //intent.putExtra("stdNum", stdID);
+                //intent.putExtra("menuNum", menuID);
+                //intent.putExtra("Realtime", Realtime);
+                intent.putExtra("orderID", info);
+                System.out.println(info);
+
 
                 startActivity(intent);
             }
@@ -66,7 +74,8 @@ public class ChooseMenu extends AppCompatActivity {
     }
 
     OkHttpClient client = new OkHttpClient();
-    public void getOrderID(String stdID, String menuID, String orderDate, String seatID) {
+    public AtomicReference<String> orderUpdate(String stdID, String menuID, String orderDate, String seatID) {
+        AtomicReference<String> returns = null;
         RequestBody formBody = new FormBody.Builder()
                 .add("stdID", stdID)
                 .add("menuID", menuID)
@@ -91,9 +100,10 @@ public class ChooseMenu extends AppCompatActivity {
                     try {
                         JSONObject jsonObject = new JSONObject(responseBody);
                         if (jsonObject.has("orderID")) {
-                            String password = jsonObject.getString("orderID");
+                            String orderID = jsonObject.getString("orderID");
                             runOnUiThread(() -> {
-                                System.out.println(password);
+                                System.out.println(orderID);
+                                returns.set(orderID);
                             });
                         } else if (jsonObject.has("error")) {
                             String error = jsonObject.getString("error");
@@ -108,5 +118,6 @@ public class ChooseMenu extends AppCompatActivity {
             }
         });
 
+        return returns;
     }
 }

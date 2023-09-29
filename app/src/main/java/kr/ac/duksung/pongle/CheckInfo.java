@@ -66,26 +66,25 @@ public class CheckInfo extends AppCompatActivity {
         // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String stdID = bundle.getString("stdNum");
-        String seatID = bundle.getString("seatNum");
-        String menuID = bundle.getString("menuNum");
-        String orderTime = (String) bundle.get("orderTime");
+        String orderID = bundle.getString("orderID");
+        System.out.println(orderID);
 
 
         // 주문 정보 불러오기
-        System.out.println(stdID);
-        getOrderInfo(stdID);
+        // System.out.println(stdID);
+        getOrderInfo(orderID);
         System.out.println(infoList);
 
         // QRCODE 생성
         QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode(stdID));
+        QRCode.setImageBitmap(generateQRCode(orderID));
 
         //주문 번호, 주문 시간, 학생 이름 설정
-        orderedID.setText((CharSequence) infoList.get(0));
-        orderedTime.setText(orderTime);
+        orderedID.setText(orderID);
+        stdName.setText((CharSequence) infoList.get(0));
+        orderedTime.setText((CharSequence) infoList.get(1));
         selectedSeat.setText((CharSequence) infoList.get(2));
-        stdName.setText((CharSequence) infoList.get(3));
+        orderedMenu.setText((CharSequence) infoList.get(3));
 
         // 실시간 현재 시간 받아오기
         //Calendar calendar = Calendar.getInstance();
@@ -118,9 +117,9 @@ public class CheckInfo extends AppCompatActivity {
 
 
     OkHttpClient client = new OkHttpClient();
-    public void getOrderInfo(String stdID) {
+    public void getOrderInfo(String orderID) {
         RequestBody formBody = new FormBody.Builder()
-                .add("stdID", stdID)
+                .add("orderID", orderID)
                 .build();
         Request request = new Request.Builder()
                 .url("http://10.0.2.2:5000/getOrderInfo")
@@ -148,6 +147,7 @@ public class CheckInfo extends AppCompatActivity {
                             while(keys.hasNext()) {
                                 String key = keys.next();
                                 infoList.add(jsonObject.getString(key));
+                                System.out.println(infoList);
                             }
                         }
 
