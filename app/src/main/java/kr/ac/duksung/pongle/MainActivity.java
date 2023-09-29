@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btn_login = findViewById(R.id.login);
 
 
-        //login 버튼 작동
+        //login 버튼
         btn_login.setOnClickListener(v -> {
             ID = String.valueOf(stdID.getText());
             PW = String.valueOf(stdPW.getText());
