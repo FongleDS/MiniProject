@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     boolean loginBool = false;
     //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
 
-
+//나연
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
