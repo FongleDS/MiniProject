@@ -39,12 +39,8 @@ public class CheckInfo extends AppCompatActivity {
     TextView orderedTime;
     TextView selectedSeat;
     ImageView QRCode;
-
-    //OrderData orderData = new OrderData();
-    //String orderStr = new String();
-
     ArrayList infoList = new ArrayList();
-    //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,11 +75,6 @@ public class CheckInfo extends AppCompatActivity {
         orderedTime.setText(orderTime);
         selectedSeat.setText((CharSequence) infoList.get(2));
         stdName.setText((CharSequence) infoList.get(3));
-
-        // 실시간 현재 시간 받아오기
-        //Calendar calendar = Calendar.getInstance();
-        //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        //String Realtime = sdf.format(calendar.getTime());
     }
     private Bitmap generateQRCode(String text) {
         int width = 500;
