@@ -1,112 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/page_date"
-        android:layout_width="0dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="10dp"
         android:background="#EFEFEF"
         android:gravity="center"
         android:text="날짜"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="50dp" />
 
     <TextView
-        android:id="@+id/main_select_Seat_tv"
         android:layout_width="400dp"
-        android:layout_height="145dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="178dp"
-        android:layout_marginBottom="160dp"
-        android:background="#EFEFEF"
+        android:layout_height="95dp"
         android:gravity="center"
+        android:background="#EFEFEF"
         android:text="좌석선택"
         android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:textSize="30dp" />
     <Button
         android:id="@+id/button_seat"
         android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="93dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/round_button"
         android:text="View"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/main_select_Seat_tv" />
+        android:textColor="@color/white"/>
 
     <TextView
-        android:id="@+id/main_menu_pan_tv"
         android:layout_width="400dp"
-        android:layout_height="145dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="15dp"
-        android:background="#EFEFEF"
+        android:layout_height="95dp"
         android:gravity="center"
+        android:background="#EFEFEF"
         android:text="메뉴판"
         android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_select_Seat_tv" />
-
+        android:textSize="30dp" />
     <Button
         android:id="@+id/button_menu"
         android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="93dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/round_button"
         android:text="View"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/main_menu_pan_tv" />
+        android:textColor="@color/white"/>
 
     <TextView
-        android:id="@+id/main_info_tv"
         android:layout_width="400dp"
-        android:layout_height="145dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="15dp"
-        android:background="#EFEFEF"
+        android:layout_height="95dp"
         android:gravity="center"
+        android:background="#EFEFEF"
         android:text="주문정보"
         android:textColor="@color/black"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_menu_pan_tv" />
-
+        android:textSize="30dp" />
     <Button
         android:id="@+id/button_info"
         android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="93dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/round_button"
         android:text="View"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/main_info_tv" />
+        android:textColor="@color/white" />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
