@@ -3,11 +3,11 @@ package kr.ac.duksung.pongle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class WFood extends AppCompatActivity {
+public class Gunsan extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wfood);
+        setContentView(R.layout.activity_jfood);
     }
 }

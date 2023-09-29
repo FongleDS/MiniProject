@@ -3,7 +3,7 @@ package kr.ac.duksung.pongle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CFood extends AppCompatActivity {
+public class Ttok extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
