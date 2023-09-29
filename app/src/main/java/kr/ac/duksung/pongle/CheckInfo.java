@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
@@ -18,10 +17,12 @@ import com.google.zxing.common.BitMatrix;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
@@ -38,14 +39,13 @@ import okhttp3.Response;
 
 public class CheckInfo extends AppCompatActivity {
     TextView stdName;
-    TextView orderMenu;
-    TextView orderID;
-    TextView orderTime;
+    TextView orderedMenu;
+    TextView orderedID;
+    TextView orderedTime;
+    TextView selectedSeat;
     ImageView QRCode;
-    Button seat_view;
-    ImageView exitButton;
-    OrderData orderData = new OrderData();
-    String orderStr = new String();
+    //OrderData orderData = new OrderData();
+    //String orderStr = new String();
 
     ArrayList infoList = new ArrayList();
     //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
@@ -56,53 +56,40 @@ public class CheckInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_info);
 
-        stdName = findViewById(R.id.studentName);
-        orderMenu = findViewById(R.id.orderMenu);
-        orderID = findViewById(R.id.orderID);
-        orderTime = findViewById(R.id.orderTime);
-        seat_view = findViewById(R.id.seat_view);
-        exitButton = findViewById(R.id.exitButton);
+        // button 요소 연결
+        stdName = findViewById(R.id.userName);
+        orderedMenu = findViewById(R.id.orderMenu);
+        orderedID = findViewById(R.id.orderID);
+        orderedTime = findViewById(R.id.orderTime);
+        selectedSeat = findViewById(R.id.seatID);
 
-        seat_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SelectSeat.class);
-                startActivity(intent);
-            }
-        });
+        // 전 액티비티에서 데이터 받아오기
+        Intent getintent = getIntent();
+        Bundle bundle = getintent.getExtras();
+        String orderID = bundle.getString("orderID");
+        System.out.println(orderID);
 
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainPage.class);
-                startActivity(intent);
-            }
-        });
-
-
-
-        //SharedPreferences.Editor editor = prefs.edit();
-        //String stdID = prefs.getString("stdID", null);
-        //editor.apply();
-
-        String stdID = "20210796";
 
         // 주문 정보 불러오기
-        System.out.println(stdID);
-        getOrderInfo(stdID);
+        // System.out.println(stdID);
+        getOrderInfo(orderID);
+        System.out.println(infoList);
 
+        // QRCODE 생성
         QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode(stdID));
+        QRCode.setImageBitmap(generateQRCode(orderID));
 
-        orderID.setText((CharSequence) infoList.get(0));
-        orderTime.setText((CharSequence) infoList.get(1));
+        //주문 번호, 주문 시간, 학생 이름 설정
+        orderedID.setText(orderID);
+        stdName.setText((CharSequence) infoList.get(0));
+        orderedTime.setText((CharSequence) infoList.get(1));
+        selectedSeat.setText((CharSequence) infoList.get(2));
+        orderedMenu.setText((CharSequence) infoList.get(3));
+
         // 실시간 현재 시간 받아오기
         //Calendar calendar = Calendar.getInstance();
         //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         //String Realtime = sdf.format(calendar.getTime());
-
-
-        //orderID로만 조회
     }
 
 
@@ -130,9 +117,9 @@ public class CheckInfo extends AppCompatActivity {
 
 
     OkHttpClient client = new OkHttpClient();
-    public void getOrderInfo(String stdID) {
+    public void getOrderInfo(String orderID) {
         RequestBody formBody = new FormBody.Builder()
-                .add("stdID", stdID)
+                .add("orderID", orderID)
                 .build();
         Request request = new Request.Builder()
                 .url("http://10.0.2.2:5000/getOrderInfo")
