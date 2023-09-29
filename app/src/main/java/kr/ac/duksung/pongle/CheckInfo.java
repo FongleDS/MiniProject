@@ -56,25 +56,29 @@ public class CheckInfo extends AppCompatActivity {
         // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String stdID = bundle.getString("stdNum");
-        String seatID = bundle.getString("seatNum");
-        String menuID = bundle.getString("menuNum");
+        String orderID = (String) bundle.get("orderID");
+        System.out.println(orderID);
+        // String orderID = "9";
+        // String stdID = bundle.getString("stdNum");
+        // String seatID = bundle.getString("seatNum");
+        // String menuID = bundle.getString("menuNum");
         String orderTime = (String) bundle.get("orderTime");
 
         // 주문 정보 불러오기
-        System.out.println(stdID);
-        getOrderInfo(stdID);
+        System.out.println(orderID);
+        getOrderInfo(orderID);
         System.out.println(infoList);
 
         // QRCODE 생성
         QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode(stdID));
+        QRCode.setImageBitmap(generateQRCode(orderID));
 
         //주문 번호, 주문 시간, 학생 이름 설정
-        orderedID.setText((CharSequence) infoList.get(0));
+        orderedID.setText(orderID);
         orderedTime.setText(orderTime);
-        selectedSeat.setText((CharSequence) infoList.get(2));
-        stdName.setText((CharSequence) infoList.get(3));
+        selectedSeat.setText((CharSequence) infoList.get(1));
+        stdName.setText((CharSequence) infoList.get(0));
+        orderedMenu.setText((CharSequence) infoList.get(3));
     }
     private Bitmap generateQRCode(String text) {
         int width = 500;
