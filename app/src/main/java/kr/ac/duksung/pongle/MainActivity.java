@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     String PW;
     String realPW;
 
-//dusskdus
+//수정사항 반영 되어라...제발
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
