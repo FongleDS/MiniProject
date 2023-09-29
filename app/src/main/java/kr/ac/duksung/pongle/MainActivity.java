@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
             fetchPassword(ID);
         });
     }
+    
+    // 서버 연결
     OkHttpClient client = new OkHttpClient();
     public void fetchPassword(String stdID) {
         RequestBody formBody = new FormBody.Builder()
