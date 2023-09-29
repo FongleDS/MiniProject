@@ -98,9 +98,9 @@ public class CheckInfo extends AppCompatActivity {
         return null;
     }
     OkHttpClient client = new OkHttpClient();
-    public void getOrderInfo(String stdID) {
+    public void getOrderInfo(String orderID) {
         RequestBody formBody = new FormBody.Builder()
-                .add("stdID", stdID)
+                .add("orderID", orderID)
                 .build();
         Request request = new Request.Builder()
                 .url("http://10.0.2.2:5000/getOrderInfo")
@@ -124,6 +124,7 @@ public class CheckInfo extends AppCompatActivity {
                             while(keys.hasNext()) {
                                 String key = keys.next();
                                 infoList.add(jsonObject.getString(key));
+                                System.out.println(infoList);
                             }
                         }
                     } catch (JSONException e) {
