@@ -1,5 +1,4 @@
 package kr.ac.duksung.pongle;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -13,12 +12,10 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,7 +24,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -36,7 +32,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-
 public class CheckInfo extends AppCompatActivity {
     TextView stdName;
     TextView orderedMenu;
@@ -44,13 +39,12 @@ public class CheckInfo extends AppCompatActivity {
     TextView orderedTime;
     TextView selectedSeat;
     ImageView QRCode;
+
     //OrderData orderData = new OrderData();
     //String orderStr = new String();
 
     ArrayList infoList = new ArrayList();
     //SharedPreferences prefs = getSharedPreferences("stdorderInfo", MODE_PRIVATE);
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,33 +60,31 @@ public class CheckInfo extends AppCompatActivity {
         // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String orderID = bundle.getString("orderID");
-        System.out.println(orderID);
-
+        String stdID = bundle.getString("stdNum");
+        String seatID = bundle.getString("seatNum");
+        String menuID = bundle.getString("menuNum");
+        String orderTime = (String) bundle.get("orderTime");
 
         // 주문 정보 불러오기
-        // System.out.println(stdID);
-        getOrderInfo(orderID);
+        System.out.println(stdID);
+        getOrderInfo(stdID);
         System.out.println(infoList);
 
         // QRCODE 생성
         QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode(orderID));
+        QRCode.setImageBitmap(generateQRCode(stdID));
 
         //주문 번호, 주문 시간, 학생 이름 설정
-        orderedID.setText(orderID);
-        stdName.setText((CharSequence) infoList.get(0));
-        orderedTime.setText((CharSequence) infoList.get(1));
+        orderedID.setText((CharSequence) infoList.get(0));
+        orderedTime.setText(orderTime);
         selectedSeat.setText((CharSequence) infoList.get(2));
-        orderedMenu.setText((CharSequence) infoList.get(3));
+        stdName.setText((CharSequence) infoList.get(3));
 
         // 실시간 현재 시간 받아오기
         //Calendar calendar = Calendar.getInstance();
         //SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         //String Realtime = sdf.format(calendar.getTime());
     }
-
-
     private Bitmap generateQRCode(String text) {
         int width = 500;
         int height = 500;
@@ -114,24 +106,20 @@ public class CheckInfo extends AppCompatActivity {
         }
         return null;
     }
-
-
     OkHttpClient client = new OkHttpClient();
-    public void getOrderInfo(String orderID) {
+    public void getOrderInfo(String stdID) {
         RequestBody formBody = new FormBody.Builder()
-                .add("orderID", orderID)
+                .add("stdID", stdID)
                 .build();
         Request request = new Request.Builder()
                 .url("http://10.0.2.2:5000/getOrderInfo")
                 .post(formBody)
                 .build();
-
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
-
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
@@ -139,18 +127,14 @@ public class CheckInfo extends AppCompatActivity {
                     try {
                         JSONArray jsonArray = new JSONArray(responseBody);
                         System.out.println(jsonArray);
-
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
                             Iterator<String> keys = jsonObject.keys();
-
                             while(keys.hasNext()) {
                                 String key = keys.next();
                                 infoList.add(jsonObject.getString(key));
-                                System.out.println(infoList);
                             }
                         }
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
