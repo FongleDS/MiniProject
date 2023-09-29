@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         btn_login = findViewById(R.id.login);
 
 
+        // 깃허브 테스트
         //login 버튼입니다
         btn_login.setOnClickListener(v -> {
             ID = String.valueOf(stdID.getText());
