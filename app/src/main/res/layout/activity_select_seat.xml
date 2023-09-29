@@ -55,14 +55,19 @@
                 tools:layout_editor_absoluteX="36dp"
                 tools:layout_editor_absoluteY="76dp" />
 
-            <Button
-                android:id="@+id/seat_button_2"
+            <LinearLayout
+                android:id="@+id/ticketLayout"
                 android:layout_width="15dp"
                 android:layout_height="16dp"
                 android:background="@drawable/green_seat_sero"
-                android:textColor="@color/white"
+                android:clickable="false"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingTop="5dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="5dp"
                 tools:layout_editor_absoluteX="36dp"
-                tools:layout_editor_absoluteY="98dp" />
+                tools:layout_editor_absoluteY="98dp"></LinearLayout>
 
             <Button
                 android:id="@+id/seat_button_2"
@@ -70,6 +75,7 @@
                 android:layout_height="16dp"
                 android:background="@drawable/green_seat_sero"
                 android:textColor="@color/white"
+                android:clickable="false"
                 tools:layout_editor_absoluteX="36dp"
                 tools:layout_editor_absoluteY="98dp" />
 
