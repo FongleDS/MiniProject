@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Gunsan extends AppCompatActivity {
 
     ImageView don;
@@ -27,12 +31,24 @@ public class Gunsan extends AppCompatActivity {
         doubledon = findViewById(R.id.doubledon);
         curry = findViewById(R.id.curry);
 
+        Intent getintent = getIntent();
+        Bundle bundle = getintent.getExtras();
+        String stdID = bundle.getString("stdNum");
+        String seatID = bundle.getString("seatNum");
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
         don.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "11";
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
-                menuID = "";
                 intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -40,9 +56,13 @@ public class Gunsan extends AppCompatActivity {
         doncurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "11";
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
-                menuID = "";
                 intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -50,9 +70,13 @@ public class Gunsan extends AppCompatActivity {
         shrimpcurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "11";
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
-                menuID = "";
                 intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -60,9 +84,13 @@ public class Gunsan extends AppCompatActivity {
         doubledon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "11";
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
-                menuID = "";
                 intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -70,9 +98,13 @@ public class Gunsan extends AppCompatActivity {
         curry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "11";
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
-                menuID = "";
                 intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
