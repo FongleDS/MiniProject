@@ -14,6 +14,7 @@ public class Pasta extends AppCompatActivity {
     ImageView daepae;
     ImageView porkimchi;
     ImageView rose;
+    String menuID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,21 @@ public class Pasta extends AppCompatActivity {
         porkimchi = findViewById(R.id.porkimchi);
         rose = findViewById(R.id.rose);
 
+
+        Intent getintent = getIntent();
+        Bundle bundle = getintent.getExtras();
+        String stdID = bundle.getString("stdNum");
+        String seatID = bundle.getString("seatNum");
+
         aliolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "11";
+
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
                 startActivity(intent);
             }
         });
@@ -38,7 +50,12 @@ public class Pasta extends AppCompatActivity {
         tomato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "12";
+
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
                 startActivity(intent);
             }
         });
@@ -46,7 +63,12 @@ public class Pasta extends AppCompatActivity {
         truffle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "13";
+
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
                 startActivity(intent);
             }
         });
@@ -54,15 +76,12 @@ public class Pasta extends AppCompatActivity {
         daepae.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
-                startActivity(intent);
-            }
-        });
+                menuID = "14";
 
-        porkimchi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
                 startActivity(intent);
             }
         });
@@ -70,7 +89,25 @@ public class Pasta extends AppCompatActivity {
         rose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuID = "15";
+
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
+                startActivity(intent);
+            }
+        });
+
+        porkimchi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuID = "17";
+
+                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                intent.putExtra("menuNum", menuID);
+                intent.putExtra("seatNum", seatID);
+                intent.putExtra("stdNum", stdID);
                 startActivity(intent);
             }
         });
