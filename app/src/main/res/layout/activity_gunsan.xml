@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Gunsan">
+
+    <TextView
+        android:id="@+id/text_gunsan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="2. 군산카츠"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/don"
+        android:layout_width="170dp"
+        android:layout_height="210dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_gunsan"
+        app:srcCompat="@drawable/rectangle14" />
+
+    <ImageView
+        android:id="@+id/doncurry"
+        android:layout_width="170dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_gunsan"
+        app:srcCompat="@drawable/rectangle14" />
+
+    <ImageView
+        android:id="@+id/shrimpcurry"
+        android:layout_width="170dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/don"
+        app:srcCompat="@drawable/rectangle14" />
+
+    <ImageView
+        android:id="@+id/doubledon"
+        android:layout_width="170dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doncurry"
+        app:srcCompat="@drawable/rectangle14" />
+
+    <ImageView
+        android:id="@+id/curry"
+        android:layout_width="170dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shrimpcurry"
+        app:srcCompat="@drawable/rectangle14" />
+
+    <ImageView
+        android:id="@+id/rose"
+        android:layout_width="170dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doubledon"
+        app:srcCompat="@drawable/rectangle14"/>
+
+    <ImageView
+        android:id="@+id/image_don"
+        android:layout_width="144dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/don"
+        app:layout_constraintEnd_toEndOf="@+id/don"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/don"
+        app:layout_constraintTop_toTopOf="@+id/don" />
+
+    <TextView
+        android:id="@+id/text_don"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="돈카츠"
+        app:layout_constraintEnd_toEndOf="@+id/don"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/don"
+        app:layout_constraintTop_toBottomOf="@+id/image_don" />
+
+    <TextView
+        android:id="@+id/price_don"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="6900"
+        app:layout_constraintEnd_toEndOf="@+id/don"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/don"
+        app:layout_constraintTop_toBottomOf="@+id/image_don" />
+
+    <ImageView
+        android:id="@+id/image_doncurry"
+        android:layout_width="144dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/doncurry"
+        app:layout_constraintEnd_toEndOf="@+id/doncurry"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/doncurry"
+        app:layout_constraintTop_toTopOf="@+id/doncurry" />
+
+    <TextView
+        android:id="@+id/text_doncurry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="돈카츠카레덮밥"
+        app:layout_constraintEnd_toEndOf="@+id/doncurry"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/doncurry"
+        app:layout_constraintTop_toBottomOf="@+id/image_doncurry" />
+
+    <TextView
+        android:id="@+id/price_doncurry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="7500"
+        app:layout_constraintEnd_toEndOf="@+id/doncurry"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/doncurry"
+        app:layout_constraintTop_toBottomOf="@+id/text_doncurry" />
+
+    <ImageView
+        android:id="@+id/image_shrimpcurry"
+        android:layout_width="152dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/shrimpcurry"
+        app:layout_constraintEnd_toEndOf="@+id/shrimpcurry"
+        app:layout_constraintStart_toStartOf="@+id/shrimpcurry"
+        app:layout_constraintTop_toTopOf="@+id/shrimpcurry" />
+
+    <TextView
+        android:id="@+id/text_shrimpcurry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="새우카레덮밥"
+        app:layout_constraintEnd_toEndOf="@+id/shrimpcurry"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/shrimpcurry"
+        app:layout_constraintTop_toBottomOf="@+id/image_shrimpcurry" />
+
+    <TextView
+        android:id="@+id/price_shrimpcurry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="7500"
+        app:layout_constraintEnd_toEndOf="@+id/shrimpcurry"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/shrimpcurry"
+        app:layout_constraintTop_toBottomOf="@+id/text_shrimpcurry" />
+
+    <ImageView
+        android:id="@+id/image_doubledon"
+        android:layout_width="152dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/doubledon"
+        app:layout_constraintEnd_toEndOf="@+id/doubledon"
+        app:layout_constraintStart_toStartOf="@+id/doubledon"
+        app:layout_constraintTop_toTopOf="@+id/doubledon" />
+
+    <TextView
+        android:id="@+id/text_doubledon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="더블돈카츠"
+        app:layout_constraintEnd_toEndOf="@+id/doubledon"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/doubledon"
+        app:layout_constraintTop_toBottomOf="@+id/image_doubledon" />
+
+    <TextView
+        android:id="@+id/price_doubledon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="9500"
+        app:layout_constraintEnd_toEndOf="@+id/doubledon"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/doubledon"
+        app:layout_constraintTop_toBottomOf="@+id/text_doubledon" />
+
+    <ImageView
+        android:id="@+id/image_curry"
+        android:layout_width="151dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/curry"
+        app:layout_constraintEnd_toEndOf="@+id/curry"
+        app:layout_constraintStart_toStartOf="@+id/curry"
+        app:layout_constraintTop_toTopOf="@+id/curry" />
+
+    <TextView
+        android:id="@+id/text_curry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="카레덮밥"
+        app:layout_constraintEnd_toEndOf="@+id/curry"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/curry"
+        app:layout_constraintTop_toBottomOf="@+id/image_curry" />
+
+    <TextView
+        android:id="@+id/price_curry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="5000"
+        app:layout_constraintEnd_toEndOf="@+id/curry"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/curry"
+        app:layout_constraintTop_toBottomOf="@+id/text_curry" />
+
+</android.support.constraint.ConstraintLayout>
