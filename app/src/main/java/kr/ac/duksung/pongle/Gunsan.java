@@ -14,6 +14,8 @@ public class Gunsan extends AppCompatActivity {
     ImageView doubledon;
     ImageView curry;
 
+    String menuID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,8 @@ public class Gunsan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                menuID = "";
+                intent.putExtra("menuNum", menuID);
                 startActivity(intent);
             }
         });
@@ -37,6 +41,8 @@ public class Gunsan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                menuID = "";
+                intent.putExtra("menuNum", menuID);
                 startActivity(intent);
             }
         });
@@ -45,6 +51,8 @@ public class Gunsan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                menuID = "";
+                intent.putExtra("menuNum", menuID);
                 startActivity(intent);
             }
         });
@@ -53,6 +61,8 @@ public class Gunsan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                menuID = "";
+                intent.putExtra("menuNum", menuID);
                 startActivity(intent);
             }
         });
@@ -61,6 +71,8 @@ public class Gunsan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
+                menuID = "";
+                intent.putExtra("menuNum", menuID);
                 startActivity(intent);
             }
         });
