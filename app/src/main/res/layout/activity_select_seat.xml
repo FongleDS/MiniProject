@@ -62,6 +62,94 @@
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone"/>
 
+    <ImageView
+        android:id="@+id/seat_button_2"
+        android:layout_width="15dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/green_seat_sero"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/choice_button_2"
+        android:layout_width="15dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/red_seat_sero"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/seat_button_3"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="206dp"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/green_seat_garo"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/choice_button_3"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="206dp"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/red_seat_garo"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/seat_button_4"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="273dp"
+        android:background="@drawable/green_seat_garo"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/choice_button_4"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="273dp"
+        android:background="@drawable/red_seat_garo"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/seat_button_5"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="332dp"
+        android:background="@drawable/green_seat_garo"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/choice_button_5"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="332dp"
+        android:background="@drawable/red_seat_garo"
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
     <Button
         android:id="@+id/select_seat"
         android:layout_width="388dp"
