@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.Button;
 public class SelectSeat extends Activity {
     Button choice;
-    Button select_seat;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,15 +27,6 @@ public class SelectSeat extends Activity {
                 startActivity(intent);
                 intent.putExtra("stdNum", stdNum);
                 // intent.putExtra("seatID", seatNum);
-            }
-        });
-
-        select_seat = findViewById(R.id.select_seat);
-        select_seat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MenuPan.class);
-                startActivity(intent);
             }
         });
     }
