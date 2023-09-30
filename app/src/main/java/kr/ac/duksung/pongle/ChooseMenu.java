@@ -47,7 +47,7 @@ public class ChooseMenu extends AppCompatActivity {
             public void onClick(View v) {
                 String Realtime = sdf.format(calendar.getTime());
                 //orderUpdate(stdID, seatID, menuID, Realtime);
-                orderUpdate(stdID, seatID, menuID, Realtime, intent);
+                orderUpdate(stdID, menuID, Realtime, seatID, intent);
             }
         });
     }
