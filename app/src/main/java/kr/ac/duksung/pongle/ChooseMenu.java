@@ -32,10 +32,11 @@ public class ChooseMenu extends AppCompatActivity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
-        //String seatID = bundle.getString("seatNum");
+        String seatID = bundle.getString("seatNum");
+        System.out.println(stdID);
+        System.out.println(seatID);
         //String menuID = bundle.getString("menuNum");
         String menuID = "4";
-        String seatID = "10";
 
         // 실시간 현재 시간 받아오기
         Calendar calendar = Calendar.getInstance();
@@ -46,8 +47,11 @@ public class ChooseMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String Realtime = sdf.format(calendar.getTime());
+                System.out.println(Realtime);
+                System.out.println(menuID);
+
                 //orderUpdate(stdID, seatID, menuID, Realtime);
-                orderUpdate(stdID, seatID, menuID, Realtime, intent);
+                orderUpdate(stdID, menuID, Realtime, seatID, intent);
             }
         });
     }

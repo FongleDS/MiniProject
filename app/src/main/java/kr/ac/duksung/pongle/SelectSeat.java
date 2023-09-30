@@ -14,6 +14,7 @@ public class SelectSeat extends AppCompatActivity {
     // 각각의 seatButton과 choiceButton를 배열로 관리하기 위한 배열 선언
     ImageView[] seatButtons = new ImageView[5];
     ImageView[] choiceButtons = new ImageView[5];
+    String seatID;
 
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
@@ -26,9 +27,7 @@ public class SelectSeat extends AppCompatActivity {
         // Intent로 전달된 데이터 받기
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String stdNum = bundle.getString("stdNum");
-        String stdID = bundle.getString("stdID");
-        String seatID = bundle.getString("seatNum");
+        String stdID = bundle.getString("stdNum");
 
         // XML 레이아웃에서 ImageView들을 배열에 할당
         seatButtons[0] = findViewById(R.id.seat_button_1);
@@ -56,6 +55,8 @@ public class SelectSeat extends AppCompatActivity {
                     choiceButtonStates[index] = !choiceButtonStates[index];
                     if (choiceButtonStates[index]) {
                         choiceButtons[index].setBackgroundResource(R.drawable.red_seat_sero); // 빨간색으로 변경
+                        seatID = String.valueOf(index);
+                        System.out.println(seatID);
                     } else {
                         choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
                     }
@@ -70,7 +71,9 @@ public class SelectSeat extends AppCompatActivity {
                 // ChooseMenu 액티비티로 데이터 전달
                 Intent intent = new Intent(getApplicationContext(), ChooseMenu.class);
                 intent.putExtra("seatNum", seatID);
+                System.out.println(seatID);
                 intent.putExtra("stdNum", stdID);
+                System.out.println(stdID);
                 startActivity(intent);
             }
         });

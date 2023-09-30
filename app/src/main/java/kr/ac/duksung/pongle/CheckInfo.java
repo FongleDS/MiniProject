@@ -75,8 +75,8 @@ public class CheckInfo extends AppCompatActivity {
 
         //주문 번호, 주문 시간, 학생 이름 설정
         orderedID.setText(orderID);
-        orderedTime.setText(orderTime);
-        selectedSeat.setText((CharSequence) infoList.get(1));
+        orderedTime.setText((CharSequence) infoList.get(1));
+        selectedSeat.setText((CharSequence) infoList.get(2));
         stdName.setText((CharSequence) infoList.get(0));
         orderedMenu.setText((CharSequence) infoList.get(3));
     }
