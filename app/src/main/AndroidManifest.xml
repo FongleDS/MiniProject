@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Pongle"
         tools:targetApi="31">
         <activity
-            android:name=".CFood"
+            android:name=".Ttok"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -31,21 +31,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".WFood"
+            android:name=".Toast"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".JFood"
+            android:name=".Gunsan"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".KFood"
+            android:name=".Pasta"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

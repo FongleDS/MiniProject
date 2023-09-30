@@ -6,6 +6,10 @@ android {
     namespace 'kr.ac.duksung.pongle'
     compileSdk 33
 
+    viewBinding{
+        enable true
+    }
+
     defaultConfig {
         applicationId "kr.ac.duksung.pongle"
         minSdk 17

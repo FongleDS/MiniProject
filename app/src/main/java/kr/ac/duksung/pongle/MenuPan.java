@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -20,11 +19,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class MenuPan extends Activity {
-    Button btn_han;
-    Button btn_joong;
-    Button btn_il;
-    Button btn_yang;
-    Button btn_bun;
+    Button btn_pasta;
+    Button btn_ttok;
+    Button btn_gunsan;
+    Button btn_toast;
+    Button btn_mara;
 
     TextView han_waiting;
     TextView joong_waiting;
@@ -38,11 +37,11 @@ public class MenuPan extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_pan);
-        btn_han = findViewById(R.id.button_korean);
-        btn_joong = findViewById(R.id.button_china);
-        btn_il = findViewById(R.id.button_japan);
-        btn_yang = findViewById(R.id.button_western);
-        btn_bun = findViewById(R.id.button_snack);
+        btn_pasta = findViewById(R.id.button_pasta);
+        btn_ttok = findViewById(R.id.button_ttok);
+        btn_gunsan = findViewById(R.id.button_gunsan);
+        btn_toast = findViewById(R.id.button_toast);
+        btn_mara = findViewById(R.id.button_mara);
 
         han_waiting = findViewById(R.id.text_han);
         joong_waiting = findViewById(R.id.text_joong);
@@ -103,39 +102,39 @@ public class MenuPan extends Activity {
         });
 
 
-        btn_han.setOnClickListener(new View.OnClickListener() {
+        btn_pasta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), KFood.class);
+                Intent intent = new Intent(getApplicationContext(), Pasta.class);
                 startActivity(intent);
             }
         });
 
-        btn_joong.setOnClickListener(new View.OnClickListener() {
+        btn_ttok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CFood.class);
+                Intent intent = new Intent(getApplicationContext(), Ttok.class);
                 startActivity(intent);
             }
         });
 
-        btn_il.setOnClickListener(new View.OnClickListener() {
+        btn_gunsan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),JFood.class);
+                Intent intent = new Intent(getApplicationContext(), Gunsan.class);
                 startActivity(intent);
             }
         });
 
-        btn_yang.setOnClickListener(new View.OnClickListener() {
+        btn_toast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),WFood.class);
+                Intent intent = new Intent(getApplicationContext(), Toast.class);
                 startActivity(intent);
             }
         });
 
-        btn_bun.setOnClickListener(new View.OnClickListener() {
+        btn_mara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),Bunsik.class);
