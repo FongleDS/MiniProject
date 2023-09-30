@@ -25,7 +25,7 @@ public class ChooseMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_menu);
-
+        Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
         ordercomplete = findViewById(R.id.orderComplete);
 
 
@@ -34,7 +34,7 @@ public class ChooseMenu extends AppCompatActivity {
         String stdID = bundle.getString("stdNum");
         //String seatID = bundle.getString("seatNum");
         //String menuID = bundle.getString("menuNum");
-        String menuID = "8";
+        String menuID = "4";
         String seatID = "10";
 
         // 실시간 현재 시간 받아오기
@@ -45,22 +45,15 @@ public class ChooseMenu extends AppCompatActivity {
         ordercomplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
-
                 String Realtime = sdf.format(calendar.getTime());
-                orderUpdate(stdID, seatID, menuID, Realtime);
-
-                intent.putExtra("seatNum", seatID);
-                intent.putExtra("stdNum", stdID);
-                intent.putExtra("menuNum", menuID);
-                intent.putExtra("Realtime", Realtime);
-                startActivity(intent);
+                //orderUpdate(stdID, seatID, menuID, Realtime);
+                orderUpdate(stdID, seatID, menuID, Realtime, intent);
             }
         });
     }
 
     OkHttpClient client = new OkHttpClient();
-    public void orderUpdate(String stdID, String menuID, String orderDate, String seatID) {
+    public void orderUpdate(String stdID, String menuID, String orderDate, String seatID, Intent intent) {
         RequestBody formBody = new FormBody.Builder()
                 .add("stdID", stdID)
                 .add("menuID", menuID)
@@ -85,7 +78,14 @@ public class ChooseMenu extends AppCompatActivity {
                         if (jsonObject.has("orderID")) {
                             String orderID = jsonObject.getString("orderID");
                             runOnUiThread(() -> {
+                                System.out.println("===========");
                                 System.out.println(orderID);
+                                intent.putExtra("seatNum", seatID);
+                                intent.putExtra("stdNum", stdID);
+                                intent.putExtra("menuNum", menuID);
+                                intent.putExtra("orderID", orderID);
+                                intent.putExtra("Realtime", orderDate);
+                                startActivity(intent);
                             });
                         } else if (jsonObject.has("error")) {
                             String error = jsonObject.getString("error");
