@@ -32,10 +32,10 @@ public class ChooseMenu extends AppCompatActivity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
-        //String seatID = bundle.getString("seatNum");
+        String seatID = bundle.getString("seatNum");
         //String menuID = bundle.getString("menuNum");
-        String menuID = "4";
-        String seatID = "10";
+        String menuID = "10";
+        //String seatID = "10";
 
         // 실시간 현재 시간 받아오기
         Calendar calendar = Calendar.getInstance();
@@ -47,13 +47,13 @@ public class ChooseMenu extends AppCompatActivity {
             public void onClick(View v) {
                 String Realtime = sdf.format(calendar.getTime());
                 //orderUpdate(stdID, seatID, menuID, Realtime);
-                orderUpdate(stdID, seatID, menuID, Realtime, intent);
+                getOrderInfo(stdID, seatID, menuID, Realtime, intent);
             }
         });
     }
 
     OkHttpClient client = new OkHttpClient();
-    public void orderUpdate(String stdID, String menuID, String orderDate, String seatID, Intent intent) {
+    public void getOrderInfo(String stdID, String menuID, String orderDate, String seatID, Intent intent) {
         RequestBody formBody = new FormBody.Builder()
                 .add("stdID", stdID)
                 .add("menuID", menuID)
@@ -61,7 +61,7 @@ public class ChooseMenu extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/orderUpdate")
+                .url("http://10.0.2.2:5000/getOrderInfo")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
