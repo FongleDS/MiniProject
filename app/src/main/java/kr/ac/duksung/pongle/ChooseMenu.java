@@ -33,9 +33,8 @@ public class ChooseMenu extends AppCompatActivity {
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
         String seatID = bundle.getString("seatNum");
-        //String menuID = bundle.getString("menuNum");
         String menuID = "12";
-        //String seatID = "10";
+
 
         // 실시간 현재 시간 받아오기
         Calendar calendar = Calendar.getInstance();

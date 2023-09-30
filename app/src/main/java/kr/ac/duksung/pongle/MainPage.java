@@ -48,6 +48,7 @@ public class MainPage extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MenuPan.class);
+                intent.putExtra("stdNum", stdNum);
                 startActivity(intent);
             }
         });

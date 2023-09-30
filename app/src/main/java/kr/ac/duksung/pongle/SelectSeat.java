@@ -104,6 +104,10 @@ public class SelectSeat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MenuPan.class);
+                intent.putExtra("seatNum", seatID);
+                System.out.println(seatID);
+                intent.putExtra("stdNum", stdID);
+                System.out.println(stdID);
                 startActivity(intent);
             }
         });

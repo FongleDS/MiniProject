@@ -51,6 +51,11 @@ public class MenuPan extends Activity {
 
 
 
+        Intent getintent = getIntent();
+        Bundle bundle = getintent.getExtras();
+        String stdID = bundle.getString("stdNum");
+        String seatID = bundle.getString("seatNum");
+
         //데이터 베이스 연동 해놓은 코드!! 조심해주세욤!!
         OkHttpClient client = new OkHttpClient();
 
@@ -106,6 +111,8 @@ public class MenuPan extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Pasta.class);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("seatNum", seatID);
                 startActivity(intent);
             }
         });
@@ -114,6 +121,8 @@ public class MenuPan extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Ttok.class);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("seatNum", seatID);
                 startActivity(intent);
             }
         });
@@ -122,6 +131,8 @@ public class MenuPan extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Gunsan.class);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("seatNum", seatID);
                 startActivity(intent);
             }
         });
@@ -130,6 +141,8 @@ public class MenuPan extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Toast.class);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("seatNum", seatID);
                 startActivity(intent);
             }
         });
@@ -138,6 +151,8 @@ public class MenuPan extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),Bunsik.class);
+                intent.putExtra("stdNum", stdID);
+                intent.putExtra("seatNum", seatID);
                 startActivity(intent);
             }
         });

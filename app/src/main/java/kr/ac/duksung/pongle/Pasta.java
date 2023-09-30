@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 public class Pasta extends AppCompatActivity {
 
     ImageView aliolio;
@@ -34,15 +38,19 @@ public class Pasta extends AppCompatActivity {
         String stdID = bundle.getString("stdNum");
         String seatID = bundle.getString("seatNum");
 
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
         aliolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 menuID = "11";
-
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -51,11 +59,12 @@ public class Pasta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 menuID = "12";
-
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -64,11 +73,12 @@ public class Pasta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 menuID = "13";
-
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -77,11 +87,12 @@ public class Pasta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 menuID = "14";
-
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -90,11 +101,12 @@ public class Pasta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 menuID = "15";
-
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
+                intent.putExtra("orderTime", Realtime);
                 startActivity(intent);
             }
         });
@@ -103,10 +115,11 @@ public class Pasta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 menuID = "17";
-
+                String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
+                intent.putExtra("orderTime", Realtime);
                 intent.putExtra("stdNum", stdID);
                 startActivity(intent);
             }
