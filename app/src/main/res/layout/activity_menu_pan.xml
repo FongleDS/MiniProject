@@ -40,11 +40,11 @@
                 android:layout_height="150dp">
 
                 <Button
-                    android:id="@+id/button_korean"
+                    android:id="@+id/button_pasta"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:drawableStart="@drawable/hansik"
+                    android:drawableStart="@drawable/pasta"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
 
@@ -53,11 +53,11 @@
                 android:layout_height="150dp">
 
                 <Button
-                    android:id="@+id/button_japan"
+                    android:id="@+id/button_gunsan"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:drawableStart="@drawable/ilsik"
+                    android:drawableStart="@drawable/gunsan"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
         </LinearLayout>
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="한식 / 대기인원 : "
+                    android:text="파스타 / 대기인원 : "
                     android:layout_marginLeft="10dp"/>
 
                 <TextView
@@ -98,7 +98,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="일식 / 대기인원 : "
+                    android:text="군산카츠 / 대기인원 : "
                     android:layout_marginLeft="10dp"/>
                 <TextView
                     android:id="@+id/text_il"
@@ -127,11 +127,11 @@
                 android:layout_height="150dp">
 
                 <Button
-                    android:id="@+id/button_china"
+                    android:id="@+id/button_ttok"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:drawableStart="@drawable/joongsik"
+                    android:drawableStart="@drawable/masung"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
 
@@ -140,11 +140,11 @@
                 android:layout_height="150dp">
 
                 <Button
-                    android:id="@+id/button_western"
+                    android:id="@+id/button_toast"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:drawableStart="@drawable/yangsik"
+                    android:drawableStart="@drawable/toast"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
         </LinearLayout>
@@ -164,7 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:text="중식 / 대기인원 : " />
+                    android:text="마성떡볶이 / 대기인원 : " />
 
                 <TextView
                     android:id="@+id/text_joong"
@@ -187,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:text="양식 / 대기인원 : " />
+                    android:text="토스트 / 대기인원 : " />
                 <TextView
                     android:id="@+id/text_yang"
                     android:layout_width="wrap_content"
@@ -218,11 +218,11 @@
             android:layout_height="150dp">
 
             <Button
-                android:id="@+id/button_snack"
+                android:id="@+id/button_mara"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:drawableStart="@drawable/bunsik"
+                android:drawableStart="@drawable/mara"
                 tools:ignore="SpeakableTextPresentCheck" />
         </FrameLayout>
 
@@ -251,7 +251,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:text="분식 / 대기인원 : " />
+                android:text="한우사골 마라탕 / 대기인원 : " />
             <TextView
                 android:id="@+id/text_boon"
                 android:layout_width="wrap_content"

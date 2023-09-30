@@ -39,6 +39,7 @@ public class MainPage extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SelectSeat.class);
                 intent.putExtra("stdNum", stdNum);
+                System.out.println(stdNum);
                 startActivity(intent);
             }
         });
