@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 public class SelectSeat extends AppCompatActivity {
     Button choice;
+    Button select_seat;
 
     // 각각의 seatButton과 choiceButton를 배열로 관리하기 위한 배열 선언
     ImageView[] seatButtons = new ImageView[5];
@@ -74,6 +75,15 @@ public class SelectSeat extends AppCompatActivity {
                 System.out.println(seatID);
                 intent.putExtra("stdNum", stdID);
                 System.out.println(stdID);
+                startActivity(intent);
+            }
+        });
+
+        select_seat = findViewById(R.id.select_seat);
+        select_seat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MenuPan.class);
                 startActivity(intent);
             }
         });
