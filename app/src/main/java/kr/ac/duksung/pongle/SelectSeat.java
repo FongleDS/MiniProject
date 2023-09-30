@@ -8,6 +8,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.Iterator;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 public class SelectSeat extends AppCompatActivity {
     Button choice;
     Button select_seat;
@@ -57,9 +72,14 @@ public class SelectSeat extends AppCompatActivity {
                     if (choiceButtonStates[index]) {
                         choiceButtons[index].setBackgroundResource(R.drawable.red_seat_sero); // 빨간색으로 변경
                         seatID = String.valueOf(index);
+                        seatON(seatID);
                         System.out.println(seatID);
+
                     } else {
                         choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
+                        seatID = String.valueOf(index);
+                        seatOFF(seatID);
+                        System.out.println(seatID);
                     }
                 }
             });
@@ -85,6 +105,125 @@ public class SelectSeat extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MenuPan.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    OkHttpClient client = new OkHttpClient();
+    public void seatOFF(String seatID) {
+        RequestBody formBody = new FormBody.Builder()
+                .add("seatID", seatID)
+                .build();
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2:5000/seatOFF")
+                .post(formBody)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        JSONObject jsonObject = new JSONObject(responseBody);
+                        if (jsonObject.has("Result")) {
+                            String result = jsonObject.getString("Result");
+                            runOnUiThread(() -> {
+                                System.out.println("===========");
+                                System.out.println(result);
+                            });
+                        } else if (jsonObject.has("error")) {
+                            String error = jsonObject.getString("error");
+                            runOnUiThread(() -> {
+                                System.out.println("error");
+                            });
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+    public void seatON(String seatID) {
+        RequestBody formBody = new FormBody.Builder()
+                .add("seatID", seatID)
+                .build();
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2:5000/seatON")
+                .post(formBody)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        JSONObject jsonObject = new JSONObject(responseBody);
+                        if (jsonObject.has("Result")) {
+                            String result = jsonObject.getString("Result");
+                            runOnUiThread(() -> {
+                                System.out.println("===========");
+                                System.out.println(result);
+                            });
+                        } else if (jsonObject.has("error")) {
+                            String error = jsonObject.getString("error");
+                            runOnUiThread(() -> {
+                                System.out.println("error");
+                            });
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+
+    public void getSeatInfo(String seatID) {
+        RequestBody formBody = new FormBody.Builder()
+                .add("seatID", seatID)
+                .build();
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2:5000/getSeatInfo")
+                .post(formBody)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        JSONObject jsonObject = new JSONObject(responseBody);
+                        if (jsonObject.has("Result")) {
+                            String result = jsonObject.getString("Result");
+                            runOnUiThread(() -> {
+                                System.out.println("===========");
+                                System.out.println(result);
+                            });
+                        } else if (jsonObject.has("error")) {
+                            String error = jsonObject.getString("error");
+                            runOnUiThread(() -> {
+                                System.out.println("error");
+                            });
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
     }
