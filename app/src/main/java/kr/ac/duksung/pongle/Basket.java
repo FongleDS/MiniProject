@@ -39,14 +39,15 @@ public class Basket extends AppCompatActivity {
         String menuID = bundle.getString("menuNum");
         String Realtime = bundle.getString("orderTime");
 
-
+        Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
+        orderUpdate(stdID, menuID, Realtime, seatID, intent);
 
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
+                // Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
                 //orderUpdate(stdID, seatID, menuID, Realtime);
-                orderUpdate(stdID, menuID, Realtime, seatID, intent);
+                // orderUpdate(stdID, menuID, Realtime, seatID, intent);
                 startActivity(intent);
             }
         });
@@ -72,24 +73,17 @@ public class Basket extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    String responseBody = response.body().string();
                     try {
-                        JSONObject jsonObject = new JSONObject(responseBody);
-                        if (jsonObject.has("orderID")) {
-                            String orderID = jsonObject.getString("orderID");
-                            runOnUiThread(() -> {
-                                System.out.println("===========");
-                                System.out.println(orderID);
-                                intent.putExtra("orderID", orderID);
-                                startActivity(intent);
-                            });
-                        } else if (jsonObject.has("error")) {
-                            String error = jsonObject.getString("error");
-                            runOnUiThread(() -> {
-                                System.out.println("error");
-                            });
+                        String responseBody = response.body().string();
+                        JSONObject jsonResponse = new JSONObject(responseBody);
+                        String orderID = jsonResponse.getString("orderID");
+                        runOnUiThread(() -> {
+                            System.out.println("===========");
+                            System.out.println(orderID);
+                            intent.putExtra("orderID", orderID);
+                        });
                         }
-                    } catch (JSONException e) {
+                    catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
