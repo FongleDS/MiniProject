@@ -44,7 +44,7 @@ public class Toast extends AppCompatActivity {
         americano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "6";
+                menuID = "35";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -58,7 +58,7 @@ public class Toast extends AppCompatActivity {
         latte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "6";
+                menuID = "36";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -72,7 +72,7 @@ public class Toast extends AppCompatActivity {
         vanilla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "6";
+                menuID = "37";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -86,7 +86,7 @@ public class Toast extends AppCompatActivity {
         yeon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "6";
+                menuID = "38";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -100,7 +100,7 @@ public class Toast extends AppCompatActivity {
         hamcheese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "6";
+                menuID = "39";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -114,7 +114,7 @@ public class Toast extends AppCompatActivity {
         baconegg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "6";
+                menuID = "40";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
