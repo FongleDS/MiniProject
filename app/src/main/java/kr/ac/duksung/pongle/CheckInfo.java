@@ -57,6 +57,7 @@ public class CheckInfo extends AppCompatActivity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String orderID = (String) bundle.get("orderID");
+        String stdID = (String) bundle.get("stdNum");
         System.out.println("=============");
         System.out.println(orderID);
         // String orderID = "9";
@@ -71,8 +72,10 @@ public class CheckInfo extends AppCompatActivity {
         System.out.println(infoList);
 
         // QRCODE 생성
+        String QRs = orderID + "_" + stdID;
+        System.out.println(QRs);
         QRCode = findViewById(R.id.qrcodeImage);
-        QRCode.setImageBitmap(generateQRCode(orderID));
+        QRCode.setImageBitmap(generateQRCode(QRs));
 
         //주문 번호, 주문 시간, 학생 이름 설정
         orderedID.setText(orderID);

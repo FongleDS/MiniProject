@@ -40,14 +40,12 @@ public class Basket extends AppCompatActivity {
         String Realtime = bundle.getString("orderTime");
 
         Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
+        intent.putExtra("stdNum", stdID);
         orderUpdate(stdID, menuID, Realtime, seatID, intent);
 
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
-                //orderUpdate(stdID, seatID, menuID, Realtime);
-                // orderUpdate(stdID, menuID, Realtime, seatID, intent);
                 startActivity(intent);
             }
         });
