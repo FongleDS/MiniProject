@@ -10,27 +10,23 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Ttok extends AppCompatActivity {
+public class Mara extends AppCompatActivity {
+    ImageView maratang;
+    ImageView gguo_s;
+    ImageView gguo_l;
+    ImageView shang;
 
-    ImageView masungttok;
-    ImageView chalsundae;
-    ImageView busan;
-    ImageView modum;
-    ImageView kimbob;
-    ImageView chickenmayo;
     String menuID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ttok);
+        setContentView(R.layout.activity_mara);
 
-        masungttok = findViewById(R.id.masungttok);
-        chalsundae = findViewById(R.id.chalsundae);
-        busan = findViewById(R.id.busan);
-        modum = findViewById(R.id.modum);
-        kimbob = findViewById(R.id.kimbob);
-        chickenmayo = findViewById(R.id.chickenmayo);
+        maratang = findViewById(R.id.maratang);
+        gguo_s = findViewById(R.id.gguo_s);
+        gguo_l = findViewById(R.id.gguo_l);
+        shang = findViewById(R.id.shang);
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -40,10 +36,10 @@ public class Ttok extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
-        masungttok.setOnClickListener(new View.OnClickListener() {
+        maratang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "1";
+                menuID = "31";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -54,10 +50,10 @@ public class Ttok extends AppCompatActivity {
             }
         });
 
-        chalsundae.setOnClickListener(new View.OnClickListener() {
+        gguo_s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "21";
+                menuID = "32";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -68,10 +64,10 @@ public class Ttok extends AppCompatActivity {
             }
         });
 
-        busan.setOnClickListener(new View.OnClickListener() {
+        gguo_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "19";
+                menuID = "33";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -82,38 +78,10 @@ public class Ttok extends AppCompatActivity {
             }
         });
 
-        modum.setOnClickListener(new View.OnClickListener() {
+        shang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "27";
-                String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
-                intent.putExtra("menuNum", menuID);
-                intent.putExtra("seatNum", seatID);
-                intent.putExtra("stdNum", stdID);
-                intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
-            }
-        });
-
-        kimbob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                menuID = "23";
-                String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
-                intent.putExtra("menuNum", menuID);
-                intent.putExtra("seatNum", seatID);
-                intent.putExtra("stdNum", stdID);
-                intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
-            }
-        });
-
-        chickenmayo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                menuID = "22";
+                menuID = "34";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);

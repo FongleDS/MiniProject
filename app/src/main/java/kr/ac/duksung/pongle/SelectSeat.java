@@ -26,6 +26,9 @@ import okhttp3.Response;
 public class SelectSeat extends AppCompatActivity {
     Button choice;
     Button select_seat;
+    Button selected_button1;
+    Button selected_button2;
+
 
     // 각각의 seatButton과 choiceButton를 배열로 관리하기 위한 배열 선언
     ImageView[] seatButtons = new ImageView[5];
@@ -39,6 +42,9 @@ public class SelectSeat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_seat);
+
+        selected_button1 = findViewById(R.id.selected_button1);
+        selected_button2 = findViewById(R.id.selected_button2);
 
         // Intent로 전달된 데이터 받기
         Intent getintent = getIntent();
@@ -111,6 +117,24 @@ public class SelectSeat extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //이미 선택된 자리 클릭하면 팝업
+        selected_button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Popup.class);
+                startActivity(intent);
+            }
+        });
+
+        selected_button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Popup.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     OkHttpClient client = new OkHttpClient();
@@ -230,5 +254,6 @@ public class SelectSeat extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

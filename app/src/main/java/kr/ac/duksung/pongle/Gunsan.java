@@ -35,14 +35,13 @@ public class Gunsan extends AppCompatActivity {
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
         String seatID = bundle.getString("seatNum");
-
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
         don.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "11";
+                menuID = "6";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -56,7 +55,7 @@ public class Gunsan extends AppCompatActivity {
         doncurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "11";
+                menuID = "7";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -70,7 +69,7 @@ public class Gunsan extends AppCompatActivity {
         shrimpcurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "11";
+                menuID = "8";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -84,7 +83,7 @@ public class Gunsan extends AppCompatActivity {
         doubledon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "11";
+                menuID = "9";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);
@@ -98,7 +97,7 @@ public class Gunsan extends AppCompatActivity {
         curry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "11";
+                menuID = "5";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Basket.class);
                 intent.putExtra("menuNum", menuID);

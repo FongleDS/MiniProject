@@ -150,7 +150,7 @@ public class MenuPan extends Activity {
         btn_mara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Bunsik.class);
+                Intent intent = new Intent(getApplicationContext(), Mara.class);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("seatNum", seatID);
                 startActivity(intent);

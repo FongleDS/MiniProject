@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pasta">
+    tools:context=".Ttok">
 
     <TextView
-        android:id="@+id/text_pasta"
+        android:id="@+id/text_ttok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="1. 파스타"
+        android:text="3. 마성떡볶이"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -20,255 +20,255 @@
 
 
     <ImageView
-        android:id="@+id/aliolio"
+        android:id="@+id/masungttok"
         android:layout_width="170dp"
         android:layout_height="210dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_pasta"
+        app:layout_constraintTop_toBottomOf="@+id/text_ttok"
         app:srcCompat="@drawable/rectangle14" />
 
     <ImageView
-        android:id="@+id/tomato"
+        android:id="@+id/chalsundae"
         android:layout_width="170dp"
         android:layout_height="210dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_pasta"
+        app:layout_constraintTop_toBottomOf="@+id/text_ttok"
         app:srcCompat="@drawable/rectangle14" />
 
     <ImageView
-        android:id="@+id/truffle"
+        android:id="@+id/busan"
         android:layout_width="170dp"
         android:layout_height="190dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aliolio"
+        app:layout_constraintTop_toBottomOf="@+id/masungttok"
         app:srcCompat="@drawable/rectangle14" />
 
     <ImageView
-        android:id="@+id/daepae"
+        android:id="@+id/modum"
         android:layout_width="170dp"
         android:layout_height="190dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tomato"
+        app:layout_constraintTop_toBottomOf="@+id/chalsundae"
         app:srcCompat="@drawable/rectangle14" />
 
     <ImageView
-        android:id="@+id/porkimchi"
+        android:id="@+id/kimbob"
         android:layout_width="170dp"
         android:layout_height="190dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/truffle"
+        app:layout_constraintTop_toBottomOf="@+id/busan"
         app:srcCompat="@drawable/rectangle14" />
 
     <ImageView
-        android:id="@+id/rose"
+        android:id="@+id/chickenmayo"
         android:layout_width="170dp"
         android:layout_height="190dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daepae"
+        app:layout_constraintTop_toBottomOf="@+id/modum"
         app:srcCompat="@drawable/rectangle14"/>
 
     <ImageView
-        android:id="@+id/image_aliolio"
+        android:id="@+id/image_masungttok"
         android:layout_width="144dp"
         android:layout_height="116dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/aliolio"
-        app:layout_constraintEnd_toEndOf="@+id/aliolio"
+        android:src="@drawable/ttokboki"
+        app:layout_constraintEnd_toEndOf="@+id/masungttok"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/aliolio"
-        app:layout_constraintTop_toTopOf="@+id/aliolio" />
+        app:layout_constraintStart_toStartOf="@+id/masungttok"
+        app:layout_constraintTop_toTopOf="@+id/masungttok" />
 
     <TextView
-        android:id="@+id/text_aliolio"
+        android:id="@+id/text_masungttok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="우삼겹알리오올리오"
-        app:layout_constraintEnd_toEndOf="@+id/aliolio"
+        android:text="마성떡볶이"
+        app:layout_constraintEnd_toEndOf="@+id/masungttok"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/aliolio"
-        app:layout_constraintTop_toBottomOf="@+id/image_aliolio" />
+        app:layout_constraintStart_toStartOf="@+id/masungttok"
+        app:layout_constraintTop_toBottomOf="@+id/image_masungttok" />
 
     <TextView
-        android:id="@+id/price_aliolio"
+        android:id="@+id/price_masungttok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="6500"
-        app:layout_constraintEnd_toEndOf="@+id/aliolio"
+        android:text="3500"
+        app:layout_constraintEnd_toEndOf="@+id/masungttok"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/aliolio"
-        app:layout_constraintTop_toBottomOf="@+id/image_aliolio" />
+        app:layout_constraintStart_toStartOf="@+id/masungttok"
+        app:layout_constraintTop_toBottomOf="@+id/image_masungttok" />
 
     <ImageView
-        android:id="@+id/image_tomato"
+        android:id="@+id/image_chalsundae"
         android:layout_width="144dp"
         android:layout_height="116dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/tomato"
-        app:layout_constraintEnd_toEndOf="@+id/tomato"
+        android:src="@drawable/chalsundae"
+        app:layout_constraintEnd_toEndOf="@+id/chalsundae"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/tomato"
-        app:layout_constraintTop_toTopOf="@+id/tomato" />
+        app:layout_constraintStart_toStartOf="@+id/chalsundae"
+        app:layout_constraintTop_toTopOf="@+id/chalsundae" />
 
     <TextView
-        android:id="@+id/text_tomato"
+        android:id="@+id/text_chalsundae"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="클래식토마토파스타"
-        app:layout_constraintEnd_toEndOf="@+id/tomato"
+        android:text="찰순대"
+        app:layout_constraintEnd_toEndOf="@+id/chalsundae"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/tomato"
-        app:layout_constraintTop_toBottomOf="@+id/image_tomato" />
+        app:layout_constraintStart_toStartOf="@+id/chalsundae"
+        app:layout_constraintTop_toBottomOf="@+id/image_chalsundae" />
 
     <TextView
-        android:id="@+id/price_tomato"
+        android:id="@+id/price_chalsundae"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="3500"
+        app:layout_constraintEnd_toEndOf="@+id/chalsundae"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/chalsundae"
+        app:layout_constraintTop_toBottomOf="@+id/text_chalsundae" />
+
+    <ImageView
+        android:id="@+id/image_busan"
+        android:layout_width="152dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/busan"
+        app:layout_constraintEnd_toEndOf="@+id/busan"
+        app:layout_constraintStart_toStartOf="@+id/busan"
+        app:layout_constraintTop_toTopOf="@+id/busan" />
+
+    <TextView
+        android:id="@+id/text_busan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="부산어묵"
+        app:layout_constraintEnd_toEndOf="@+id/busan"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/busan"
+        app:layout_constraintTop_toBottomOf="@+id/image_busan" />
+
+    <TextView
+        android:id="@+id/price_busan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="2000"
+        app:layout_constraintEnd_toEndOf="@+id/busan"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/busan"
+        app:layout_constraintTop_toBottomOf="@+id/text_busan" />
+
+    <ImageView
+        android:id="@+id/image_modum"
+        android:layout_width="152dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/modum"
+        app:layout_constraintEnd_toEndOf="@+id/modum"
+        app:layout_constraintStart_toStartOf="@+id/modum"
+        app:layout_constraintTop_toTopOf="@+id/modum" />
+
+    <TextView
+        android:id="@+id/text_modum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="모둠튀김"
+        app:layout_constraintEnd_toEndOf="@+id/modum"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/modum"
+        app:layout_constraintTop_toBottomOf="@+id/image_modum" />
+
+    <TextView
+        android:id="@+id/price_modum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:text="6500"
-        app:layout_constraintEnd_toEndOf="@+id/tomato"
+        app:layout_constraintEnd_toEndOf="@+id/modum"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/tomato"
-        app:layout_constraintTop_toBottomOf="@+id/text_tomato" />
+        app:layout_constraintStart_toStartOf="@+id/modum"
+        app:layout_constraintTop_toBottomOf="@+id/text_modum" />
 
     <ImageView
-        android:id="@+id/image_truffle"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/truffle"
-        app:layout_constraintEnd_toEndOf="@+id/truffle"
-        app:layout_constraintStart_toStartOf="@+id/truffle"
-        app:layout_constraintTop_toTopOf="@+id/truffle" />
-
-    <TextView
-        android:id="@+id/text_truffle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="트러플버섯크림파스타"
-        app:layout_constraintEnd_toEndOf="@+id/truffle"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/truffle"
-        app:layout_constraintTop_toBottomOf="@+id/image_truffle" />
-
-    <TextView
-        android:id="@+id/price_truffle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:text="6500"
-        app:layout_constraintEnd_toEndOf="@+id/truffle"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/truffle"
-        app:layout_constraintTop_toBottomOf="@+id/text_truffle" />
-
-    <ImageView
-        android:id="@+id/image_daepae"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/daepae"
-        app:layout_constraintEnd_toEndOf="@+id/daepae"
-        app:layout_constraintStart_toStartOf="@+id/daepae"
-        app:layout_constraintTop_toTopOf="@+id/daepae" />
-
-    <TextView
-        android:id="@+id/text_daepae"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="대패삼겹크림파스타"
-        app:layout_constraintEnd_toEndOf="@+id/daepae"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/daepae"
-        app:layout_constraintTop_toBottomOf="@+id/image_daepae" />
-
-    <TextView
-        android:id="@+id/price_daepae"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:text="7500"
-        app:layout_constraintEnd_toEndOf="@+id/daepae"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/daepae"
-        app:layout_constraintTop_toBottomOf="@+id/text_daepae" />
-
-    <ImageView
-        android:id="@+id/image_porkimchi"
+        android:id="@+id/image_kimbob"
         android:layout_width="151dp"
         android:layout_height="112dp"
         android:layout_marginTop="18dp"
-        android:src="@drawable/porkimchi"
-        app:layout_constraintEnd_toEndOf="@+id/porkimchi"
-        app:layout_constraintStart_toStartOf="@+id/porkimchi"
-        app:layout_constraintTop_toTopOf="@+id/porkimchi" />
+        android:src="@drawable/kimbob"
+        app:layout_constraintEnd_toEndOf="@+id/kimbob"
+        app:layout_constraintStart_toStartOf="@+id/kimbob"
+        app:layout_constraintTop_toTopOf="@+id/kimbob" />
 
     <TextView
-        android:id="@+id/text_porkimchi"
+        android:id="@+id/text_kimbob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="4분돼지김치파스타"
-        app:layout_constraintEnd_toEndOf="@+id/porkimchi"
+        android:text="마성김밥"
+        app:layout_constraintEnd_toEndOf="@+id/kimbob"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/porkimchi"
-        app:layout_constraintTop_toBottomOf="@+id/image_porkimchi" />
+        app:layout_constraintStart_toStartOf="@+id/kimbob"
+        app:layout_constraintTop_toBottomOf="@+id/image_kimbob" />
 
     <TextView
-        android:id="@+id/price_porkimchi"
+        android:id="@+id/price_kimbob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:text="7500"
-        app:layout_constraintEnd_toEndOf="@+id/porkimchi"
+        android:text="3000"
+        app:layout_constraintEnd_toEndOf="@+id/kimbob"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/porkimchi"
-        app:layout_constraintTop_toBottomOf="@+id/text_porkimchi" />
+        app:layout_constraintStart_toStartOf="@+id/kimbob"
+        app:layout_constraintTop_toBottomOf="@+id/text_kimbob" />
 
     <ImageView
-        android:id="@+id/image_rose"
+        android:id="@+id/image_chickenmayo"
         android:layout_width="151dp"
         android:layout_height="112dp"
         android:layout_marginTop="18dp"
-        android:src="@drawable/rose"
-        app:layout_constraintEnd_toEndOf="@+id/rose"
-        app:layout_constraintStart_toStartOf="@+id/rose"
-        app:layout_constraintTop_toTopOf="@+id/rose" />
+        android:src="@drawable/chickenmayo"
+        app:layout_constraintEnd_toEndOf="@+id/chickenmayo"
+        app:layout_constraintStart_toStartOf="@+id/chickenmayo"
+        app:layout_constraintTop_toTopOf="@+id/chickenmayo" />
 
     <TextView
-        android:id="@+id/text_rose"
+        android:id="@+id/text_chickenmayo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="매콤로제파스타"
-        app:layout_constraintEnd_toEndOf="@+id/rose"
+        android:text="치킨마요덮밥"
+        app:layout_constraintEnd_toEndOf="@+id/chickenmayo"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/rose"
-        app:layout_constraintTop_toBottomOf="@+id/image_rose" />
+        app:layout_constraintStart_toStartOf="@+id/chickenmayo"
+        app:layout_constraintTop_toBottomOf="@+id/image_chickenmayo" />
 
     <TextView
-        android:id="@+id/price_rose"
+        android:id="@+id/price_chickenmayo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:text="7500"
-        app:layout_constraintEnd_toEndOf="@+id/rose"
+        android:text="5000"
+        app:layout_constraintEnd_toEndOf="@+id/chickenmayo"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/rose"
-        app:layout_constraintTop_toBottomOf="@+id/text_rose" />
+        app:layout_constraintStart_toStartOf="@+id/chickenmayo"
+        app:layout_constraintTop_toBottomOf="@+id/text_chickenmayo" />
 
 </android.support.constraint.ConstraintLayout>
