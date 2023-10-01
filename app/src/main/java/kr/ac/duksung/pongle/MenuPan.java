@@ -87,15 +87,30 @@ public class MenuPan extends Activity {
 
                             switch (firstValue) {
                                 case "1" :
+                                    if (secondValue == "")
+                                        secondValue = "0";
                                     han_waiting.setText(secondValue);
+                                    break;
                                 case "2" :
+                                    if (secondValue == "")
+                                        secondValue = "0";
                                     il_waiting.setText(secondValue);
+                                    break;
                                 case "3" :
+                                    if (secondValue == "")
+                                        secondValue = "0";
                                     joong_waiting.setText(secondValue);
+                                    break;
                                 case "4" :
+                                    if (secondValue == "")
+                                        secondValue = "0";
                                     yang_waiting.setText(secondValue);
+                                    break;
                                 case "5" :
+                                    if (secondValue == "")
+                                        secondValue = "0";
                                     bun_waiting.setText(secondValue);
+                                    break;
                             }
                         }
 
