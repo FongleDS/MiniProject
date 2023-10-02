@@ -27,6 +27,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="학번을 입력하세요"
+        android:inputType="textPersonName"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:hint="비밀번호를 입력하세요"
         android:text=""
+        android:inputType="textPassword"
         tools:ignore="TouchTargetSizeCheck" />
 
 
