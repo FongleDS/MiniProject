@@ -75,30 +75,27 @@ public class MainActivity extends AppCompatActivity {
                     String responseBody = response.body().string();
                     try {
                         JSONObject jsonObject = new JSONObject(responseBody);
-                        if (jsonObject.has("password")) {
-                            String password = jsonObject.getString("password");
-                            runOnUiThread(() -> {
-                                System.out.println(password);
-                                realPW = password;
-                                System.out.println(realPW);
-                                System.out.println(PW);
-                                // 입력한 비밀번호가 학번의 비밀 번호와 같을 떄
-                                if (realPW.equals(PW)) {
-                                    Intent intent = new Intent(getApplicationContext(),MainPage.class);
-                                    intent.putExtra("stdNum", stdID);
-                                    startActivity(intent);
-                                }
-                                // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
-                                else {
-                                    stdPW.setText(null);
-                                }
-                            });
-                        } else if (jsonObject.has("error")) {
-                            String error = jsonObject.getString("error");
-                            runOnUiThread(() -> {
-                                System.out.println("error");
-                            });
-                        }
+                        System.out.println(jsonObject);
+                        String password = jsonObject.getString("password");
+                        String name = jsonObject.getString("name");
+                        runOnUiThread(() -> {
+                            System.out.println(password);
+                            realPW = password;
+                            System.out.println(realPW);
+                            System.out.println(PW);
+                            // 입력한 비밀번호가 학번의 비밀 번호와 같을 떄
+                            if (realPW.equals(PW)) {
+                                Intent intent = new Intent(getApplicationContext(),MainPage.class);
+                                intent.putExtra("stdNum", stdID);
+                                intent.putExtra("stdName", name);
+                                startActivity(intent);
+                            }
+                            // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
+                            else {
+                                stdPW.setText(null);
+                            }
+                        });
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

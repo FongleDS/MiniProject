@@ -8,6 +8,44 @@
     android:layout_height="wrap_content">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/page_date">
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="어서오세요 " />
+
+        <TextView
+            android:id="@+id/Name"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="" />
+
+        <TextView
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:text="님, 오늘도 좋은 하루 되세요." />
+
+    </LinearLayout>
+
+
+
+
     <TextView
         android:id="@+id/page_date"
         android:layout_width="0dp"
@@ -15,10 +53,11 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="10dp"
-        android:background="#EFEFEF"
         android:gravity="center"
-        android:text="날짜"
-        android:textSize="50dp"
+        android:textColor="#B70050"
+        android:text="2023년 10월 02일"
+        android:textSize="45dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

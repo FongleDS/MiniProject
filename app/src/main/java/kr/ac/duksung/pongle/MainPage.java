@@ -7,12 +7,29 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class MainPage extends Activity {
 
-    Button btn_seat;
-    Button btn_menu;
-    Button btn_info;
+    Button btn_menu, btn_info, btn_seat;
+    TextView Date, Name;
 
 
     @Override
@@ -23,10 +40,24 @@ public class MainPage extends Activity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String stdNum = bundle.getString("stdNum");
+        String stdName = bundle.getString("stdName");
 
         btn_seat = findViewById(R.id.button_seat);
         btn_menu = findViewById(R.id.button_menu);
         btn_info = findViewById(R.id.button_info);
+        Date = findViewById(R.id.page_date);
+        Name = findViewById(R.id.Name);
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        String Realtime = sdf.format(calendar.getTime());
+
+        String[] onlyDate = Realtime.split(" ");
+        onlyDate = onlyDate[0].split("-");
+        String finalDate = onlyDate[0] + "년 " + onlyDate[1] + "월 " + onlyDate[2] + "일";
+        Date.setText(finalDate);
+        Name.setText(stdName);
+
 
 
         //PackageManager pm = getPackageManager();
