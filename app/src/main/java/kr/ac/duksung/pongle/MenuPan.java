@@ -81,6 +81,7 @@ public class MenuPan extends Activity {
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONArray innerArray = jsonArray.getJSONArray(i);
+                            System.out.println(innerArray);
 
                             String firstValue = innerArray.getString(0);
                             String secondValue = innerArray.getString(1);
