@@ -51,13 +51,17 @@ public class SelectSeat extends AppCompatActivity {
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
 
+        SeatInit();
+
         // XML 레이아웃에서 ImageView들을 배열에 할당
+        //초록
         seatButtons[0] = findViewById(R.id.seat_button_1);
         seatButtons[1] = findViewById(R.id.seat_button_2);
         seatButtons[2] = findViewById(R.id.seat_button_3);
         seatButtons[3] = findViewById(R.id.seat_button_4);
         seatButtons[4] = findViewById(R.id.seat_button_5);
 
+        //빨강
         choiceButtons[0] = findViewById(R.id.choice_button_1);
         choiceButtons[1] = findViewById(R.id.choice_button_2);
         choiceButtons[2] = findViewById(R.id.choice_button_3);
@@ -254,6 +258,33 @@ public class SelectSeat extends AppCompatActivity {
                 }
             }
         });
+    }
 
+
+    public void SeatInit() {
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2:5000/seatInfo")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        JSONObject jsonObject = new JSONObject(responseBody);
+                        System.out.println(jsonObject);
+                        runOnUiThread(() -> {
+                            // leftSeat.setText("현재 남은 좌석 : " + leftseats + "석");
+                        });
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 }
