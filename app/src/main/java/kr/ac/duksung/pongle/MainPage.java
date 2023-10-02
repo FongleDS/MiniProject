@@ -29,7 +29,7 @@ import okhttp3.Response;
 public class MainPage extends Activity {
 
     Button btn_menu, btn_info, btn_seat;
-    TextView Date, Name;
+    TextView Date, Name, leftSeat;
 
 
     @Override
@@ -47,10 +47,13 @@ public class MainPage extends Activity {
         btn_info = findViewById(R.id.button_info);
         Date = findViewById(R.id.page_date);
         Name = findViewById(R.id.Name);
+        leftSeat = findViewById(R.id.leftseat);
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         String Realtime = sdf.format(calendar.getTime());
+
+        LeftSeat();
 
         String[] onlyDate = Realtime.split(" ");
         onlyDate = onlyDate[0].split("-");
@@ -93,5 +96,34 @@ public class MainPage extends Activity {
             }
         });
 
+    }
+
+    OkHttpClient client = new OkHttpClient();
+    public void LeftSeat() {
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2:5000/countSeat")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        JSONObject jsonObject = new JSONObject(responseBody);
+                        System.out.println(jsonObject);
+                        String leftseats = jsonObject.getString("leftseat");
+                        runOnUiThread(() -> {
+                            leftSeat.setText("현재 남은 좌석 : " + leftseats + "석");
+                        });
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 }

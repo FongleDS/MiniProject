@@ -8,6 +8,8 @@
     android:layout_height="wrap_content">
 
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,9 +42,7 @@
             android:gravity="center_horizontal"
             android:textColor="@color/black"
             android:text="님, 오늘도 좋은 하루 되세요." />
-
     </LinearLayout>
-
 
 
 
@@ -62,6 +62,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <TextView
         android:id="@+id/main_select_Seat_tv"
         android:layout_width="400dp"
@@ -78,6 +80,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/leftseat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 남은 좌석 : "
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="209dp" />
 
     <Button
         android:id="@+id/button_seat"
