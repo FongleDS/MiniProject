@@ -13,7 +13,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -24,16 +27,12 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class SelectSeat extends AppCompatActivity {
-    Button choice;
-    Button select_seat;
-    Button selected_button1;
-    Button selected_button2;
-
-
+    Button selected_button2, selected_button1, select_seat, choice;
     // 각각의 seatButton과 choiceButton를 배열로 관리하기 위한 배열 선언
     ImageView[] seatButtons = new ImageView[5];
     ImageView[] choiceButtons = new ImageView[5];
     String seatID;
+    ArrayList<String> SeatInfo = new ArrayList<>();
 
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
@@ -50,43 +49,46 @@ public class SelectSeat extends AppCompatActivity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String stdID = bundle.getString("stdNum");
-
-        SeatInit();
+        SeatInfo = SeatInit();
 
         // XML 레이아웃에서 ImageView들을 배열에 할당
-        //초록
         seatButtons[0] = findViewById(R.id.seat_button_1);
         seatButtons[1] = findViewById(R.id.seat_button_2);
         seatButtons[2] = findViewById(R.id.seat_button_3);
         seatButtons[3] = findViewById(R.id.seat_button_4);
         seatButtons[4] = findViewById(R.id.seat_button_5);
 
-        //빨강
+
         choiceButtons[0] = findViewById(R.id.choice_button_1);
         choiceButtons[1] = findViewById(R.id.choice_button_2);
         choiceButtons[2] = findViewById(R.id.choice_button_3);
         choiceButtons[3] = findViewById(R.id.choice_button_4);
         choiceButtons[4] = findViewById(R.id.choice_button_5);
 
+
+
+
         // seatButtons 배열에 대한 클릭 이벤트 리스너 설정
         for (int i = 0; i < seatButtons.length; i++) {
             final int index = i;
+
             seatButtons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     // 해당 seatButton이 클릭되었을 때 해당 choiceButton을 화면에 보이도록 설정
                     choiceButtons[index].setVisibility(View.VISIBLE);
-
                     // 상태를 토글하고 바로 색상을 변경
                     choiceButtonStates[index] = !choiceButtonStates[index];
                     if (choiceButtonStates[index]) {
                         choiceButtons[index].setBackgroundResource(R.drawable.red_seat_sero); // 빨간색으로 변경
+
                         seatID = String.valueOf(index);
                         seatON(seatID);
                         System.out.println(seatID);
 
                     } else {
                         choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
+
                         seatID = String.valueOf(index);
                         seatOFF(seatID);
                         System.out.println(seatID);
@@ -261,7 +263,9 @@ public class SelectSeat extends AppCompatActivity {
     }
 
 
-    public void SeatInit() {
+    public ArrayList<String> SeatInit() {
+        final ArrayList<String> info = new ArrayList<>();
+
         Request request = new Request.Builder()
                 .url("http://10.0.2.2:5000/seatInfo")
                 .build();
@@ -272,19 +276,40 @@ public class SelectSeat extends AppCompatActivity {
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                final ArrayList<String> SeatInfo = new ArrayList<>();
+
                 if (response.isSuccessful()) {
                     String responseBody = response.body().string();
+                    System.out.println(responseBody);
                     try {
-                        JSONObject jsonObject = new JSONObject(responseBody);
-                        System.out.println(jsonObject);
+                        JSONArray jsonArray = new JSONArray(responseBody);
+
                         runOnUiThread(() -> {
-                            // leftSeat.setText("현재 남은 좌석 : " + leftseats + "석");
+                            try {
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONArray innerArray = jsonArray.getJSONArray(i);
+                                    System.out.println(innerArray);
+                                    //int id = innerArray.getInt(0);
+                                    String value = innerArray.getString(1);
+                                    System.out.println(value);
+                                    if (Objects.equals(value, "YES")) {
+                                        info.add(String.valueOf(i));
+                                        choiceButtons[i].setVisibility(View.VISIBLE);
+                                        choiceButtons[i].setBackgroundResource(R.drawable.red_seat_sero);
+                                        choiceButtons[i].setEnabled(false);
+                                    }
+                                }
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            }
                         });
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             }
         });
+        return info;
     }
 }
