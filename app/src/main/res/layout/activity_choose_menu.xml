@@ -4,23 +4,267 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="top"
     android:orientation="vertical"
     tools:context=".MenuPan">
 
     <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="메뉴 선택하는 페이지"
-        android:textSize="50dp" />
+        android:gravity="left"
+        android:text="MENU"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/orderComplete"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="주문하기"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="vertical"></LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="195dp"
+                android:layout_height="150dp">
+
+                <Button
+                    android:id="@+id/button_pasta"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/pasta"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="195dp"
+                android:layout_height="150dp">
+
+                <Button
+                    android:id="@+id/button_gunsan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/gunsan"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="파스타 / 대기인원 : "
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:id="@+id/text_han"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="명" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="군산카츠 / 대기인원 : "
+                    android:layout_marginLeft="10dp"/>
+                <TextView
+                    android:id="@+id/text_il"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="명" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+            <FrameLayout
+                android:layout_width="195dp"
+                android:layout_height="150dp">
+
+                <Button
+                    android:id="@+id/button_ttok"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/masung"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="195dp"
+                android:layout_height="150dp">
+
+                <Button
+                    android:id="@+id/button_toast"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/toast"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </FrameLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:text="마성떡볶이 / 대기인원 : " />
+
+                <TextView
+                    android:id="@+id/text_joong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="명" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:text="토스트 / 대기인원 : " />
+                <TextView
+                    android:id="@+id/text_yang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="명" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="195dp"
+                android:layout_height="150dp">
+
+                <Button
+                    android:id="@+id/button_mara"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableStart="@drawable/mara"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="195dp"
+                android:layout_height="150dp">
+
+                <Button
+                    android:id="@+id/button_blank"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:text="한우사골 마라탕 / 대기인원 : " />
+                <TextView
+                    android:id="@+id/text_boon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="명" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
 </LinearLayout>
