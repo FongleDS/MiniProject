@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -127,20 +128,13 @@ public class SelectSeat extends AppCompatActivity {
             }
         });
 
-        //이미 선택된 자리 클릭하면 팝업
-        selected_button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Popup.class);
-                startActivity(intent);
-            }
-        });
+        //이선좌 토스트 메세지
+        Button button = findViewById(R.id.selected_button1);
 
-        selected_button2.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Popup.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "이미 선택된 좌석입니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
