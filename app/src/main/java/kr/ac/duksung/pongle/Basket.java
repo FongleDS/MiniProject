@@ -127,9 +127,9 @@ public class Basket extends AppCompatActivity {
         mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                JSONObject data = (JSONObject) args[0];
-                System.out.println(data);
+                String dataString = (String) args[0];
                 try {
+                    JSONObject data = new JSONObject(dataString);
                     String result = data.getString("Result");
                     System.out.println(result);
                     if (result.equals("ALARM")) {
