@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
@@ -40,6 +41,9 @@ public class CheckInfo extends AppCompatActivity {
     TextView selectedSeat;
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
+    Button seat_view;
+    Button exitButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,8 @@ public class CheckInfo extends AppCompatActivity {
         orderedID = findViewById(R.id.orderID);
         orderedTime = findViewById(R.id.orderTime);
         selectedSeat = findViewById(R.id.seatID);
+        seat_view = findViewById(R.id.seat_view);
+        exitButton = findViewById(R.id.exitButton);
 
         // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
@@ -141,5 +147,22 @@ public class CheckInfo extends AppCompatActivity {
                 }
             }
         });
+
+        seat_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainPage.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
