@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.498" />
 
     <Button
-    android:id="@+id/button_seat"
+    android:id="@+id/button_alarm"
     android:layout_width="180dp"
     android:layout_height="65dp"
     android:layout_marginTop="190dp"
