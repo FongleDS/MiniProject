@@ -41,6 +41,7 @@ public class SelectSeat extends AppCompatActivity {
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
 
+    //hello
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
