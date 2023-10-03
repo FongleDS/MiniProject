@@ -3,8 +3,10 @@ package kr.ac.duksung.pongle;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,6 +32,18 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
+
+
 public class MainPage extends Activity {
 
     Button btn_menu, btn_info, btn_seat;
@@ -37,12 +51,15 @@ public class MainPage extends Activity {
 
     String stdNum, stdName, orderID;
     Socket mSocket;
+    BarChart barChart;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -52,7 +69,6 @@ public class MainPage extends Activity {
             stdName = bundle.getString("stdName");
         }
 
-
         btn_seat = findViewById(R.id.button_seat);
         btn_menu = findViewById(R.id.button_menu);
         btn_info = findViewById(R.id.button_info);
@@ -60,6 +76,8 @@ public class MainPage extends Activity {
         Name = findViewById(R.id.Name);
         leftSeat = findViewById(R.id.leftseat);
         waiting = findViewById(R.id.waitingOrder);
+        barChart = findViewById(R.id.chart);
+
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
@@ -73,6 +91,74 @@ public class MainPage extends Activity {
         String finalDate = onlyDate[0] + "년 " + onlyDate[1] + "월 " + onlyDate[2] + "일";
         Date.setText(finalDate);
         Name.setText(stdName);
+
+
+
+        //그래프
+
+        ArrayList<BarEntry> entry_chart = new ArrayList<>();
+
+        BarData barData = new BarData();
+        String[] labels = new String[]{"09.01", "09.02", "09.03", "09.04", "09.05", "09.06"};
+
+        ValueFormatter formatter = new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                Log.d("ValueFormatter", "Received value: " + value);
+                if(value < 0 || value >= labels.length) {
+                    return ""; // 또는 다른 적절한 기본값
+                }
+                return labels[(int) value];
+            }
+        };
+
+        entry_chart.add(new BarEntry(0, 1));
+        entry_chart.add(new BarEntry(1, 2));
+        entry_chart.add(new BarEntry(2, 3));
+        entry_chart.add(new BarEntry(3, 4));
+        entry_chart.add(new BarEntry(4, 2));
+        entry_chart.add(new BarEntry(5, 8));
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setDrawAxisLine(false);
+        //xAxis.setGranularity(1f);
+
+        xAxis.setAxisMinimum(0f);
+        xAxis.setAxisMaximum(15f);
+        //xAxis.setGridColor(Color.parseColor("#B70050"));
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawLabels(true);
+        xAxis.setValueFormatter(formatter);
+        xAxis.setDrawGridLines(false);
+        xAxis.setGranularity(4f);
+
+        YAxis axisLeft = barChart.getAxisLeft();
+        axisLeft.setDrawGridLines(false);
+        axisLeft.setDrawAxisLine(false);
+        axisLeft.setAxisMinimum(0f);
+        axisLeft.setAxisMaximum(10f);
+        axisLeft.setDrawLabels(false);
+
+
+        axisLeft.setEnabled(false);
+        barChart.getAxisRight().setEnabled(false);
+        barChart.getDescription().setEnabled(false);
+        barChart.getLegend().setEnabled(false);
+        barChart.setDrawGridBackground(false);
+        barChart.setDrawBorders(false);
+
+        barChart.setEnabled(false);
+        barData.setBarWidth(0.25f);
+
+        BarDataSet barDataSet = new BarDataSet(entry_chart, "");
+        barDataSet.setColor(Color.parseColor("#B70050"));
+        barData.addDataSet(barDataSet);
+        barChart.setData(barData);
+        barChart.invalidate();
+
+
+
+        //그래프
 
 
         try {
@@ -194,3 +280,5 @@ public class MainPage extends Activity {
         });
     }
 }
+
+
