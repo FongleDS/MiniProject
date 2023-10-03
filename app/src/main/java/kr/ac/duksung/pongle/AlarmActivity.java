@@ -16,6 +16,8 @@ public class AlarmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
 
+/*
+
 
         btn_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,6 +25,6 @@ public class AlarmActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SelectSeat.class);
                 startActivity(intent);
             }
-        });
+        }); */
     }
 }

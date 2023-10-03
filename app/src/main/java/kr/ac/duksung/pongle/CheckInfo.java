@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -42,6 +47,7 @@ public class CheckInfo extends AppCompatActivity {
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
     Button seat_view, exitButton;
+    Socket mSocket;
 
 
     @Override
@@ -57,6 +63,33 @@ public class CheckInfo extends AppCompatActivity {
         selectedSeat = findViewById(R.id.seatID);
         seat_view = findViewById(R.id.seat_view);
         exitButton = findViewById(R.id.exitButton);
+
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String dataString = (String) args[0];
+                try {
+                    JSONObject data = new JSONObject(dataString);
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("ALARM")) {
+                        // orderManager.addOrder(orderID, menuName, "1");
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         seat_view.setOnClickListener(new View.OnClickListener() {
             @Override
