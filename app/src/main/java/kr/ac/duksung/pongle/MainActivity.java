@@ -13,7 +13,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     String ID;
     String PW;
     String realPW;
+    Socket mSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,34 @@ public class MainActivity extends AppCompatActivity {
             ID = String.valueOf(stdID.getText());
             PW = String.valueOf(stdPW.getText());
             fetchPassword(ID);
+        });
+
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                JSONObject data = (JSONObject) args[0];
+                System.out.println(data);
+                try {
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("ALARM")) {
+                        // orderManager.addOrder(orderID, menuName, "1");
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
         });
     }
     

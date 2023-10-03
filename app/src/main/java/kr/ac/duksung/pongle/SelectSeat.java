@@ -13,11 +13,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -33,7 +37,7 @@ public class SelectSeat extends AppCompatActivity {
     ImageView[] choiceButtons = new ImageView[5];
     String seatID, stdID;
     ArrayList<String> SeatInfo = new ArrayList<>();
-
+    Socket mSocket;
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
 
@@ -44,6 +48,34 @@ public class SelectSeat extends AppCompatActivity {
 
         selected_button1 = findViewById(R.id.selected_button1);
         selected_button2 = findViewById(R.id.selected_button2);
+
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                JSONObject data = (JSONObject) args[0];
+                System.out.println(data);
+                try {
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("ALARM")) {
+                        // orderManager.addOrder(orderID, menuName, "1");
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
 
         Intent getintent = getIntent();
