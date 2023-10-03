@@ -101,8 +101,8 @@ public class SelectSeat extends AppCompatActivity {
         choice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // ChooseMenu 액티비티로 데이터 전달
-                Intent intent = new Intent(getApplicationContext(), ChooseMenu.class);
+                // MenuPan 액티비티로 데이터 전달
+                Intent intent = new Intent(getApplicationContext(), MenuPan.class);
                 intent.putExtra("seatNum", seatID);
                 System.out.println(seatID);
                 intent.putExtra("stdNum", stdID);
