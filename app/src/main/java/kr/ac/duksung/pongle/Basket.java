@@ -64,20 +64,14 @@ public class Basket extends AppCompatActivity {
         mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                JSONObject data = (JSONObject) args[0];
+                String data = (String) args[0];  // 문자열 바로 처리
                 System.out.println(data);
-                try {
-                    String result = data.getString("Result");
-                    System.out.println(result);
-                    if (result.equals("ALARM")) {
-                        // orderManager.addOrder(orderID, menuName, "1");
-                        runOnUiThread(() -> {
-                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                            startActivity(intent);
-                        });
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+
+                if (data.equals("ALARM")) {
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        startActivity(intent);
+                    });
                 }
             }
         });
