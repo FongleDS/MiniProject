@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -42,6 +47,8 @@ public class CheckInfo extends AppCompatActivity {
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
     Button seat_view, exitButton;
+    String orderID, stdID;
+    Socket mSocket;
 
 
     @Override
@@ -57,6 +64,33 @@ public class CheckInfo extends AppCompatActivity {
         selectedSeat = findViewById(R.id.seatID);
         seat_view = findViewById(R.id.seat_view);
         exitButton = findViewById(R.id.exitButton);
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                JSONObject data = (JSONObject) args[0];
+                System.out.println(data);
+                try {
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("ALARM")) {
+                        // orderManager.addOrder(orderID, menuName, "1");
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         seat_view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +107,7 @@ public class CheckInfo extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent2 = new Intent(CheckInfo.this, MainPage.class);
                 intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent2.putExtra("orderNum", orderID);
                 startActivity(intent2);
             }
         });
@@ -81,8 +116,8 @@ public class CheckInfo extends AppCompatActivity {
         // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String orderID = (String) bundle.get("orderID");
-        String stdID = (String) bundle.get("stdNum");
+        orderID = (String) bundle.get("orderID");
+        stdID = (String) bundle.get("stdNum");
         System.out.println("=============");
         System.out.println(orderID);
         // String orderID = "9";

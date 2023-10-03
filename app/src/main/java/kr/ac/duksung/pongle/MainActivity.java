@@ -13,7 +13,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -32,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     String ID;
     String PW;
     String realPW;
-    Button turn;
+    Socket mSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
 
-        turn = findViewById(R.id.turn);
-
 
         // 깃허브 테스트
         //login 버튼입니다
@@ -56,12 +59,31 @@ public class MainActivity extends AppCompatActivity {
             fetchPassword(ID);
         });
 
-        turn.setOnClickListener(new View.OnClickListener() {
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
-            public void onClick(View v) {
-                // MenuPan 액티비티로 데이터 전달
-                Intent intent = new Intent(getApplicationContext(), MainPage.class);
-                startActivity(intent);
+            public void call(Object... args) {
+                JSONObject data = (JSONObject) args[0];
+                System.out.println(data);
+                try {
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("ALARM")) {
+                        // orderManager.addOrder(orderID, menuName, "1");
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

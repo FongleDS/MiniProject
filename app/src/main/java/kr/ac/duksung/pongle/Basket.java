@@ -10,10 +10,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -24,7 +28,7 @@ import okhttp3.Response;
 
 public class Basket extends AppCompatActivity {
     Button button_check;
-
+    Socket mSocket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +53,38 @@ public class Basket extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                JSONObject data = (JSONObject) args[0];
+                System.out.println(data);
+                try {
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("ALARM")) {
+                        // orderManager.addOrder(orderID, menuName, "1");
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
+
+
 
     OkHttpClient client = new OkHttpClient();
     public void orderUpdate(String stdID, String menuID, String orderDate, String seatID, Intent intent) {
@@ -80,7 +115,7 @@ public class Basket extends AppCompatActivity {
                             System.out.println(orderID);
                             intent.putExtra("orderID", orderID);
                         });
-                        }
+                    }
                     catch (JSONException e) {
                         e.printStackTrace();
                     }
