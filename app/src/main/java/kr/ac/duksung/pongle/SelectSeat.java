@@ -31,7 +31,7 @@ public class SelectSeat extends AppCompatActivity {
     // 각각의 seatButton과 choiceButton를 배열로 관리하기 위한 배열 선언
     ImageView[] seatButtons = new ImageView[5];
     ImageView[] choiceButtons = new ImageView[5];
-    String seatID;
+    String seatID, stdID;
     ArrayList<String> SeatInfo = new ArrayList<>();
 
     // 각 choiceButton의 상태를 나타내는 변수
@@ -45,10 +45,13 @@ public class SelectSeat extends AppCompatActivity {
         selected_button1 = findViewById(R.id.selected_button1);
         selected_button2 = findViewById(R.id.selected_button2);
 
-        // Intent로 전달된 데이터 받기
+
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String stdID = bundle.getString("stdNum");
+        if (bundle != null) {
+            stdID = bundle.getString("stdNum");
+        }
+
         SeatInfo = SeatInit();
 
         // XML 레이아웃에서 ImageView들을 배열에 할당

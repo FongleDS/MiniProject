@@ -31,6 +31,8 @@ public class MainPage extends Activity {
     Button btn_menu, btn_info, btn_seat;
     TextView Date, Name, leftSeat;
 
+    String stdNum, stdName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,11 @@ public class MainPage extends Activity {
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String stdNum = bundle.getString("stdNum");
-        String stdName = bundle.getString("stdName");
+        if (bundle != null) {
+            stdNum = bundle.getString("stdNum");
+            stdName = bundle.getString("stdName");
+        }
+
 
         btn_seat = findViewById(R.id.button_seat);
         btn_menu = findViewById(R.id.button_menu);
