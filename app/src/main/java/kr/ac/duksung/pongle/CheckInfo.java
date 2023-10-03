@@ -42,7 +42,7 @@ public class CheckInfo extends AppCompatActivity {
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
     Button seat_view;
-    ImageView exitButton;
+    Button exitButton;
 
 
     @Override
