@@ -92,6 +92,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/main_select_Seat_tv" />
 
+
+
     <TextView
         android:id="@+id/main_menu_pan_tv"
         android:layout_width="400dp"
@@ -107,6 +109,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_select_Seat_tv" />
+
+    <TextView
+        android:id="@+id/waitingOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="190dp"
+        android:text="현재 주문 인원 : "
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/main_select_Seat_tv"
+        app:layout_constraintTop_toTopOf="@+id/main_select_Seat_tv" />
 
     <Button
         android:id="@+id/button_menu"
