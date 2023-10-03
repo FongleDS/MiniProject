@@ -90,7 +90,8 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/main_select_Seat_tv" />
+        app:layout_constraintTop_toTopOf="@id/main_select_Seat_tv"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
 
@@ -131,7 +132,8 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/main_menu_pan_tv" />
+        app:layout_constraintTop_toTopOf="@id/main_menu_pan_tv"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/main_info_tv"
@@ -160,7 +162,8 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/main_info_tv" />
+        app:layout_constraintTop_toTopOf="@id/main_info_tv"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/textView4"
