@@ -279,6 +279,7 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/gofront"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </android.support.constraint.ConstraintLayout>
