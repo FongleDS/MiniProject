@@ -27,7 +27,7 @@
         android:layout_height="76dp"
         android:gravity="center"
         android:text="나의 주문 정보"
-        android:textSize="20dp"
+        android:textSize="24dp"
         android:textStyle="bold" />
 
     <!--QR코드 -->
@@ -53,38 +53,82 @@
         android:layout_height="26dp"
         android:orientation="vertical"></LinearLayout>
 
-
-    <ImageView
-        android:id="@+id/imageView4"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="91dp"
-        app:srcCompat="@drawable/ordermenu" />
+        android:layout_height="105dp">
+
+        <LinearLayout
+            android:layout_width="205dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="주문 메뉴"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="주문 시간"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="주문 번호"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="좌석 번호"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/orderTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/orderID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/seatID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <!--데이터 베이스에서 받아오는 주문 메뉴-->
-    <TextView
-        android:id="@+id/orderMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <!--데이터 베이스에서 받아오는 주문 시간-->
-    <TextView
-        android:id="@+id/orderTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <!--데이터 베이스에서 받아오는 주문 번호-->
-    <TextView
-        android:id="@+id/orderID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 
     <!--데이터 베이스에서 받아오는 좌석 번호-->
-    <TextView
-        android:id="@+id/seatID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -100,10 +144,10 @@
 
     <Button
         android:id="@+id/seat_view"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_width="277dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/round_button"
-        android:textColor="#FFFFFF"
-        android:text="좌석 확인" />
+        android:text="좌석 확인"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
