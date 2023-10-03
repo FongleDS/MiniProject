@@ -42,6 +42,7 @@ public class CheckInfo extends AppCompatActivity {
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
     Button seat_view, exitButton;
+    String orderID, stdID;
 
 
     @Override
@@ -73,7 +74,7 @@ public class CheckInfo extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent2 = new Intent(CheckInfo.this, MainPage.class);
                 intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent2.putExtra("orderNum", (CharSequence) orderedID);
+                intent2.putExtra("orderNum", orderID);
                 startActivity(intent2);
             }
         });
@@ -82,8 +83,8 @@ public class CheckInfo extends AppCompatActivity {
         // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String orderID = (String) bundle.get("orderID");
-        String stdID = (String) bundle.get("stdNum");
+        orderID = (String) bundle.get("orderID");
+        stdID = (String) bundle.get("stdNum");
         System.out.println("=============");
         System.out.println(orderID);
         // String orderID = "9";
