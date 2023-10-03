@@ -33,6 +33,7 @@ public class SelectSeat extends AppCompatActivity {
     ImageView[] choiceButtons = new ImageView[5];
     String seatID, stdID;
     ArrayList<String> SeatInfo = new ArrayList<>();
+    Button exitButton;
 
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
@@ -44,7 +45,7 @@ public class SelectSeat extends AppCompatActivity {
 
         selected_button1 = findViewById(R.id.selected_button1);
         selected_button2 = findViewById(R.id.selected_button2);
-
+        exitButton = findViewById(R.id.exitButton);
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -68,7 +69,14 @@ public class SelectSeat extends AppCompatActivity {
         choiceButtons[3] = findViewById(R.id.choice_button_4);
         choiceButtons[4] = findViewById(R.id.choice_button_5);
 
-
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MenuPan 액티비티로 데이터 전달
+                Intent intent = new Intent(getApplicationContext(), MainPage.class);
+                startActivity(intent);
+            }
+        });
 
 
         // seatButtons 배열에 대한 클릭 이벤트 리스너 설정

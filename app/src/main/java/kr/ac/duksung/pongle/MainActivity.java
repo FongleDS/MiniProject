@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     String ID;
     String PW;
     String realPW;
+    Button turn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
 
+        turn = findViewById(R.id.turn);
+
 
         // 깃허브 테스트
         //login 버튼입니다
@@ -51,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
             ID = String.valueOf(stdID.getText());
             PW = String.valueOf(stdPW.getText());
             fetchPassword(ID);
+        });
+
+        turn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MenuPan 액티비티로 데이터 전달
+                Intent intent = new Intent(getApplicationContext(), MainPage.class);
+                startActivity(intent);
+            }
         });
     }
     
