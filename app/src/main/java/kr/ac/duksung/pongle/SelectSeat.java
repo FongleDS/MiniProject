@@ -41,6 +41,7 @@ public class SelectSeat extends AppCompatActivity {
     Socket mSocket;
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
+    Button exitButton;
 
     //hello
     @Override
@@ -96,7 +97,16 @@ public class SelectSeat extends AppCompatActivity {
         choiceButtons[3] = findViewById(R.id.choice_button_4);
         choiceButtons[4] = findViewById(R.id.choice_button_5);
 
+        exitButton = findViewById(R.id.exitButton);
 
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectSeat.this, MainPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
 
         // seatButtons 배열에 대한 클릭 이벤트 리스너 설정
