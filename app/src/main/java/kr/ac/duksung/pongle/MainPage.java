@@ -31,7 +31,7 @@ public class MainPage extends Activity {
     Button btn_menu, btn_info, btn_seat;
     TextView Date, Name, leftSeat;
 
-    String stdNum, stdName;
+    String stdNum, stdName, orderID;
 
 
     @Override
@@ -42,6 +42,7 @@ public class MainPage extends Activity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         if (bundle != null) {
+            orderID = bundle.getString("orderNum");
             stdNum = bundle.getString("stdNum");
             stdName = bundle.getString("stdName");
         }
@@ -97,6 +98,7 @@ public class MainPage extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CheckInfo.class);
                 intent.putExtra("stdNum", stdNum);
+                intent.putExtra("orderID", orderID);
                 startActivity(intent);
             }
         });

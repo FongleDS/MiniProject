@@ -73,6 +73,7 @@ public class CheckInfo extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent2 = new Intent(CheckInfo.this, MainPage.class);
                 intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent2.putExtra("orderNum", (CharSequence) orderedID);
                 startActivity(intent2);
             }
         });
