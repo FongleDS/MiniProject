@@ -41,8 +41,7 @@ public class CheckInfo extends AppCompatActivity {
     TextView selectedSeat;
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
-    Button seat_view;
-    Button exitButton;
+    Button seat_view, exitButton;
 
 
     @Override
@@ -58,6 +57,26 @@ public class CheckInfo extends AppCompatActivity {
         selectedSeat = findViewById(R.id.seatID);
         seat_view = findViewById(R.id.seat_view);
         exitButton = findViewById(R.id.exitButton);
+
+        seat_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(CheckInfo.this, SelectSeat.class);
+                intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent1);
+            }
+        });
+
+
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(CheckInfo.this, MainPage.class);
+                intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent2);
+            }
+        });
+
 
         // 전 액티비티에서 데이터 받아오기
         Intent getintent = getIntent();
@@ -145,22 +164,6 @@ public class CheckInfo extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-            }
-        });
-
-        seat_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainPage.class);
-                startActivity(intent);
             }
         });
 
