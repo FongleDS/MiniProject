@@ -17,12 +17,12 @@ import io.socket.emitter.Emitter;
 
 
 public class AlarmActivity extends AppCompatActivity {
-    Button btn_alarm;
+    //Button btn_alarm;
     Socket mSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        btn_alarm = findViewById(R.id.button_alarm);
+        //btn_alarm = findViewById(R.id.button_alarm);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
 
@@ -38,25 +38,20 @@ public class AlarmActivity extends AppCompatActivity {
         mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                JSONObject data = (JSONObject) args[0];
+                String data = (String) args[0];  // 문자열 바로 처리
                 System.out.println(data);
-                try {
-                    String result = data.getString("Result");
-                    System.out.println(result);
-                    if (result.equals("ALARM")) {
-                        // orderManager.addOrder(orderID, menuName, "1");
-                        runOnUiThread(() -> {
-                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                            startActivity(intent);
-                        });
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+
+                if (data.equals("ALARM")) {
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        startActivity(intent);
+                    });
                 }
             }
         });
 
 
+        /*
         btn_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,5 +59,8 @@ public class AlarmActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+         */
     }
+
 }
