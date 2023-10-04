@@ -62,9 +62,8 @@ public class MainPage extends Activity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         if (bundle != null) {
-            orderID = bundle.getString("orderNum");
+            orderID = bundle.getString("orderID");
             stdNum = bundle.getString("stdNum");
-            stdName = bundle.getString("stdName");
         }
 
         btn_seat = findViewById(R.id.button_seat);
@@ -76,6 +75,8 @@ public class MainPage extends Activity {
         waiting = findViewById(R.id.waitingOrder);
         barChart = findViewById(R.id.chart);
 
+        MyApplication app = (MyApplication) getApplication();
+        stdName = app.getStdName();
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
@@ -213,7 +214,10 @@ public class MainPage extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CheckInfo.class);
                 intent.putExtra("stdNum", stdNum);
+                System.out.println(stdNum);
                 intent.putExtra("orderID", orderID);
+                System.out.println(orderID);
+
                 startActivity(intent);
             }
         });

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -42,6 +43,7 @@ public class SelectSeat extends AppCompatActivity {
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
     Button exitButton;
+    TextView seatName;
 
     //hello
     @Override
@@ -51,6 +53,7 @@ public class SelectSeat extends AppCompatActivity {
 
         selected_button1 = findViewById(R.id.selected_button1);
         selected_button2 = findViewById(R.id.selected_button2);
+        seatName = findViewById(R.id.seatName);
 
         try {
             mSocket = IO.socket("http://10.0.2.2:5000");
@@ -122,14 +125,30 @@ public class SelectSeat extends AppCompatActivity {
                     choiceButtonStates[index] = !choiceButtonStates[index];
                     if (choiceButtonStates[index]) {
                         choiceButtons[index].setBackgroundResource(R.drawable.red_seat_sero); // 빨간색으로 변경
+                        String Alpha = null;
 
+                        switch (index) {
+                            case 0:
+                                Alpha = "A";
+                            case 1:
+                                Alpha = "A";
+                            case 2:
+                                Alpha = "B";
+                            case 3:
+                                Alpha = "C";
+                            case 4:
+                                Alpha = "E";
+                        }
+
+                        String seat = Alpha.concat(String.valueOf(index+1));
+                        seatName.setText(seat);
                         seatID = String.valueOf(index);
                         seatON(seatID);
                         System.out.println(seatID);
 
                     } else {
                         choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
-
+                        seatName.setText("");
                         seatID = String.valueOf(index);
                         seatOFF(seatID);
                         System.out.println(seatID);
@@ -152,18 +171,6 @@ public class SelectSeat extends AppCompatActivity {
             }
         });
 
-        select_seat = findViewById(R.id.select_seat);
-        select_seat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MenuPan.class);
-                intent.putExtra("seatNum", seatID);
-                System.out.println(seatID);
-                intent.putExtra("stdNum", stdID);
-                System.out.println(stdID);
-                startActivity(intent);
-            }
-        });
 
         //이미 선택된 자리 클릭하면 팝업
         Button button = findViewById(R.id.selected_button1);
@@ -329,7 +336,7 @@ public class SelectSeat extends AppCompatActivity {
                                     if (Objects.equals(value, "YES")) {
                                         info.add(String.valueOf(i));
                                         choiceButtons[i].setVisibility(View.VISIBLE);
-                                        choiceButtons[i].setBackgroundResource(R.drawable.red_seat_sero);
+                                        choiceButtons[i].setBackgroundResource(R.drawable.grey_seat);
                                         choiceButtons[i].setEnabled(false);
                                     }
                                 }

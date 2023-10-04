@@ -91,6 +91,17 @@ public class CheckInfo extends AppCompatActivity {
             }
         });
 
+
+
+        // 전 액티비티에서 데이터 받아오기
+        MyApplication app = (MyApplication) getApplication();
+        String orderID = app.getOrderID();
+        String stdID = app.getStdID();
+
+        System.out.println("=============");
+        System.out.println(orderID);
+
+
         seat_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,23 +116,17 @@ public class CheckInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent2 = new Intent(CheckInfo.this, MainPage.class);
+                intent2.putExtra("orderID", orderID);
+                intent2.putExtra("stdNum", stdID);
                 intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent2);
             }
         });
 
-
-        // 전 액티비티에서 데이터 받아오기
-        Intent getintent = getIntent();
-        Bundle bundle = getintent.getExtras();
-        String orderID = (String) bundle.get("orderID");
-        String stdID = (String) bundle.get("stdNum");
-        System.out.println("=============");
-        System.out.println(orderID);
-
         // 주문 정보 불러오기
         System.out.println(orderID);
         getOrderInfo(orderID);
+        System.out.println("==============");
         System.out.println(infoList);
 
         // QRCODE 생성
@@ -129,13 +134,6 @@ public class CheckInfo extends AppCompatActivity {
         System.out.println(QRs);
         QRCode = findViewById(R.id.qrcodeImage);
         QRCode.setImageBitmap(generateQRCode(QRs));
-
-        //주문 번호, 주문 시간, 학생 이름 설정
-        orderedID.setText(orderID);
-        stdName.setText((CharSequence) infoList.get(0));
-        orderedTime.setText((CharSequence) infoList.get(1));
-        selectedSeat.setText((CharSequence) infoList.get(2));
-        orderedMenu.setText((CharSequence) infoList.get(3));
     }
     private Bitmap generateQRCode(String text) {
         int width = 500;
@@ -188,6 +186,11 @@ public class CheckInfo extends AppCompatActivity {
                                 System.out.println(infoList);
                             }
                         }
+                        orderedID.setText(orderID);
+                        stdName.setText((CharSequence) infoList.get(0));
+                        orderedTime.setText((CharSequence) infoList.get(1));
+                        selectedSeat.setText((CharSequence) infoList.get(2));
+                        orderedMenu.setText((CharSequence) infoList.get(3));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

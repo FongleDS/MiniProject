@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     String realPW;
     Socket mSocket;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         stdPW = findViewById(R.id.stdPW);
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
+
+
+        MyApplication app = (MyApplication) getApplication();
+        String name = app.getStdName();
+
 
 
         // 깃허브 테스트
@@ -110,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(jsonObject);
                         String password = jsonObject.getString("password");
                         String name = jsonObject.getString("name");
+
                         runOnUiThread(() -> {
                             System.out.println(password);
                             realPW = password;
@@ -118,8 +125,14 @@ public class MainActivity extends AppCompatActivity {
                             // 입력한 비밀번호가 학번의 비밀 번호와 같을 떄
                             if (realPW.equals(PW)) {
                                 Intent intent = new Intent(getApplicationContext(),MainPage.class);
+
+                                MyApplication app = (MyApplication) getApplicationContext();
+                                app.setStdName(name);
+                                app.setStdID(stdID);
+
                                 intent.putExtra("stdNum", stdID);
                                 intent.putExtra("stdName", name);
+
                                 startActivity(intent);
                             }
                             // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
