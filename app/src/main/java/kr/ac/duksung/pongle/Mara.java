@@ -17,6 +17,7 @@ public class Mara extends AppCompatActivity {
     ImageView gguo_l;
     ImageView shang;
     Button goback;
+    Button basket;
 
     String menuID;
 
@@ -30,6 +31,7 @@ public class Mara extends AppCompatActivity {
         gguo_l = findViewById(R.id.gguo_l);
         shang = findViewById(R.id.shang);
         goback = findViewById(R.id.goback);
+        basket = findViewById(R.id.basket);
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -38,6 +40,14 @@ public class Mara extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+        basket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
+                startActivity(intent);
+            }
+        });
 
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +62,7 @@ public class Mara extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "31";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -66,7 +76,7 @@ public class Mara extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "32";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -80,7 +90,7 @@ public class Mara extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "33";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -94,7 +104,7 @@ public class Mara extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "34";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);

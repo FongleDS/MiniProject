@@ -21,6 +21,7 @@ public class Pasta extends AppCompatActivity {
     ImageView rose;
     String menuID;
     Button gofront;
+    Button basket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class Pasta extends AppCompatActivity {
         porkimchi = findViewById(R.id.porkimchi);
         rose = findViewById(R.id.rose);
         gofront = findViewById(R.id.gofront);
+        basket = findViewById(R.id.basket);
 
 
         Intent getintent = getIntent();
@@ -43,6 +45,14 @@ public class Pasta extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+        basket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
+                startActivity(intent);
+            }
+        });
 
         gofront.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +68,7 @@ public class Pasta extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "11";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -72,7 +82,7 @@ public class Pasta extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "12";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -86,7 +96,7 @@ public class Pasta extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "13";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -100,7 +110,7 @@ public class Pasta extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "14";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -114,7 +124,7 @@ public class Pasta extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "15";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -128,7 +138,7 @@ public class Pasta extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "17";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("orderTime", Realtime);

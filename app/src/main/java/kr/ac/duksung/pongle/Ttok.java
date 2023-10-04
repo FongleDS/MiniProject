@@ -22,6 +22,7 @@ public class Ttok extends AppCompatActivity {
     String menuID;
     Button goback;
     Button gofront;
+    Button basket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class Ttok extends AppCompatActivity {
         chickenmayo = findViewById(R.id.chickenmayo);
         goback = findViewById(R.id.goback);
         gofront = findViewById(R.id.gofront);
+        basket = findViewById(R.id.basket);
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -44,6 +46,14 @@ public class Ttok extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+        basket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
+                startActivity(intent);
+            }
+        });
 
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +76,7 @@ public class Ttok extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "1";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -80,7 +90,7 @@ public class Ttok extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "21";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -94,7 +104,7 @@ public class Ttok extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "19";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -108,7 +118,7 @@ public class Ttok extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "27";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -122,7 +132,7 @@ public class Ttok extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "23";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -136,7 +146,7 @@ public class Ttok extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "22";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
