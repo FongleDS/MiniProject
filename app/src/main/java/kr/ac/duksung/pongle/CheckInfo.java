@@ -199,4 +199,43 @@ public class CheckInfo extends AppCompatActivity {
         });
 
     }
+
+
+    public void basketInit(Intent intent) {
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2:5000/basketInit")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        JSONArray jsonArray = new JSONArray(responseBody);
+                        System.out.println(jsonArray);
+
+                        StringBuilder stringBuilder = new StringBuilder();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            if (i > 0) {
+                                stringBuilder.append(", "); // 값들 사이에 콤마와 공백을 추가
+                            }
+                            stringBuilder.append(jsonArray.getString(i));
+                        }
+
+                        intent.putExtra("menuID", stringBuilder.toString());
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    finally {
+                        response.close();
+                    }
+                }
+            }
+        });
+    }
 }

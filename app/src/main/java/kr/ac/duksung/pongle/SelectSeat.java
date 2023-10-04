@@ -44,6 +44,7 @@ public class SelectSeat extends AppCompatActivity {
     boolean[] choiceButtonStates = new boolean[5];
     Button exitButton;
     TextView seatName;
+    String selectedSeat;
 
     //hello
     @Override
@@ -141,6 +142,7 @@ public class SelectSeat extends AppCompatActivity {
                         }
 
                         String seat = Alpha.concat(String.valueOf(index+1));
+                        selectedSeat = seat;
                         seatName.setText(seat);
                         seatID = String.valueOf(index);
                         seatON(seatID);
@@ -168,6 +170,8 @@ public class SelectSeat extends AppCompatActivity {
                 intent.putExtra("stdNum", stdID);
                 System.out.println(stdID);
                 startActivity(intent);
+                MyApplication app = (MyApplication) getApplication();
+                app.setSeatID(selectedSeat);
             }
         });
 

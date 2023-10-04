@@ -7,6 +7,8 @@ public class MyApplication extends Application {
     private String orderID;
     private String stdID;
 
+    private String seatID;
+
     public String getStdName() {
         return stdName;
     }
@@ -29,5 +31,14 @@ public class MyApplication extends Application {
 
     public void setStdID(String value) {
         this.stdID = value;
+    }
+
+
+    public String getSeatID() {
+        return seatID;
+    }
+
+    public void setSeatID(String value) {
+        this.seatID = value;
     }
 }
