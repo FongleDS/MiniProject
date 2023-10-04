@@ -36,10 +36,12 @@ public class Basket extends AppCompatActivity {
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
-        String stdID = bundle.getString("stdNum");
-        String seatID = bundle.getString("seatNum");
-        String menuID = bundle.getString("menuNum");
         String Realtime = bundle.getString("orderTime");
+        MyApplication app = (MyApplication) getApplication();
+
+        String stdID = app.getStdID();
+        String seatID = app.getSeatID();
+        String menuID = bundle.getString("menuID");
 
         Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
         intent.putExtra("stdNum", stdID);
