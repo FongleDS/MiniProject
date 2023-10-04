@@ -53,7 +53,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Toast"
+            android:name=".ToastRest"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

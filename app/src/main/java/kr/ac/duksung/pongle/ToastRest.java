@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class Toast extends AppCompatActivity {
+public class ToastRest extends AppCompatActivity {
 
     ImageView americano;
     ImageView latte;
@@ -74,6 +75,7 @@ public class Toast extends AppCompatActivity {
         americano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "35";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -81,13 +83,14 @@ public class Toast extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         latte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "36";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -95,13 +98,14 @@ public class Toast extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         vanilla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "37";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -109,13 +113,14 @@ public class Toast extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         yeon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "38";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -123,13 +128,14 @@ public class Toast extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         hamcheese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "39";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -137,13 +143,14 @@ public class Toast extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         baconegg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "40";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -151,7 +158,7 @@ public class Toast extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 

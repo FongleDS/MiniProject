@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -52,7 +53,7 @@ public class Mara extends AppCompatActivity {
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Toast.class);
+                Intent intent = new Intent(getApplicationContext(), ToastRest.class);
                 startActivity(intent);
             }
         });
@@ -60,6 +61,7 @@ public class Mara extends AppCompatActivity {
         maratang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "31";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -74,6 +76,7 @@ public class Mara extends AppCompatActivity {
         gguo_s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "32";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -88,6 +91,7 @@ public class Mara extends AppCompatActivity {
         gguo_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "33";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -102,6 +106,7 @@ public class Mara extends AppCompatActivity {
         shang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "34";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);

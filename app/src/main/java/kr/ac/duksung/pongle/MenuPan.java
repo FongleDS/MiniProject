@@ -156,7 +156,7 @@ public class MenuPan extends Activity {
         btn_toast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Toast.class);
+                Intent intent = new Intent(getApplicationContext(), ToastRest.class);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("seatNum", seatID);
                 startActivity(intent);

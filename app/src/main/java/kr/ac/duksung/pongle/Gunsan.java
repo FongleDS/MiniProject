@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -72,20 +73,21 @@ public class Gunsan extends AppCompatActivity {
         don.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menuID = "6";
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         doncurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "7";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -93,13 +95,14 @@ public class Gunsan extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         shrimpcurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "8";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -107,13 +110,14 @@ public class Gunsan extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         doubledon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "9";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -121,13 +125,14 @@ public class Gunsan extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         curry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "5";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -135,7 +140,7 @@ public class Gunsan extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
     }

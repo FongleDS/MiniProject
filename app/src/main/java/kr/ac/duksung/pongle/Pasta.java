@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -66,6 +67,7 @@ public class Pasta extends AppCompatActivity {
         aliolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "11";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -73,13 +75,14 @@ public class Pasta extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         tomato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "12";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -87,13 +90,14 @@ public class Pasta extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         truffle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "13";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -101,13 +105,14 @@ public class Pasta extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         daepae.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "14";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -115,13 +120,14 @@ public class Pasta extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         rose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "15";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -129,13 +135,14 @@ public class Pasta extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
         porkimchi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
                 menuID = "17";
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -143,7 +150,7 @@ public class Pasta extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("orderTime", Realtime);
                 intent.putExtra("stdNum", stdID);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
     }
