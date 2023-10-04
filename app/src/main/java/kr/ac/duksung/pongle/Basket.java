@@ -103,7 +103,8 @@ public class Basket extends AppCompatActivity {
                         runOnUiThread(() -> {
                             System.out.println("===========");
                             System.out.println(orderID);
-                            intent.putExtra("orderID", orderID);
+                            MyApplication app = (MyApplication) getApplicationContext();
+                            app.setOrderID(orderID);
                         });
                     }
                     catch (JSONException e) {
