@@ -118,11 +118,6 @@ public class CheckInfo extends AppCompatActivity {
         String stdID = (String) bundle.get("stdNum");
         System.out.println("=============");
         System.out.println(orderID);
-        // String orderID = "9";
-        // String stdID = bundle.getString("stdNum");
-        // String seatID = bundle.getString("seatNum");
-        // String menuID = bundle.getString("menuNum");
-        // String orderTime = (String) bundle.get("orderTime");
 
         // 주문 정보 불러오기
         System.out.println(orderID);
