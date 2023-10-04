@@ -11,9 +11,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 
 import io.socket.client.IO;
 import io.socket.client.Socket;

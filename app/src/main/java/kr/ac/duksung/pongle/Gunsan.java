@@ -20,6 +20,8 @@ public class Gunsan extends AppCompatActivity {
     ImageView curry;
     Button goback;
     Button gofront;
+    Button basket;
+
 
     String menuID;
 
@@ -33,6 +35,7 @@ public class Gunsan extends AppCompatActivity {
         shrimpcurry = findViewById(R.id.shrimpcurry);
         doubledon = findViewById(R.id.doubledon);
         curry = findViewById(R.id.curry);
+        basket = findViewById(R.id.basket);
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -40,6 +43,15 @@ public class Gunsan extends AppCompatActivity {
         String seatID = bundle.getString("seatNum");
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+        basket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
+                startActivity(intent);
+            }
+        });
+
 
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +74,7 @@ public class Gunsan extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "6";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -76,7 +88,7 @@ public class Gunsan extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "7";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -90,7 +102,7 @@ public class Gunsan extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "8";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -104,7 +116,7 @@ public class Gunsan extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "9";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
@@ -118,7 +130,7 @@ public class Gunsan extends AppCompatActivity {
             public void onClick(View v) {
                 menuID = "5";
                 String Realtime = sdf.format(calendar.getTime());
-                Intent intent = new Intent(getApplicationContext(), Basket.class);
+                Intent intent = new Intent(getApplicationContext(), Baguni.class);
                 intent.putExtra("menuNum", menuID);
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
