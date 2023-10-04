@@ -48,11 +48,9 @@ public class MainPage extends Activity {
 
     Button btn_menu, btn_info, btn_seat;
     TextView Date, Name, leftSeat, waiting;
-
     String stdNum, stdName, orderID;
     Socket mSocket;
     BarChart barChart;
-
 
 
     @Override

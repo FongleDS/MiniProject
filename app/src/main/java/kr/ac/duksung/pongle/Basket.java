@@ -29,6 +29,7 @@ import okhttp3.Response;
 public class Basket extends AppCompatActivity {
     Button button_check;
     Socket mSocket;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +78,6 @@ public class Basket extends AppCompatActivity {
         });
 
     }
-
-
 
     OkHttpClient client = new OkHttpClient();
     public void orderUpdate(String stdID, String menuID, String orderDate, String seatID, Intent intent) {
