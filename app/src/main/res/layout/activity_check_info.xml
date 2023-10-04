@@ -47,9 +47,12 @@
 
     <TextView
         android:id="@+id/userName"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:text="오주원" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="주문 메뉴"
-                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -79,23 +83,26 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="주문 시간"
-                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:gravity="center"
                 android:text="주문 번호"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textColor="@color/black"
                 android:text="좌석 번호"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -107,24 +114,28 @@
             <!--데이터 베이스에서 받아오는 주문 메뉴-->
             <TextView
                 android:id="@+id/orderMenu"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <!--데이터 베이스에서 받아오는 주문 시간-->
             <TextView
                 android:id="@+id/orderTime"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <!--데이터 베이스에서 받아오는 주문 번호-->
             <TextView
                 android:id="@+id/orderID"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <!--데이터 베이스에서 받아오는 좌석 번호-->
             <TextView
                 android:id="@+id/seatID"
+                android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>

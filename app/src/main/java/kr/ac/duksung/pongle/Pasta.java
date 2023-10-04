@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
@@ -19,6 +20,7 @@ public class Pasta extends AppCompatActivity {
     ImageView porkimchi;
     ImageView rose;
     String menuID;
+    Button gofront;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class Pasta extends AppCompatActivity {
         daepae = findViewById(R.id.daepae);
         porkimchi = findViewById(R.id.porkimchi);
         rose = findViewById(R.id.rose);
+        gofront = findViewById(R.id.gofront);
 
 
         Intent getintent = getIntent();
@@ -40,6 +43,15 @@ public class Pasta extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+        gofront.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Gunsan.class);
+                startActivity(intent);
+            }
+        });
+
 
         aliolio.setOnClickListener(new View.OnClickListener() {
             @Override

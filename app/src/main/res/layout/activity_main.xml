@@ -69,5 +69,10 @@
             android:layout_marginLeft="15dp"
             tools:ignore="TouchTargetSizeCheck" />
 
+        <Button
+            android:id="@+id/turn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
     </FrameLayout>
 </LinearLayout>

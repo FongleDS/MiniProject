@@ -14,11 +14,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -34,10 +38,12 @@ public class SelectSeat extends AppCompatActivity {
     ImageView[] choiceButtons = new ImageView[5];
     String seatID, stdID;
     ArrayList<String> SeatInfo = new ArrayList<>();
-
+    Socket mSocket;
     // 각 choiceButton의 상태를 나타내는 변수
     boolean[] choiceButtonStates = new boolean[5];
+    Button exitButton;
 
+    //hello
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +51,28 @@ public class SelectSeat extends AppCompatActivity {
 
         selected_button1 = findViewById(R.id.selected_button1);
         selected_button2 = findViewById(R.id.selected_button2);
+
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String data = (String) args[0];  // 문자열 바로 처리
+                System.out.println(data);
+
+                if (data.equals("ALARM")) {
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        startActivity(intent);
+                    });
+                }
+            }
+        });
 
 
         Intent getintent = getIntent();
@@ -69,7 +97,16 @@ public class SelectSeat extends AppCompatActivity {
         choiceButtons[3] = findViewById(R.id.choice_button_4);
         choiceButtons[4] = findViewById(R.id.choice_button_5);
 
+        exitButton = findViewById(R.id.exitButton);
 
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SelectSeat.this, MainPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
 
         // seatButtons 배열에 대한 클릭 이벤트 리스너 설정
@@ -128,13 +165,13 @@ public class SelectSeat extends AppCompatActivity {
             }
         });
 
-        //이선좌 토스트 메세지
+        //이미 선택된 자리 클릭하면 팝업
         Button button = findViewById(R.id.selected_button1);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "이미 선택된 좌석입니다.", Toast.LENGTH_SHORT).show();
+                android.widget.Toast.makeText(getApplicationContext(), "이미 선택된 좌석입니다.", Toast.LENGTH_SHORT).show();
             }
         });
 

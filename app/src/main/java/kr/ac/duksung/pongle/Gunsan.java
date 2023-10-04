@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +18,8 @@ public class Gunsan extends AppCompatActivity {
     ImageView shrimpcurry;
     ImageView doubledon;
     ImageView curry;
+    Button goback;
+    Button gofront;
 
     String menuID;
 
@@ -37,6 +40,22 @@ public class Gunsan extends AppCompatActivity {
         String seatID = bundle.getString("seatNum");
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Pasta.class);
+                startActivity(intent);
+            }
+        });
+
+        gofront.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Ttok.class);
+                startActivity(intent);
+            }
+        });
 
         don.setOnClickListener(new View.OnClickListener() {
             @Override

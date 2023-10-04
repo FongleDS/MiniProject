@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
@@ -19,6 +20,8 @@ public class Ttok extends AppCompatActivity {
     ImageView kimbob;
     ImageView chickenmayo;
     String menuID;
+    Button goback;
+    Button gofront;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class Ttok extends AppCompatActivity {
         modum = findViewById(R.id.modum);
         kimbob = findViewById(R.id.kimbob);
         chickenmayo = findViewById(R.id.chickenmayo);
+        goback = findViewById(R.id.goback);
+        gofront = findViewById(R.id.gofront);
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -39,6 +44,22 @@ public class Ttok extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+        goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Gunsan.class);
+                startActivity(intent);
+            }
+        });
+
+        gofront.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Toast.class);
+                startActivity(intent);
+            }
+        });
 
         masungttok.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,5 +144,7 @@ public class Ttok extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }
