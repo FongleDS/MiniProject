@@ -48,6 +48,7 @@ public class CheckInfo extends AppCompatActivity {
     ArrayList infoList = new ArrayList();
     Button seat_view, exitButton;
     Socket mSocket;
+    String orderID;
 
 
     @Override
@@ -95,12 +96,18 @@ public class CheckInfo extends AppCompatActivity {
 
         // 전 액티비티에서 데이터 받아오기
         MyApplication app = (MyApplication) getApplication();
-        String orderID = app.getOrderID();
         String stdID = app.getStdID();
+
+        Intent getintent = getIntent();
+        if (getintent != null) { // Intent가 비어있지 않은 경우
+            orderID = getintent.getStringExtra("orderID"); // "stdNum" 키로 전달된 값을 받아옵니다.
+        } else {
+            orderID = app.getOrderID();
+        }
+
 
         System.out.println("=============");
         System.out.println(orderID);
-
 
         seat_view.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -73,7 +73,7 @@ public class Mara extends AppCompatActivity {
         maratang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "31";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -89,7 +89,7 @@ public class Mara extends AppCompatActivity {
         gguo_s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "32";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -105,7 +105,7 @@ public class Mara extends AppCompatActivity {
         gguo_l.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "33";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -121,7 +121,7 @@ public class Mara extends AppCompatActivity {
         shang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "34";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
