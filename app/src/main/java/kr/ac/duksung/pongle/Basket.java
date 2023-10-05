@@ -46,6 +46,7 @@ public class Basket extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
         intent.putExtra("stdNum", stdID);
         orderUpdate(stdID, menuID, Realtime, seatID, intent);
+        BasketInit();
 
         button_check.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +108,7 @@ public class Basket extends AppCompatActivity {
                             System.out.println(orderID);
                             MyApplication app = (MyApplication) getApplicationContext();
                             app.setOrderID(orderID);
+                            intent.putExtra("orderID", orderID);
                         });
                     }
                     catch (JSONException e) {
@@ -115,34 +117,23 @@ public class Basket extends AppCompatActivity {
                 }
             }
         });
+    }
 
-        try {
-            mSocket = IO.socket("http://10.0.2.2:5000");
-            mSocket.connect();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-        mSocket.on("pickup_alarm", new Emitter.Listener() {
+    public void BasketInit() {
+        Request request = new Request.Builder()
+                .url("http://10.0.2.2:5000/basketInit")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
             @Override
-            public void call(Object... args) {
-                String dataString = (String) args[0];
-                try {
-                    JSONObject data = new JSONObject(dataString);
-                    String result = data.getString("Result");
-                    System.out.println(result);
-                    if (result.equals("ALARM")) {
-                        // orderManager.addOrder(orderID, menuName, "1");
-                        runOnUiThread(() -> {
-                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                            startActivity(intent);
-                        });
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    System.out.println("basket INit");
                 }
             }
         });
-
     }
 }
