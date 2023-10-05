@@ -166,8 +166,37 @@ public class SelectSeat extends AppCompatActivity {
         });
 
         //이미 선택된 자리 클릭하면 팝업
-        Button button = findViewById(R.id.selected_button1);
+        Button button1 = findViewById(R.id.selected_button1);
+        Button button2 = findViewById(R.id.selected_button2);
+        Button button3 = findViewById(R.id.selected_button3);
+        Button button4 = findViewById(R.id.selected_button4);
+        Button button = findViewById(R.id.selected_button);
 
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.widget.Toast.makeText(getApplicationContext(), "이미 선택된 좌석입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.widget.Toast.makeText(getApplicationContext(), "이미 선택된 좌석입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.widget.Toast.makeText(getApplicationContext(), "이미 선택된 좌석입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.widget.Toast.makeText(getApplicationContext(), "이미 선택된 좌석입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
