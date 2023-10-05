@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -27,6 +28,9 @@ public class Baguni extends AppCompatActivity {
     TextView Baguni;
     Calendar calendar = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+    TextView[] Menu = new TextView[3];
+    TextView[] Price = new TextView[3];
+    TextView[] Rest = new TextView[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,20 @@ public class Baguni extends AppCompatActivity {
 
         button_order = findViewById(R.id.button_order);
         Baguni = findViewById(R.id.text_baguni);
+        Menu[0] = findViewById(R.id.orderMenu1);
+        Menu[1] = findViewById(R.id.orderMenu2);
+        Menu[2] = findViewById(R.id.orderMenu3);
+        Price[0] = findViewById(R.id.price_menu1);
+        Price[1] = findViewById(R.id.price_menu2);
+        Price[2] = findViewById(R.id.price_menu3);
+        Rest[0] = findViewById(R.id.restaurant1);
+        Rest[1] = findViewById(R.id.restaurant2);
+        Rest[2] = findViewById(R.id.restaurant3);
+
+
+
+
+
 
         Intent intent = new Intent(getApplicationContext(), Basket.class);
 
@@ -69,15 +87,18 @@ public class Baguni extends AppCompatActivity {
                     try {
                         JSONArray jsonArray = new JSONArray(responseBody);
                         System.out.println(jsonArray);
-
                         StringBuilder stringBuilder = new StringBuilder();
+
                         for (int i = 0; i < jsonArray.length(); i++) {
-                            if (i > 0) {
-                                stringBuilder.append(", "); // 값들 사이에 콤마와 공백을 추가
-                            }
-                            stringBuilder.append(jsonArray.getString(i));
+                            JSONArray subArray = jsonArray.getJSONArray(i);
+                            JSONArray menuInfo = subArray.getJSONArray(0);
+                            stringBuilder.append(menuInfo.getString(3));
+                            stringBuilder.append(",");
+                            Menu[i].setText(menuInfo.getString(0));
+                            Price[i].setText(menuInfo.getString(1) + "원");
+                            Rest[i].setText(menuInfo.getString(2));
                         }
-                        Baguni.setText(stringBuilder.toString());
+                        System.out.println(stringBuilder);
                         intent.putExtra("menuID", stringBuilder.toString());
 
                     } catch (JSONException e) {

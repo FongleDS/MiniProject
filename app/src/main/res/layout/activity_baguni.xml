@@ -52,6 +52,15 @@
         app:layout_constraintTop_toBottomOf="@+id/text_baguni" />
 
     <TextView
+        android:id="@+id/restaurant1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toEndOf="@+id/price_menu1"
+        app:layout_constraintTop_toBottomOf="@+id/text_baguni" />
+
+    <TextView
         android:id="@+id/orderMenu2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,7 +77,14 @@
         android:layout_marginTop="18dp"
         app:layout_constraintStart_toEndOf="@+id/orderMenu2"
         app:layout_constraintTop_toBottomOf="@+id/price_menu1" />
-
+    <TextView
+        android:id="@+id/restaurant2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toEndOf="@+id/price_menu2"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant1" />
     <TextView
         android:id="@+id/orderMenu3"
         android:layout_width="wrap_content"
@@ -87,4 +103,12 @@
         app:layout_constraintStart_toEndOf="@+id/orderMenu3"
         app:layout_constraintTop_toBottomOf="@+id/price_menu2" />
 
+    <TextView
+        android:id="@+id/restaurant3"
+        android:layout_width="1dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toEndOf="@+id/price_menu3"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant2" />
 </android.support.constraint.ConstraintLayout>

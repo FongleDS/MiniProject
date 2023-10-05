@@ -26,6 +26,7 @@ import okhttp3.Response;
 public class Basket extends AppCompatActivity {
     Button button_check;
     Socket mSocket;
+    String[] menus = new String[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +38,14 @@ public class Basket extends AppCompatActivity {
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
         String Realtime = bundle.getString("orderTime");
+        String menuID = bundle.getString("menuID");
+        menus = menuID.split(",");
+
+        System.out.println(menuID);
         MyApplication app = (MyApplication) getApplication();
 
         String stdID = app.getStdID();
         String seatID = app.getSeatID();
-        String menuID = bundle.getString("menuID");
 
         Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
         intent.putExtra("stdNum", stdID);
