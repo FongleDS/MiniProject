@@ -82,7 +82,7 @@ public class Mara extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
@@ -98,7 +98,7 @@ public class Mara extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
@@ -114,7 +114,7 @@ public class Mara extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
@@ -130,7 +130,7 @@ public class Mara extends AppCompatActivity {
                 intent.putExtra("seatNum", seatID);
                 intent.putExtra("stdNum", stdID);
                 intent.putExtra("orderTime", Realtime);
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
     }
