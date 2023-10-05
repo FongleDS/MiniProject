@@ -41,6 +41,8 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 
 
@@ -50,8 +52,7 @@ public class MainPage extends Activity {
     TextView Date, Name, leftSeat, waiting;
     String stdNum, stdName, orderID;
     Socket mSocket;
-    BarChart barChart;
-
+    LineChart lineChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class MainPage extends Activity {
         Name = findViewById(R.id.Name);
         leftSeat = findViewById(R.id.leftseat);
         waiting = findViewById(R.id.waitingOrder);
-        barChart = findViewById(R.id.chart);
+        lineChart = findViewById(R.id.chart);
 
         MyApplication app = (MyApplication) getApplication();
         stdName = app.getStdName();
@@ -95,67 +96,39 @@ public class MainPage extends Activity {
 
         //그래프
 
-        ArrayList<BarEntry> entry_chart = new ArrayList<>();
 
-        BarData barData = new BarData();
-        String[] labels = new String[]{"09.01", "09.02", "09.03", "09.04", "09.05", "09.06"};
+        ArrayList<Entry> entry_chart1 = new ArrayList<>(); // 데이터를 담을 Arraylist
+        ArrayList<Entry> entry_chart2 = new ArrayList<>();
+        LineData chartData = new LineData(); // 차트에 담길 데이터
 
-        ValueFormatter formatter = new ValueFormatter() {
-            @Override
-            public String getFormattedValue(float value) {
-                Log.d("ValueFormatter", "Received value: " + value);
-                if(value < 0 || value >= labels.length) {
-                    return ""; // 또는 다른 적절한 기본값
-                }
-                return labels[(int) value];
-            }
-        };
+        entry_chart1.add(new Entry(1, 1)); //entry_chart1에 좌표 데이터를 담는다.
+        entry_chart1.add(new Entry(2, 2));
+        entry_chart1.add(new Entry(3, 3));
+        entry_chart1.add(new Entry(4, 4));
+        entry_chart1.add(new Entry(5, 2));
+        entry_chart1.add(new Entry(6, 8));
 
-        entry_chart.add(new BarEntry(0, 1));
-        entry_chart.add(new BarEntry(1, 2));
-        entry_chart.add(new BarEntry(2, 3));
-        entry_chart.add(new BarEntry(3, 4));
-        entry_chart.add(new BarEntry(4, 2));
-        entry_chart.add(new BarEntry(5, 8));
-
-        XAxis xAxis = barChart.getXAxis();
-        xAxis.setDrawAxisLine(false);
-        //xAxis.setGranularity(1f);
-
-        xAxis.setAxisMinimum(0f);
-        xAxis.setAxisMaximum(15f);
-        //xAxis.setGridColor(Color.parseColor("#B70050"));
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setDrawLabels(true);
-        xAxis.setValueFormatter(formatter);
-        xAxis.setDrawGridLines(false);
-        xAxis.setGranularity(4f);
-
-        YAxis axisLeft = barChart.getAxisLeft();
-        axisLeft.setDrawGridLines(false);
-        axisLeft.setDrawAxisLine(false);
-        axisLeft.setAxisMinimum(0f);
-        axisLeft.setAxisMaximum(10f);
-        axisLeft.setDrawLabels(false);
+        entry_chart2.add(new Entry(1, 2)); //entry_chart2에 좌표 데이터를 담는다.
+        entry_chart2.add(new Entry(2, 3));
+        entry_chart2.add(new Entry(3, 1));
+        entry_chart2.add(new Entry(4, 4));
+        entry_chart2.add(new Entry(5, 5));
+        entry_chart2.add(new Entry(6, 7));
 
 
-        axisLeft.setEnabled(false);
-        barChart.getAxisRight().setEnabled(false);
-        barChart.getDescription().setEnabled(false);
-        barChart.getLegend().setEnabled(false);
-        barChart.setDrawGridBackground(false);
-        barChart.setDrawBorders(false);
+        LineDataSet lineDataSet1 = new LineDataSet(entry_chart1, "LineGraph1"); // 데이터가 담긴 Arraylist 를 LineDataSet 으로 변환한다.
+        LineDataSet lineDataSet2 = new LineDataSet(entry_chart2, "LineGraph2");
 
-        barChart.setEnabled(false);
-        barData.setBarWidth(0.25f);
+        lineDataSet1.setColor(Color.RED); // 해당 LineDataSet의 색 설정 :: 각 Line 과 관련된 세팅은 여기서 설정한다.
+        lineDataSet2.setColor(Color.BLACK);
 
-        BarDataSet barDataSet = new BarDataSet(entry_chart, "");
-        barDataSet.setColor(Color.parseColor("#B70050"));
-        barData.addDataSet(barDataSet);
-        barChart.setData(barData);
-        barChart.invalidate();
+        chartData.addDataSet(lineDataSet1); // 해당 LineDataSet 을 적용될 차트에 들어갈 DataSet 에 넣는다.
+        chartData.addDataSet(lineDataSet2);
 
+        lineChart.setData(chartData); // 차트에 위의 DataSet을 넣는다.
 
+        lineChart.invalidate(); // 차트 업데이트
+        lineChart.setTouchEnabled(false); // 차트 터치 disable
 
         //그래프
 
