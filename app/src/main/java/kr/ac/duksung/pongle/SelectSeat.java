@@ -177,11 +177,12 @@ public class SelectSeat extends AppCompatActivity {
 
 
         //이미 선택된 자리 클릭하면 팝업
-        Button button1 = findViewById(R.id.selected_button1);
-        Button button2 = findViewById(R.id.selected_button2);
-        Button button3 = findViewById(R.id.selected_button3);
-        Button button4 = findViewById(R.id.selected_button4);
-        Button button = findViewById(R.id.selected_button);
+
+        Button button1 = findViewById(R.id.selected_button1); //c구역 1번
+        Button button2 = findViewById(R.id.selected_button2); //c구역 4번
+        Button button3 = findViewById(R.id.selected_button3); //f구역 1번
+        Button button4 = findViewById(R.id.selected_button4); //a구역 4번
+        Button button = findViewById(R.id.selected_button); //e구역 1번
 
 
         button1.setOnClickListener(new View.OnClickListener() {
