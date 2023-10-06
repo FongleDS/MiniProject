@@ -85,7 +85,7 @@ public class Gunsan extends AppCompatActivity {
         don.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);
@@ -100,7 +100,7 @@ public class Gunsan extends AppCompatActivity {
         doncurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "7";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -116,7 +116,7 @@ public class Gunsan extends AppCompatActivity {
         shrimpcurry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "8";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -132,7 +132,7 @@ public class Gunsan extends AppCompatActivity {
         doubledon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "9";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -148,7 +148,7 @@ public class Gunsan extends AppCompatActivity {
         curry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "5";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());

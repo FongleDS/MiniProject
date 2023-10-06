@@ -87,7 +87,7 @@ public class Ttok extends AppCompatActivity {
         masungttok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "1";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -103,7 +103,7 @@ public class Ttok extends AppCompatActivity {
         chalsundae.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "21";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -119,7 +119,7 @@ public class Ttok extends AppCompatActivity {
         busan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "19";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -135,7 +135,7 @@ public class Ttok extends AppCompatActivity {
         modum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "27";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -151,7 +151,7 @@ public class Ttok extends AppCompatActivity {
         kimbob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "23";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -167,7 +167,7 @@ public class Ttok extends AppCompatActivity {
         chickenmayo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();                menuID = "6";
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();                menuID = "6";
                 menuID = "22";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());

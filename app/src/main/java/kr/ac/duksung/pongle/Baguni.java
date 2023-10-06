@@ -89,15 +89,23 @@ public class Baguni extends AppCompatActivity {
                         System.out.println(jsonArray);
                         StringBuilder stringBuilder = new StringBuilder();
 
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONArray subArray = jsonArray.getJSONArray(i);
-                            JSONArray menuInfo = subArray.getJSONArray(0);
-                            stringBuilder.append(menuInfo.getString(3));
-                            stringBuilder.append(",");
-                            Menu[i].setText(menuInfo.getString(0));
-                            Price[i].setText(menuInfo.getString(1) + "원");
-                            Rest[i].setText(menuInfo.getString(2));
+                        if (jsonArray.length() > 0) {
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONArray subArray = jsonArray.getJSONArray(i);
+                                JSONArray menuInfo = subArray.getJSONArray(0);
+                                stringBuilder.append(menuInfo.getString(3));
+                                stringBuilder.append(",");
+                                System.out.println(menuInfo);
+                                Menu[i].setText(menuInfo.getString(0));
+                                Price[i].setText(menuInfo.getString(1) + "원");
+                                Rest[i].setText(menuInfo.getString(2));
+                            }
                         }
+
+                        else {
+                            Baguni.setText("장바구니가 비어있습니다!");
+                        }
+
                         System.out.println(stringBuilder);
                         intent.putExtra("menuID", stringBuilder.toString());
 

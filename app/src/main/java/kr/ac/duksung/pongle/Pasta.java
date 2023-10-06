@@ -79,7 +79,7 @@ public class Pasta extends AppCompatActivity {
         aliolio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "11";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -95,7 +95,7 @@ public class Pasta extends AppCompatActivity {
         tomato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "12";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -111,7 +111,7 @@ public class Pasta extends AppCompatActivity {
         truffle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "13";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -127,7 +127,7 @@ public class Pasta extends AppCompatActivity {
         daepae.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "14";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -143,7 +143,7 @@ public class Pasta extends AppCompatActivity {
         rose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "15";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
@@ -159,7 +159,7 @@ public class Pasta extends AppCompatActivity {
         porkimchi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
                 menuID = "17";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
