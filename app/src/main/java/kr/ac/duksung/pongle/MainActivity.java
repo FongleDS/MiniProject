@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
-    
     // 서버 연결 입니다!
     OkHttpClient client = new OkHttpClient();
     public void fetchPassword(String stdID) {
@@ -102,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("stdName", name);
 
                                 startActivity(intent);
+                                finish();
                             }
                             // 입력한 비밀번호가 학번의 비밀 번호와 다를 때
                             else {
