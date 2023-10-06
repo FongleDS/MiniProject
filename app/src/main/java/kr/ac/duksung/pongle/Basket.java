@@ -46,13 +46,14 @@ public class Basket extends AppCompatActivity {
         MyApplication app = (MyApplication) getApplication();
 
         Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
-        if(intent != null) {
-            intent.putExtra("stdNum", stdID);
-            seatID = app.getSeatID();
-        } else {
-            stdID = app.getStdID();
-            seatID = app.getSeatID();
-        }
+        intent.putExtra("stdNum", stdID);
+
+        stdID = app.getStdID();
+        System.out.print(stdID);
+        seatID = app.getSeatID();
+
+        System.out.print(stdID);
+        System.out.println(seatID);
 
         orderUpdate(stdID, menuID, Realtime, seatID, intent);
         BasketInit();
