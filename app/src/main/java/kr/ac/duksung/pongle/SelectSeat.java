@@ -56,28 +56,6 @@ public class SelectSeat extends AppCompatActivity {
         selected_button2 = findViewById(R.id.selected_button2);
         seatName = findViewById(R.id.seatName);
 
-        try {
-            mSocket = IO.socket("http://10.0.2.2:5000");
-            mSocket.connect();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-        mSocket.on("pickup_alarm", new Emitter.Listener() {
-            @Override
-            public void call(Object... args) {
-                String data = (String) args[0];  // 문자열 바로 처리
-                System.out.println(data);
-
-                if (data.equals("ALARM")) {
-                    runOnUiThread(() -> {
-                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                        startActivity(intent);
-                    });
-                }
-            }
-        });
-
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -216,6 +194,28 @@ public class SelectSeat extends AppCompatActivity {
             }
         });
 
+
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String data = (String) args[0];  // 문자열 바로 처리
+                System.out.println(data);
+
+                if (data.equals("ALARM")) {
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        startActivity(intent);
+                    });
+                }
+            }
+        });
     }
 
     OkHttpClient client = new OkHttpClient();
