@@ -66,6 +66,7 @@ public class Gunsan extends AppCompatActivity {
         });
 
 
+        /*
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +74,9 @@ public class Gunsan extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+         */
 
+        /*
         gofront.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,11 +84,13 @@ public class Gunsan extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+         */
 
         don.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "장바구니에 담겼습니다!", Toast.LENGTH_SHORT).show();
+                menuID = "6";
                 basketInput(menuID);
                 String Realtime = sdf.format(calendar.getTime());
                 Intent intent = new Intent(getApplicationContext(), Baguni.class);

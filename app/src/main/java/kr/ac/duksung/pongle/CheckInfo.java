@@ -40,7 +40,7 @@ import okhttp3.Response;
 
 public class CheckInfo extends AppCompatActivity {
     TextView stdName;
-    TextView orderedMenu;
+    // TextView orderedMenu;
     TextView orderedID;
     TextView orderedTime;
     TextView selectedSeat;
@@ -58,7 +58,7 @@ public class CheckInfo extends AppCompatActivity {
 
         // button 요소 연결
         stdName = findViewById(R.id.userName);
-        orderedMenu = findViewById(R.id.orderMenu);
+        // orderedMenu = findViewById(R.id.orderMenu);
         orderedID = findViewById(R.id.orderID);
         orderedTime = findViewById(R.id.orderTime);
         selectedSeat = findViewById(R.id.seatID);
@@ -197,7 +197,7 @@ public class CheckInfo extends AppCompatActivity {
                         stdName.setText((CharSequence) infoList.get(0));
                         orderedTime.setText((CharSequence) infoList.get(1));
                         selectedSeat.setText((CharSequence) infoList.get(2));
-                        orderedMenu.setText((CharSequence) infoList.get(3));
+                        // orderedMenu.setText((CharSequence) infoList.get(3));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
