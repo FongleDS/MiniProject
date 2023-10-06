@@ -27,6 +27,7 @@ public class Basket extends AppCompatActivity {
     Button button_check;
     Socket mSocket;
     String[] menus = new String[3];
+    String stdID, seatID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,15 @@ public class Basket extends AppCompatActivity {
         System.out.println(menuID);
         MyApplication app = (MyApplication) getApplication();
 
-        String stdID = app.getStdID();
-        String seatID = app.getSeatID();
-
         Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
-        intent.putExtra("stdNum", stdID);
+        if(intent != null) {
+            intent.putExtra("stdNum", stdID);
+            seatID = app.getSeatID();
+        } else {
+            stdID = app.getStdID();
+            seatID = app.getSeatID();
+        }
+
         orderUpdate(stdID, menuID, Realtime, seatID, intent);
         BasketInit();
 
