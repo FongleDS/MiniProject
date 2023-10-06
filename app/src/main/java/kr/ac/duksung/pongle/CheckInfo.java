@@ -53,6 +53,8 @@ public class CheckInfo extends AppCompatActivity {
     Socket mSocket;
     String orderID;
 
+
+
     // Channel에 대한 id 생성
     private static final String PRIMARY_CHANNEL_ID = "FoodNotification";
     // Channel을 생성 및 전달해 줄 수 있는 Manager 생성
@@ -97,7 +99,7 @@ public class CheckInfo extends AppCompatActivity {
                         // orderManager.addOrder(orderID, menuName, "1");
                         sendNotification();
                         runOnUiThread(() -> {
-                            sendNotification();
+                            sendNotification(); //알람 notification
                             //Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
                             //startActivity(intent);
                         });
@@ -108,15 +110,24 @@ public class CheckInfo extends AppCompatActivity {
             }
         });
 
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
         mSocket.on("lastOrderAlarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
                 String dataString = (String) args[0];
+                System.out.println(dataString);
                 try {
                     JSONObject data = new JSONObject(dataString);
                     String result = data.getString("Result");
                     System.out.println(result);
                     if (result.equals("LASTALARM")) {
+                        System.out.println("LAST");
                         // orderManager.addOrder(orderID, menuName, "1");
                         runOnUiThread(() -> {
                             Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
@@ -205,7 +216,7 @@ public class CheckInfo extends AppCompatActivity {
 
 
 
-/////////////////////////////////////////////////
+/////////////////////////////////////////////////알람/////////////////////////////////////////////////알람
     public void createNotificationChannel()
     {
         //notification manager 생성
@@ -246,7 +257,7 @@ public class CheckInfo extends AppCompatActivity {
         mNotificationManager.notify(NOTIFICATION_ID,notifyBuilder.build());
     }
 
-/////////////////////////////////////////////////
+/////////////////////////////////////////////알람/////////////////////////////////////////////////////알람
 
 
 
