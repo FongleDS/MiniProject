@@ -49,6 +49,8 @@ public class Gunsan extends AppCompatActivity {
         doubledon = findViewById(R.id.doubledon);
         curry = findViewById(R.id.curry);
         basket = findViewById(R.id.basket);
+        goback = findViewById(R.id.goback);
+        gofront = findViewById(R.id.gofront);
 
         Intent getintent = getIntent();
         Bundle bundle = getintent.getExtras();
@@ -66,7 +68,7 @@ public class Gunsan extends AppCompatActivity {
         });
 
 
-        /*
+
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,9 +76,7 @@ public class Gunsan extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-         */
 
-        /*
         gofront.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +84,7 @@ public class Gunsan extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-         */
+
 
         don.setOnClickListener(new View.OnClickListener() {
             @Override
