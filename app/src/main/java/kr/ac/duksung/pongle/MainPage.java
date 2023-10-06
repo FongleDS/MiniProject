@@ -239,7 +239,7 @@ public class MainPage extends Activity {
                         System.out.println(jsonObject);
                         String waits = jsonObject.getString("waiting");
                         runOnUiThread(() -> {
-                            waiting.setText("주문 대기 인원 : " + waits + "석");
+                            waiting.setText("주문 대기 인원 : " + waits + "명");
                         });
                     } catch (JSONException e) {
                         e.printStackTrace();

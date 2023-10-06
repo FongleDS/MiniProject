@@ -77,6 +77,8 @@ public class CheckInfo extends AppCompatActivity {
         seat_view = findViewById(R.id.seat_view);
         exitButton = findViewById(R.id.exitButton);
 
+        createNotificationChannel();
+
         try {
             mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
@@ -106,7 +108,27 @@ public class CheckInfo extends AppCompatActivity {
             }
         });
 
-        createNotificationChannel();
+        mSocket.on("lastOrderAlarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String dataString = (String) args[0];
+                try {
+                    JSONObject data = new JSONObject(dataString);
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("LASTALARM")) {
+                        // orderManager.addOrder(orderID, menuName, "1");
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
 
 
 
