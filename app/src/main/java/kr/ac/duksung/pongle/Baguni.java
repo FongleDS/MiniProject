@@ -93,12 +93,26 @@ public class Baguni extends AppCompatActivity {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONArray subArray = jsonArray.getJSONArray(i);
                                 JSONArray menuInfo = subArray.getJSONArray(0);
+                                System.out.println(menuInfo);
+                                System.out.println(menuInfo.getString(0));
+                                int finalI = i;
+                                String menu = menuInfo.getString(0);
+                                String price = menuInfo.getString(1);
+                                String rest = menuInfo.getString(2);
                                 stringBuilder.append(menuInfo.getString(3));
                                 stringBuilder.append(",");
-                                System.out.println(menuInfo);
-                                Menu[i].setText(menuInfo.getString(0));
-                                Price[i].setText(menuInfo.getString(1) + "원");
-                                Rest[i].setText(menuInfo.getString(2));
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Menu[finalI].setText(menu);
+                                        // System.out.println(menuInfo.getString(1));
+                                        Price[finalI].setText(price + "원");
+                                        // System.out.println(menuInfo.getString(2));
+                                        Rest[finalI].setText(rest);
+                                        // System.out.println(menuInfo.getString(3));
+                                    }
+
+                                });
                             }
                         }
 
