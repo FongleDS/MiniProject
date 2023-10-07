@@ -101,17 +101,13 @@ public class Baguni extends AppCompatActivity {
                                 String rest = menuInfo.getString(2);
                                 stringBuilder.append(menuInfo.getString(3));
                                 stringBuilder.append(",");
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Menu[finalI].setText(menu);
-                                        // System.out.println(menuInfo.getString(1));
-                                        Price[finalI].setText(price + "원");
-                                        // System.out.println(menuInfo.getString(2));
-                                        Rest[finalI].setText(rest);
-                                        // System.out.println(menuInfo.getString(3));
-                                    }
-
+                                runOnUiThread(() -> {
+                                    Menu[finalI].setText(menu);
+                                    // System.out.println(menuInfo.getString(1));
+                                    Price[finalI].setText(price + "원");
+                                    // System.out.println(menuInfo.getString(2));
+                                    Rest[finalI].setText(rest);
+                                    // System.out.println(menuInfo.getString(3));
                                 });
                             }
                         }
