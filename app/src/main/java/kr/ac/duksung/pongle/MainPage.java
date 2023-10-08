@@ -114,6 +114,7 @@ public class MainPage extends Activity {
 
         LeftSeat();
         Waiting();
+        BasketInit();
 
         String[] onlyDate = Realtime.split(" ");
         onlyDate = onlyDate[0].split("-");
@@ -162,7 +163,8 @@ public class MainPage extends Activity {
 
         try {
             //mSocket = IO.socket("http://10.0.2.2:5000");
-            mSocket = IO.socket("http://192.168.35.42:5000");
+            mSocket = IO.socket("http://192.168.35.88:5000");
+            //mSocket = IO.socket("http://172.20.10.5:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -224,7 +226,7 @@ public class MainPage extends Activity {
         });
 
     }
-
+//////////////////////////////////////////그래프//////////////////////////////////////
     // 요일별 데이터 생성
     private void generateData() {
         dataByDay = new ArrayList<>();
@@ -337,14 +339,12 @@ public class MainPage extends Activity {
         return todayIndex;
     }
 
-
-    int maxPassenger = Integer.MIN_VALUE;
-
-
+/////////////////////////////////////그래프 ////////////////////////////////////////////////
     OkHttpClient client = new OkHttpClient();
     public void LeftSeat() {
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/countSeat")
+                //.url("http://10.0.2.2:5000/countSeat")
+                .url("http://192.168.35.88:5000/countSeat")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -373,7 +373,8 @@ public class MainPage extends Activity {
 
     public void Waiting() {
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/countWaiting")
+                //.url("http://10.0.2.2:5000/countWaiting")
+                .url("http://192.168.35.88:5000/countWaiting")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -394,6 +395,26 @@ public class MainPage extends Activity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                }
+            }
+        });
+    }
+
+
+    public void BasketInit() {
+        Request request = new Request.Builder()
+                //.url("http://10.0.2.2:5000/basketInit")
+                .url("http://192.168.35.88:5000/basketInit")
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    Log.i("BasketInit" , "basket Init");
                 }
             }
         });
