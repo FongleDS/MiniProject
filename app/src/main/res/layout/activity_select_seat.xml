@@ -66,17 +66,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
+    <Button
         android:id="@+id/seat_button_0"
         android:layout_width="15dp"
         android:layout_height="16dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="44dp"
         android:background="@drawable/green_seat_sero"
-        android:clickable="true"
+        android:text="1"
+        android:gravity="center"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"/>
+
     <TextView
         android:id="@+id/seat_button_0_tv"
         android:layout_width="15dp"
@@ -86,21 +88,10 @@
         android:text="1"
         android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="11dp"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
         tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageView
-        android:id="@+id/choice_button_0"
-        android:layout_width="15dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/red_seat_sero"
-        app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/seat_button_1"
