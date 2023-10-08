@@ -110,6 +110,8 @@ public class CheckInfo extends AppCompatActivity {
             }
         });
 
+
+        /*
         try {
             mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
@@ -139,7 +141,7 @@ public class CheckInfo extends AppCompatActivity {
                 }
             }
         });
-
+*/
 
 
 

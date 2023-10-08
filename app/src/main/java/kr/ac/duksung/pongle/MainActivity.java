@@ -129,7 +129,9 @@ public class MainActivity extends AppCompatActivity {
 
                                 MyApplication app = (MyApplication) getApplicationContext();
                                 app.setStdName(name);
+                                System.out.println(name);
                                 app.setStdID(stdID);
+                                System.out.println(stdID);
 
                                 intent.putExtra("stdNum", stdID);
                                 intent.putExtra("stdName", name);

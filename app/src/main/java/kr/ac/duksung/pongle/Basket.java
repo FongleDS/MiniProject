@@ -1,10 +1,12 @@
 package kr.ac.duksung.pongle;
 
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,15 +46,15 @@ public class Basket extends AppCompatActivity {
 
         System.out.println(menuID);
         MyApplication app = (MyApplication) getApplication();
-
-        Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
-        intent.putExtra("stdNum", stdID);
-
         stdID = app.getStdID();
         System.out.print(stdID);
         seatID = app.getSeatID();
 
-        System.out.print(stdID);
+        Intent intent = new Intent(getApplicationContext(), CheckInfo.class);
+        intent.putExtra("stdNum", stdID);
+
+
+        // System.out.print(stdID);
         System.out.println(seatID);
 
         orderUpdate(stdID, menuID, Realtime, seatID, intent);
@@ -89,7 +91,73 @@ public class Basket extends AppCompatActivity {
 
     }
 
-    OkHttpClient client = new OkHttpClient();
+    private void sendRequest(String url, @Nullable RequestBody body, ResponseCallback callback) {
+        Request.Builder requestBuilder = new Request.Builder()
+                .url(url);
+
+        if(body != null) {
+            requestBuilder.post(body);
+        }
+
+        Request request = requestBuilder.build();
+        OkHttpClientSingleton.getInstance().newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> {
+                    Toast.makeText(getApplicationContext(), "Request failed.", Toast.LENGTH_SHORT).show();
+                });
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                callback.onResponse(response);
+            }
+        });
+    }
+
+    public void orderUpdate(String stdID, String menuID, String orderDate, String seatID, Intent intent) {
+        RequestBody formBody = new FormBody.Builder()
+                .add("stdID", stdID)
+                .add("menuID", menuID)
+                .add("orderDate", orderDate)
+                .add("seatID", seatID)
+                .build();
+
+        sendRequest("http://10.0.2.2:5000/orderUpdate", formBody, response -> {
+            if (response.isSuccessful()) {
+                try {
+                    String responseBody = response.body().string();
+                    JSONObject jsonResponse = new JSONObject(responseBody);
+                    String orderID = jsonResponse.getString("orderID");
+                    runOnUiThread(() -> {
+                        MyApplication app = (MyApplication) getApplicationContext();
+                        app.setOrderID(orderID);
+                        intent.putExtra("orderID", orderID);
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void BasketInit() {
+        sendRequest("http://10.0.2.2:5000/basketInit", null, response -> {
+            if (response.isSuccessful()) {
+                runOnUiThread(() -> {
+                    Toast.makeText(getApplicationContext(), "Basket Init", Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+    }
+
+    // Callback interface for cleaner onResponse handling
+    interface ResponseCallback {
+        void onResponse(Response response) throws IOException;
+    }
+
+    /*
     public void orderUpdate(String stdID, String menuID, String orderDate, String seatID, Intent intent) {
         RequestBody formBody = new FormBody.Builder()
                 .add("stdID", stdID)
@@ -146,4 +214,5 @@ public class Basket extends AppCompatActivity {
             }
         });
     }
+     */
 }
