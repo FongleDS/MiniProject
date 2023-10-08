@@ -1,8 +1,11 @@
 package kr.ac.duksung.pongle;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,6 +54,17 @@ public class CheckInfo extends AppCompatActivity {
     String orderID;
 
 
+
+    // Channel에 대한 id 생성
+    private static final String PRIMARY_CHANNEL_ID = "FoodNotification";
+    // Channel을 생성 및 전달해 줄 수 있는 Manager 생성
+    private NotificationManager mNotificationManager;
+
+    // Notification에 대한 ID 생성
+    private static final int NOTIFICATION_ID = 0;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +78,8 @@ public class CheckInfo extends AppCompatActivity {
         selectedSeat = findViewById(R.id.seatID);
         seat_view = findViewById(R.id.seat_view);
         exitButton = findViewById(R.id.exitButton);
+
+        createNotificationChannel();
 
         try {
             mSocket = IO.socket("http://10.0.2.2:5000");
@@ -81,6 +97,40 @@ public class CheckInfo extends AppCompatActivity {
                     System.out.println(result);
                     if (result.equals("ALARM")) {
                         // orderManager.addOrder(orderID, menuName, "1");
+                        sendNotification();
+                        runOnUiThread(() -> {
+                            sendNotification(); //알람 notification
+                            //Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                            //startActivity(intent);
+                        });
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
+        /*
+        try {
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("lastOrderAlarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String dataString = (String) args[0];
+                System.out.println(dataString);
+                try {
+                    JSONObject data = new JSONObject(dataString);
+                    String result = data.getString("Result");
+                    System.out.println(result);
+                    if (result.equals("LASTALARM")) {
+                        System.out.println("LAST");
+                        // orderManager.addOrder(orderID, menuName, "1");
                         runOnUiThread(() -> {
                             Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
                             startActivity(intent);
@@ -91,6 +141,7 @@ public class CheckInfo extends AppCompatActivity {
                 }
             }
         });
+*/
 
 
 
@@ -163,6 +214,58 @@ public class CheckInfo extends AppCompatActivity {
         }
         return null;
     }
+
+
+
+
+/////////////////////////////////////////////////알람/////////////////////////////////////////////////알람
+    public void createNotificationChannel()
+    {
+        //notification manager 생성
+        mNotificationManager = (NotificationManager)
+                getSystemService(NOTIFICATION_SERVICE);
+        // 기기(device)의 SDK 버전 확인 ( SDK 26 버전 이상인지 - VERSION_CODES.O = 26)
+        if(android.os.Build.VERSION.SDK_INT
+                >= android.os.Build.VERSION_CODES.O){
+            //Channel 정의 생성자( construct 이용 )
+            NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_ID
+                    ,"FoodNotification",mNotificationManager.IMPORTANCE_HIGH);
+            //Channel에 대한 기본 설정
+            notificationChannel.enableLights(true);
+            notificationChannel.setLightColor(Color.RED);
+            notificationChannel.enableVibration(true);
+            notificationChannel.setDescription("Notification from Mascot");
+            // Manager을 이용하여 Channel 생성
+            mNotificationManager.createNotificationChannel(notificationChannel);
+        }
+
+    }
+
+    // Notification Builder를 만드는 메소드
+    private NotificationCompat.Builder getNotificationBuilder() {
+        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
+                .setContentTitle("음식 준비 완료")
+                .setContentText("음식 준비가 완료되었습니다!")
+                .setSmallIcon(R.drawable.foodalarm)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        return notifyBuilder;
+    }
+
+    // Notification을 보내는 메소드
+    public void sendNotification(){
+        // Builder 생성
+        NotificationCompat.Builder notifyBuilder = getNotificationBuilder();
+        // Manager를 통해 notification 디바이스로 전달
+        mNotificationManager.notify(NOTIFICATION_ID,notifyBuilder.build());
+    }
+
+/////////////////////////////////////////////알람/////////////////////////////////////////////////////알람
+
+
+
+
+
+
     OkHttpClient client = new OkHttpClient();
     public void getOrderInfo(String orderID) {
         RequestBody formBody = new FormBody.Builder()

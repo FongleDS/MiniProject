@@ -210,8 +210,8 @@ public class SelectSeat extends AppCompatActivity {
 
                 if (data.equals("ALARM")) {
                     runOnUiThread(() -> {
-                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                        startActivity(intent);
+                        //Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        //startActivity(intent);
                     });
                 }
             }
