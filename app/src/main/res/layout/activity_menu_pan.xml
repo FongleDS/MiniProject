@@ -45,13 +45,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/menupan_round"
                     android:drawableStart="@drawable/pasta"
+                    android:background="@drawable/menupan_round"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
 
             <LinearLayout
-                android:layout_width="19dp"
+                android:layout_width="8dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"></LinearLayout>
 
@@ -147,7 +147,7 @@
             </FrameLayout>
 
             <LinearLayout
-                android:layout_width="19dp"
+                android:layout_width="8dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"></LinearLayout>
 
@@ -246,7 +246,7 @@
         </FrameLayout>
 
         <LinearLayout
-            android:layout_width="19dp"
+            android:layout_width="8dp"
             android:layout_height="match_parent"
             android:orientation="horizontal"></LinearLayout>
 
