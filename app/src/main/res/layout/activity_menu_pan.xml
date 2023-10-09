@@ -33,6 +33,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <FrameLayout
@@ -41,12 +42,18 @@
 
                 <Button
                     android:id="@+id/button_pasta"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableStart="@drawable/pasta"
+                    android:background="@drawable/menupan_round"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
 
             <FrameLayout
                 android:layout_width="195dp"
@@ -54,9 +61,10 @@
 
                 <Button
                     android:id="@+id/button_gunsan"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="196dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/menupan_round"
                     android:drawableStart="@drawable/gunsan"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
@@ -121,19 +129,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:gravity="center"
             android:orientation="horizontal">
+
             <FrameLayout
                 android:layout_width="195dp"
                 android:layout_height="150dp">
 
                 <Button
                     android:id="@+id/button_ttok"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/menupan_round"
                     android:drawableStart="@drawable/masung"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="8dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
 
             <FrameLayout
                 android:layout_width="195dp"
@@ -141,9 +157,10 @@
 
                 <Button
                     android:id="@+id/button_toast"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/menupan_round"
                     android:drawableStart="@drawable/toast"
                     tools:ignore="SpeakableTextPresentCheck" />
             </FrameLayout>
@@ -211,6 +228,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <FrameLayout
@@ -219,12 +237,18 @@
 
             <Button
                 android:id="@+id/button_mara"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/menupan_round"
                 android:drawableStart="@drawable/mara"
                 tools:ignore="SpeakableTextPresentCheck" />
         </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
 
         <FrameLayout
             android:layout_width="195dp"
@@ -235,6 +259,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/menupan_round"
                 tools:ignore="SpeakableTextPresentCheck" />
         </FrameLayout>
     </LinearLayout>
