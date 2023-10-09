@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     String ID;
     String PW;
     String realPW;
+    Socket mSocket;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +51,47 @@ public class MainActivity extends AppCompatActivity {
         // 로그인 버튼
         btn_login = findViewById(R.id.login);
 
+
+        MyApplication app = (MyApplication) getApplication();
+        String name = app.getStdName();
+
+
+
+        // 깃허브 테스트
         //login 버튼입니다
         btn_login.setOnClickListener(v -> {
             ID = String.valueOf(stdID.getText());
             PW = String.valueOf(stdPW.getText());
             fetchPassword(ID);
         });
+
+        try {
+            //mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket = IO.socket("http://192.168.35.88:5000");
+            //mSocket = IO.socket("http://172.20.10.5:5000");
+            mSocket.connect();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String data = (String) args[0];  // 문자열 바로 처리
+                System.out.println(data);
+
+                if (data.equals("ALARM")) {
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        startActivity(intent);
+                    });
+                }
+            }
+        });
     }
 
+
+    
     // 서버 연결 입니다!
     OkHttpClient client = new OkHttpClient();
     public void fetchPassword(String stdID) {
@@ -64,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
                 .add("stdID", stdID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/get_password")
+                //.url("http://172.20.10.5:5000/get_password")
+                .url("http://192.168.35.88:5000/get_password")
+                //.url("http://10.0.2.2:5000/get_password")
                 // .url("http://192.168.137.100:5000/get_password")
                 .post(formBody)
                 .build();
