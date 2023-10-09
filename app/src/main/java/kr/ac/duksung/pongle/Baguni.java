@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,11 +51,6 @@ public class Baguni extends AppCompatActivity {
         Rest[1] = findViewById(R.id.restaurant2);
         Rest[2] = findViewById(R.id.restaurant3);
 
-
-
-
-
-
         Intent intent = new Intent(getApplicationContext(), Basket.class);
 
         getBasket(intent);
@@ -73,7 +70,8 @@ public class Baguni extends AppCompatActivity {
 
     public void getBasket(Intent intent) {
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/getBasket")
+                //.url("http://10.0.2.2:5000/getBasket")
+                .url("http://192.168.35.88:5000/getBasket")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
