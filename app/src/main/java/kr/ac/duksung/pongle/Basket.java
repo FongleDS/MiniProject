@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -68,7 +69,8 @@ public class Basket extends AppCompatActivity {
         });
 
         try {
-            mSocket = IO.socket("http://10.0.2.2:5000");
+            //mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://192.168.35.188:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -124,12 +126,12 @@ public class Basket extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
 
-        sendRequest("http://10.0.2.2:5000/orderUpdate", formBody, response -> {
+        sendRequest("http://192.168.35.188:5000/orderUpdate", formBody, response -> {
             if (response.isSuccessful()) {
                 try {
                     String responseBody = response.body().string();
-                    JSONObject jsonResponse = new JSONObject(responseBody);
-                    String orderID = jsonResponse.getString("orderID");
+                    JSONArray jsonResponse = new JSONArray(responseBody);
+                    String orderID = jsonResponse.getJSONObject(0).getString("orderID");
                     runOnUiThread(() -> {
                         MyApplication app = (MyApplication) getApplicationContext();
                         app.setOrderID(orderID);
@@ -143,7 +145,7 @@ public class Basket extends AppCompatActivity {
     }
 
     public void BasketInit() {
-        sendRequest("http://10.0.2.2:5000/basketInit", null, response -> {
+        sendRequest("http://192.168.35.188:5000/basketInit", null, response -> {
             if (response.isSuccessful()) {
                 runOnUiThread(() -> {
                     Toast.makeText(getApplicationContext(), "Basket Init", Toast.LENGTH_SHORT).show();
@@ -166,7 +168,7 @@ public class Basket extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/orderUpdate")
+                .url("http://192.168.35.188:5000/orderUpdate")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -199,7 +201,7 @@ public class Basket extends AppCompatActivity {
 
     public void BasketInit() {
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/basketInit")
+                .url("http://192.168.35.188:5000/basketInit")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

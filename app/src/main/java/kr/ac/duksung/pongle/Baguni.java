@@ -111,7 +111,9 @@ public class Baguni extends AppCompatActivity {
                         }
 
                         else {
-                            Baguni.setText("장바구니가 비어있습니다!");
+                            runOnUiThread(() -> {
+                                Baguni.setText("장바구니가 비어있습니다!");
+                            });
                         }
 
                         System.out.println(stringBuilder);

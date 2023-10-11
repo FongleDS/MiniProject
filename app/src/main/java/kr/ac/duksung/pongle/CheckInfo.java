@@ -49,7 +49,7 @@ public class CheckInfo extends AppCompatActivity {
     TextView selectedSeat;
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
-    Button seat_view, exitButton;
+    Button exitButton;
     Socket mSocket;
     String orderID;
 
@@ -76,17 +76,33 @@ public class CheckInfo extends AppCompatActivity {
         orderedID = findViewById(R.id.orderID);
         orderedTime = findViewById(R.id.orderTime);
         selectedSeat = findViewById(R.id.seatID);
-        seat_view = findViewById(R.id.seat_view);
         exitButton = findViewById(R.id.exitButton);
 
         createNotificationChannel();
 
         try {
-            mSocket = IO.socket("http://10.0.2.2:5000");
+            //mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://192.168.35.188:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
+
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String data = (String) args[0];  // 문자열 바로 처리
+                System.out.println(data);
+
+                if (data.equals("ALARM")) {
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        startActivity(intent);
+                    });
+                }
+            }
+        });
+        /*
         mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
@@ -109,11 +125,11 @@ public class CheckInfo extends AppCompatActivity {
                 }
             }
         });
-
+*/
 
         /*
         try {
-            mSocket = IO.socket("http://10.0.2.2:5000");
+            mSocket = IO.socket("http://192.168.35.188:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -159,15 +175,6 @@ public class CheckInfo extends AppCompatActivity {
 
         System.out.println("=============");
         System.out.println(orderID);
-
-        seat_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(CheckInfo.this, SelectSeat.class);
-                intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent1);
-            }
-        });
 
 
         exitButton.setOnClickListener(new View.OnClickListener() {
@@ -272,7 +279,7 @@ public class CheckInfo extends AppCompatActivity {
                 .add("orderID", orderID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/getOrderInfo")
+                .url("http://192.168.35.188:5000/getOrderInfo")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -308,14 +315,6 @@ public class CheckInfo extends AppCompatActivity {
             }
         });
 
-        seat_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                startActivity(intent);
-            }
-        });
-
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -329,7 +328,7 @@ public class CheckInfo extends AppCompatActivity {
 
     public void basketInit(Intent intent) {
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/basketInit")
+                .url("http://192.168.35.188:5000/basketInit")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

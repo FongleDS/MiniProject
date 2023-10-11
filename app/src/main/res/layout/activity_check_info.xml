@@ -30,6 +30,7 @@
         android:layout_height="76dp"
         android:gravity="center"
         android:text="나의 주문 정보"
+        android:fontFamily="@font/scoredream_medium"
         android:textSize="24dp"
         android:textStyle="bold" />
 
@@ -47,9 +48,10 @@
 
     <TextView
         android:id="@+id/userName"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@color/black"
         android:textStyle="bold"
+        android:fontFamily="@font/scoredream_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="오주원" />
@@ -84,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="주문 시간"
+                android:fontFamily="@font/scoredream_medium"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -94,6 +97,7 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:text="주문 번호"
+                android:fontFamily="@font/scoredream_medium"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -103,6 +107,7 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:text="좌석 번호"
+                android:fontFamily="@font/scoredream_medium"
                 android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -148,22 +153,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/scoredream_medium"
         android:text="캡쳐 이미지로 결제 가능합니다."/>
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:orientation="vertical"></LinearLayout>
 
-    <Button
-        android:id="@+id/seat_view"
-        android:layout_width="277dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:text="좌석 확인"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+
 
 </LinearLayout>

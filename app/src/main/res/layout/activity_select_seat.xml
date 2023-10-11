@@ -39,6 +39,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="좌석 선택"
+        android:fontFamily="@font/scoredream_medium"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -99,7 +100,7 @@
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/seat_plan_iv"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <ImageView
         android:id="@+id/choice_button_1"
@@ -208,9 +209,10 @@
         android:id="@+id/select_seat"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:background="@drawable/round_button"
+        android:fontFamily="@font/scoredream_medium"
         android:text="좌석 선택"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
