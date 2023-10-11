@@ -30,8 +30,7 @@ public class Popup extends AppCompatActivity {
         exitbutton = findViewById(R.id.exitButton);
 
         try {
-            //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();

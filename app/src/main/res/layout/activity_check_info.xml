@@ -157,13 +157,6 @@
         android:layout_height="25dp"
         android:orientation="vertical"></LinearLayout>
 
-    <Button
-        android:id="@+id/seat_view"
-        android:layout_width="277dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:text="좌석 확인"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp" />
+
 
 </LinearLayout>

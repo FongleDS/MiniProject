@@ -22,7 +22,7 @@
     <ImageView
         android:id="@+id/don"
         android:layout_width="170dp"
-        android:layout_height="210dp"
+        android:layout_height="190dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
     <ImageView
         android:id="@+id/doncurry"
         android:layout_width="170dp"
-        android:layout_height="210dp"
+        android:layout_height="190dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,20 +70,10 @@
         app:srcCompat="@drawable/rectangle14" />
 
     <ImageView
-        android:id="@+id/rose"
-        android:layout_width="170dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doubledon"
-        app:srcCompat="@drawable/rectangle14" />
-
-    <ImageView
         android:id="@+id/image_don"
-        android:layout_width="144dp"
-        android:layout_height="116dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="135dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="18dp"
         android:src="@drawable/don"
         app:layout_constraintEnd_toEndOf="@+id/don"
         app:layout_constraintHorizontal_bias="0.5"
@@ -95,6 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="돈카츠"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@+id/don"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/don"
@@ -104,18 +95,18 @@
         android:id="@+id/price_don"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:text="6900"
         app:layout_constraintEnd_toEndOf="@+id/don"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/don"
-        app:layout_constraintTop_toBottomOf="@+id/image_don" />
+        app:layout_constraintTop_toBottomOf="@+id/text_don" />
 
     <ImageView
         android:id="@+id/image_doncurry"
-        android:layout_width="144dp"
-        android:layout_height="116dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="135dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="18dp"
         android:src="@drawable/doncurry"
         app:layout_constraintEnd_toEndOf="@+id/doncurry"
         app:layout_constraintHorizontal_bias="0.5"
@@ -127,6 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="돈카츠카레덮밥"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@+id/doncurry"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/doncurry"
@@ -145,8 +137,8 @@
 
     <ImageView
         android:id="@+id/image_shrimpcurry"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
+        android:layout_width="135dp"
+        android:layout_height="110dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/shrimpcurry"
         app:layout_constraintEnd_toEndOf="@+id/shrimpcurry"
@@ -177,8 +169,8 @@
 
     <ImageView
         android:id="@+id/image_doubledon"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
+        android:layout_width="135dp"
+        android:layout_height="110dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/doubledon"
         app:layout_constraintEnd_toEndOf="@+id/doubledon"
@@ -209,8 +201,8 @@
 
     <ImageView
         android:id="@+id/image_curry"
-        android:layout_width="151dp"
-        android:layout_height="112dp"
+        android:layout_width="135dp"
+        android:layout_height="110dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/curry"
         app:layout_constraintEnd_toEndOf="@+id/curry"

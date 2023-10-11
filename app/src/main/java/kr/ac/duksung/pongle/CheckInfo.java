@@ -49,7 +49,7 @@ public class CheckInfo extends AppCompatActivity {
     TextView selectedSeat;
     ImageView QRCode;
     ArrayList infoList = new ArrayList();
-    Button seat_view, exitButton;
+    Button exitButton;
     Socket mSocket;
     String orderID;
 
@@ -76,7 +76,6 @@ public class CheckInfo extends AppCompatActivity {
         orderedID = findViewById(R.id.orderID);
         orderedTime = findViewById(R.id.orderTime);
         selectedSeat = findViewById(R.id.seatID);
-        seat_view = findViewById(R.id.seat_view);
         exitButton = findViewById(R.id.exitButton);
 
         createNotificationChannel();
@@ -176,15 +175,6 @@ public class CheckInfo extends AppCompatActivity {
 
         System.out.println("=============");
         System.out.println(orderID);
-
-        seat_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(CheckInfo.this, SelectSeat.class);
-                intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent1);
-            }
-        });
 
 
         exitButton.setOnClickListener(new View.OnClickListener() {
@@ -322,14 +312,6 @@ public class CheckInfo extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-            }
-        });
-
-        seat_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                startActivity(intent);
             }
         });
 
