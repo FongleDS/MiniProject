@@ -81,8 +81,8 @@
 
     <ImageView
         android:id="@+id/image_aliolio"
-        android:layout_width="144dp"
-        android:layout_height="116dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/aliolio"
         app:layout_constraintEnd_toEndOf="@+id/aliolio"
@@ -105,7 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="6500"
+        android:text="6,500원"
         app:layout_constraintEnd_toEndOf="@+id/aliolio"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/aliolio"
@@ -113,8 +113,8 @@
 
     <ImageView
         android:id="@+id/image_tomato"
-        android:layout_width="144dp"
-        android:layout_height="116dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/tomato"
         app:layout_constraintEnd_toEndOf="@+id/tomato"
@@ -137,7 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:text="6500"
+        android:text="6,500원"
         app:layout_constraintEnd_toEndOf="@+id/tomato"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/tomato"
@@ -145,8 +145,8 @@
 
     <ImageView
         android:id="@+id/image_truffle"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/truffle"
         app:layout_constraintEnd_toEndOf="@+id/truffle"
@@ -169,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:text="6500"
+        android:text="6,500원"
         app:layout_constraintEnd_toEndOf="@+id/truffle"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/truffle"
@@ -177,8 +177,8 @@
 
     <ImageView
         android:id="@+id/image_daepae"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/daepae"
         app:layout_constraintEnd_toEndOf="@+id/daepae"
@@ -201,7 +201,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:text="7500"
+        android:text="7,500원"
         app:layout_constraintEnd_toEndOf="@+id/daepae"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/daepae"
@@ -209,8 +209,8 @@
 
     <ImageView
         android:id="@+id/image_porkimchi"
-        android:layout_width="151dp"
-        android:layout_height="112dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/porkimchi"
         app:layout_constraintEnd_toEndOf="@+id/porkimchi"
@@ -233,7 +233,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:text="7500"
+        android:text="7,500원"
         app:layout_constraintEnd_toEndOf="@+id/porkimchi"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/porkimchi"
@@ -241,8 +241,8 @@
 
     <ImageView
         android:id="@+id/image_rose"
-        android:layout_width="151dp"
-        android:layout_height="112dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/rose"
         app:layout_constraintEnd_toEndOf="@+id/rose"
@@ -265,7 +265,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:text="7500"
+        android:text="7,500원"
         app:layout_constraintEnd_toEndOf="@+id/rose"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/rose"
