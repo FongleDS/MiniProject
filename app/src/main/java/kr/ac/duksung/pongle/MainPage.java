@@ -163,7 +163,7 @@ public class MainPage extends Activity {
 
         try {
             //mSocket = IO.socket("http://10.0.2.2:5000");
-            mSocket = IO.socket("http://192.168.35.88:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             //mSocket = IO.socket("http://172.20.10.5:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
@@ -344,7 +344,7 @@ public class MainPage extends Activity {
     public void LeftSeat() {
         Request request = new Request.Builder()
                 //.url("http://10.0.2.2:5000/countSeat")
-                .url("http://192.168.35.88:5000/countSeat")
+                .url("http://10.0.2.2:5000/countSeat")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -374,7 +374,7 @@ public class MainPage extends Activity {
     public void Waiting() {
         Request request = new Request.Builder()
                 //.url("http://10.0.2.2:5000/countWaiting")
-                .url("http://192.168.35.88:5000/countWaiting")
+                .url("http://10.0.2.2:5000/countWaiting")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -404,7 +404,7 @@ public class MainPage extends Activity {
     public void BasketInit() {
         Request request = new Request.Builder()
                 //.url("http://10.0.2.2:5000/basketInit")
-                .url("http://192.168.35.88:5000/basketInit")
+                .url("http://10.0.2.2:5000/basketInit")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
