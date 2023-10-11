@@ -96,8 +96,8 @@
                     android:id="@+id/button_seat"
                     android:layout_width="90dp"
                     android:layout_height="100dp"
-                    android:alpha="0.48"
-                    android:background="@drawable/image_seat"
+                    android:alpha="0.8"
+                    android:background="@drawable/img"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -152,7 +152,7 @@
                         android:gravity="center"
                         android:fontFamily="@font/scoredream_bold"
                         android:text="좌석 선택"
-                        android:textColor="#5A5353"
+                        android:textColor="#B70050"
                         android:textSize="16sp" />
 
                     <LinearLayout
