@@ -12,14 +12,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import io.socket.client.IO;
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -39,7 +35,7 @@ public class Gunsan extends AppCompatActivity {
     Button gofront;
     Button basket;
 
-    Socket mSocket;
+
     String menuID;
 
     @Override
@@ -169,30 +165,6 @@ public class Gunsan extends AppCompatActivity {
                 //startActivity(intent);
             }
         });
-
-        try {
-            //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket.connect();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-        mSocket.on("pickup_alarm", new Emitter.Listener() {
-            @Override
-            public void call(Object... args) {
-                String data = (String) args[0];  // 문자열 바로 처리
-                System.out.println(data);
-
-                if (data.equals("ALARM")) {
-                    runOnUiThread(() -> {
-                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                        startActivity(intent);
-                    });
-                }
-            }
-        });
-
     }
     OkHttpClient client = new OkHttpClient();
     public void basketInput(String menuID) {
@@ -200,8 +172,8 @@ public class Gunsan extends AppCompatActivity {
                 .add("menuID", menuID)
                 .build();
         Request request = new Request.Builder()
-                //.url("http://192.168.35.188:5000/basketUpdate")
-                .url("http://192.168.35.188:5000/basketUpdate")
+                //.url("http://10.0.2.2:5000/basketUpdate")
+                .url("http://192.168.35.88:5000/basketUpdate")
 
                 .post(formBody)
                 .build();

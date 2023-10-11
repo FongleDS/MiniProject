@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="deploymentTargetDropDown">
-    <runningDeviceTargetSelectedWithDropDown>
+    <targetSelectedWithDropDown>
       <Target>
-        <type value="RUNNING_DEVICE_TARGET" />
+        <type value="QUICK_BOOT_TARGET" />
         <deviceKey>
           <Key>
-            <type value="SERIAL_NUMBER" />
-            <value value="emulator-5554" />
+            <type value="VIRTUAL_DEVICE_PATH" />
+<<<<<<< HEAD
+            <value value="C:\CookAndroid\.android\avd\Pixel_2_API_31.avd" />
+=======
+            <value value="C:\CookAndroid\.android\avd\T.avd" />
+>>>>>>> origin/master
           </Key>
         </deviceKey>
       </Target>
-    </runningDeviceTargetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2023-10-10T15:19:39.682809300Z" />
+    </targetSelectedWithDropDown>
+<<<<<<< HEAD
+    <timeTargetWasSelectedWithDropDown value="2023-10-09T09:07:42.449920500Z" />
+=======
+    <timeTargetWasSelectedWithDropDown value="2023-10-09T08:48:26.608049900Z" />
+>>>>>>> origin/master
   </component>
 </project>
