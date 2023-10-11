@@ -63,7 +63,7 @@ public class MenuPan extends Activity {
 
         try {
             //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             //mSocket = IO.socket("http://172.20.10.5:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
@@ -90,7 +90,7 @@ public class MenuPan extends Activity {
         OkHttpClient client = new OkHttpClient();
 
         //String url = "http://192.168.35.188:5000/restCount";
-        String url = "http://192.168.35.188:5000/restCount";
+        String url = "http://10.0.2.2:5000/restCount";
         Request request = new Request.Builder()
                 .url(url)
                 .build();
