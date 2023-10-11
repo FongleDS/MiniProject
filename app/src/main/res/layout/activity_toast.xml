@@ -81,8 +81,8 @@
 
     <ImageView
         android:id="@+id/image_americano"
-        android:layout_width="144dp"
-        android:layout_height="116dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/americano"
         app:layout_constraintEnd_toEndOf="@+id/americano"
@@ -113,8 +113,8 @@
 
     <ImageView
         android:id="@+id/image_latte"
-        android:layout_width="144dp"
-        android:layout_height="116dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="30dp"
         android:src="@drawable/latte"
         app:layout_constraintEnd_toEndOf="@+id/latte"
@@ -145,8 +145,8 @@
 
     <ImageView
         android:id="@+id/image_vanilla"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/vanilla"
         app:layout_constraintEnd_toEndOf="@+id/vanilla"
@@ -157,7 +157,7 @@
         android:id="@+id/text_vanilla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="바닐라라떼"
         app:layout_constraintEnd_toEndOf="@+id/vanilla"
         app:layout_constraintHorizontal_bias="0.5"
@@ -177,8 +177,8 @@
 
     <ImageView
         android:id="@+id/image_yeon"
-        android:layout_width="152dp"
-        android:layout_height="118dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/yeon"
         app:layout_constraintEnd_toEndOf="@+id/yeon"
@@ -189,7 +189,7 @@
         android:id="@+id/text_yeon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="연유라떼"
         app:layout_constraintEnd_toEndOf="@+id/yeon"
         app:layout_constraintHorizontal_bias="0.5"
@@ -209,8 +209,8 @@
 
     <ImageView
         android:id="@+id/image_hamcheese"
-        android:layout_width="151dp"
-        android:layout_height="112dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/hamcheese"
         app:layout_constraintEnd_toEndOf="@+id/hamcheese"
@@ -221,7 +221,7 @@
         android:id="@+id/text_hamcheese"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="햄치즈토스트"
         app:layout_constraintEnd_toEndOf="@+id/hamcheese"
         app:layout_constraintHorizontal_bias="0.5"
@@ -241,8 +241,8 @@
 
     <ImageView
         android:id="@+id/image_baconegg"
-        android:layout_width="151dp"
-        android:layout_height="112dp"
+        android:layout_width="140dp"
+        android:layout_height="115dp"
         android:layout_marginTop="18dp"
         android:src="@drawable/baconegg"
         app:layout_constraintEnd_toEndOf="@+id/baconegg"
@@ -253,7 +253,7 @@
         android:id="@+id/text_baconegg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:text="베이컨에그토스트"
         app:layout_constraintEnd_toEndOf="@+id/baconegg"
         app:layout_constraintHorizontal_bias="0.5"
