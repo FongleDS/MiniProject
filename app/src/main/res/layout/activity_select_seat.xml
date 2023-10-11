@@ -291,7 +291,7 @@
         android:id="@+id/select_seat"
         android:layout_width="388dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:background="@drawable/round_button"
         android:text="좌석 선택"
