@@ -149,7 +149,7 @@ public class MainPage extends Activity {
                 // 선택한 요일의 최대 이용객 수와 시간 표시
                 int maxPassenger = getMaxPassenger(dataByDay.get(position));
                 String maxPassengerTime = getMaxPassengerTime(dataByDay.get(position));
-                maxPassengerText.setText("혼잡도 가장 높은 시간: " + maxPassengerTime +"\n최대 이용객 수: " + maxPassenger + "명 ");
+                maxPassengerText.setText("혼잡도 가장 높은 시간: " + maxPassengerTime +"\n최대 이용객 수: " + maxPassenger + "명");
             }
 
             @Override
