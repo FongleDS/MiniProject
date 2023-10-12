@@ -48,7 +48,8 @@ public class MenuPan extends Activity {
         btn_toast = findViewById(R.id.button_toast);
         btn_mara = findViewById(R.id.button_mara);
 
-        han_waiting = findViewById(R.id.text_han);
+        han_waiting = findViewById(R.id
+                .text_han);
         joong_waiting = findViewById(R.id.text_joong);
         il_waiting = findViewById(R.id.text_il);
         yang_waiting = findViewById(R.id.text_yang);
