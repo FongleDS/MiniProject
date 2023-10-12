@@ -49,25 +49,26 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:fontFamily="@font/scoredream_medium"
+                android:gravity="center_horizontal"
                 android:text="님 환영합니다!🙌"
                 android:textColor="@color/black"
-                android:textSize="17dp"/>
+                android:textSize="17dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
-            android:layout_height="345dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="76dp">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:ignore="MissingConstraints">
 
             <TextView
                 android:id="@+id/guidement"
@@ -149,8 +150,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/scoredream_bold"
+                        android:gravity="center"
                         android:text="좌석 선택"
                         android:textColor="#5A5353"
                         android:textSize="16sp" />
@@ -166,8 +167,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/scoredream_bold"
+                        android:gravity="center"
                         android:text="메뉴판"
                         android:textColor="#5A5353"
                         android:textSize="16sp" />
@@ -183,32 +184,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:fontFamily="@font/scoredream_bold"
                         android:gravity="center"
                         android:text="주문 정보"
-                        android:fontFamily="@font/scoredream_bold"
                         android:textColor="#5A5353"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/maxPassengerText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text=""
-                android:textColor="#B70050"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_view" />
-
-            <TextView
                 android:id="@+id/leftseat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="현재 남은 좌석 : "
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/scoredream_medium"
+                android:text="현재 남은 좌석 : "
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -219,8 +209,8 @@
                 android:id="@+id/waitingOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="현재 주문 인원 : "
                 android:fontFamily="@font/scoredream_medium"
+                android:text="현재 주문 인원 : "
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -233,10 +223,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
             android:spinnerMode="dropdown"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
@@ -255,20 +244,31 @@
         <HorizontalScrollView
             android:id="@+id/horizontal_scroll_view"
             android:layout_width="410dp"
-            android:layout_height="233dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:fillViewport="true"
             android:paddingBottom="5dp"
             android:scrollbars="horizontal"
             app:layout_constraintTop_toBottomOf="@id/daySpinner"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-1dp">
+            tools:layout_editor_absoluteX="0dp">
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
                 android:layout_height="150dp" />
         </HorizontalScrollView>
+        <TextView
+            android:id="@+id/maxPassengerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text=""
+            android:textColor="#B70050"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_view" />
 
 
     </android.support.constraint.ConstraintLayout>
