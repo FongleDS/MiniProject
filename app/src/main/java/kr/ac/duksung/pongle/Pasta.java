@@ -181,7 +181,7 @@ public class Pasta extends AppCompatActivity {
 
         try {
             //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -208,7 +208,7 @@ public class Pasta extends AppCompatActivity {
                 .add("menuID", menuID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/basketUpdate")
+                .url("http://10.0.2.2:5000/basketUpdate")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {

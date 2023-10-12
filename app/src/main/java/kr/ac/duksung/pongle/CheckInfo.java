@@ -82,7 +82,7 @@ public class CheckInfo extends AppCompatActivity {
 
         try {
             //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -279,7 +279,7 @@ public class CheckInfo extends AppCompatActivity {
                 .add("orderID", orderID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/getOrderInfo")
+                .url("http://10.0.2.2:5000/getOrderInfo")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -328,7 +328,7 @@ public class CheckInfo extends AppCompatActivity {
 
     public void basketInit(Intent intent) {
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/basketInit")
+                .url("http://10.0.2.2:5000/basketInit")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

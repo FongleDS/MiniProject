@@ -46,6 +46,8 @@ public class SelectSeat extends AppCompatActivity {
     TextView seatName;
     String selectedSeat;
 
+    private int count = 0;
+
     //hello
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,7 @@ public class SelectSeat extends AppCompatActivity {
         });
 
 
+
         // seatButtons 배열에 대한 클릭 이벤트 리스너 설정
         for (int i = 0; i < seatButtons.length; i++) {
             final int index = i;
@@ -98,6 +101,22 @@ public class SelectSeat extends AppCompatActivity {
             seatButtons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (count >= 1) {
+                        if (choiceButtonStates[index]) {
+                            choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
+                            seatName.setText("");
+                            seatID = String.valueOf(index);
+                            seatOFF(seatID);
+                            System.out.println(seatID);
+
+                            count--;
+                        } else {
+                            // Display a toast message when a second seat is selected
+                            Toast.makeText(SelectSeat.this, "하나의 좌석만 예약이 가능합니다", Toast.LENGTH_SHORT).show();
+                        }
+                        return; // Return early, do not proceed with seat selection
+                    }
+
                     // 해당 seatButton이 클릭되었을 때 해당 choiceButton을 화면에 보이도록 설정
                     choiceButtons[index].setVisibility(View.VISIBLE);
                     // 상태를 토글하고 바로 색상을 변경
@@ -109,14 +128,19 @@ public class SelectSeat extends AppCompatActivity {
                         switch (index) {
                             case 0:
                                 Alpha = "A";
+                                break;
                             case 1:
                                 Alpha = "A";
+                                break;
                             case 2:
                                 Alpha = "B";
+                                break;
                             case 3:
                                 Alpha = "C";
+                                break;
                             case 4:
                                 Alpha = "E";
+                                break;
                         }
 
                         String seat = Alpha.concat(String.valueOf(index+1));
@@ -126,12 +150,16 @@ public class SelectSeat extends AppCompatActivity {
                         seatON(seatID);
                         System.out.println(seatID);
 
+                        count++;
+
                     } else {
                         choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
                         seatName.setText("");
                         seatID = String.valueOf(index);
                         seatOFF(seatID);
                         System.out.println(seatID);
+
+                        count--;
                     }
                 }
             });
@@ -199,7 +227,7 @@ public class SelectSeat extends AppCompatActivity {
 
         try {
             //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -227,7 +255,7 @@ public class SelectSeat extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/seatOFF")
+                .url("http://10.0.2.2:5000/seatOFF")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -266,7 +294,7 @@ public class SelectSeat extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/seatON")
+                .url("http://10.0.2.2:5000/seatON")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -306,7 +334,7 @@ public class SelectSeat extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/getSeatInfo")
+                .url("http://10.0.2.2:5000/getSeatInfo")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -345,7 +373,7 @@ public class SelectSeat extends AppCompatActivity {
         final ArrayList<String> info = new ArrayList<>();
 
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/seatInfo")
+                .url("http://10.0.2.2:5000/seatInfo")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
