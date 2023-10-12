@@ -1,316 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="top"
-    android:orientation="vertical"
     tools:context=".MenuPan">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:orientation="vertical"></LinearLayout>
-
     <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
+        android:id="@+id/menupan_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="20dp"
         android:textColor="#3A3A3A"
         android:gravity="left"
         android:text="MENU"
         android:textSize="40dp"
-        android:fontFamily="@font/scoredream_bold"/>
+        android:fontFamily="@font/scoredream_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/bar_iv"
+        android:layout_width="122dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="19dp"
+        android:background="@drawable/bar_iv"
+        app:layout_constraintTop_toBottomOf="@id/menupan_tv"
+        app:layout_constraintStart_toStartOf="parent"/>
 
+    <ImageView
+        android:id="@+id/line_iv"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/line"
+        android:layout_marginStart="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bar_iv"
+        app:layout_constraintStart_toStartOf="@id/menupan_tv"
+        app:layout_constraintTop_toBottomOf="@id/menupan_tv" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/button_pasta"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="110dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/backline"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/menupan_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <ImageView
+        android:id="@+id/pasta_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/pasta_iv"
+        app:layout_constraintStart_toStartOf="@id/button_pasta"
+        app:layout_constraintTop_toTopOf="@id/button_pasta"
+        />
+    <TextView
+        android:id="@+id/pasta_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 파스타 \n pasta"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:fontFamily="@font/scoredream_medium"
+        android:textSize="17dp"
+        app:layout_constraintStart_toEndOf="@id/pasta_iv"
+        app:layout_constraintTop_toTopOf="@id/button_pasta"
+        />
+    <TextView
+        android:id="@+id/pp_pst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="45dp"
+        android:text="대기인원 :"
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/pasta_tv"
+        app:layout_constraintTop_toTopOf="@id/button_pasta"/>
 
+    <TextView
+        android:id="@+id/text_han"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="69dp"
+        android:fontFamily="@font/scoredream_bold"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@id/pp_pst"
+        app:layout_constraintTop_toTopOf="@id/button_pasta"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="45dp"
+        android:text="명"
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/pp_pst"
+        app:layout_constraintTop_toTopOf="@id/button_pasta"/>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/button_gunsan"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:orientation="vertical">
+        android:layout_height="110dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/backline"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/button_pasta"
+        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/gunsan_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/gunsan_iv"
+        app:layout_constraintStart_toStartOf="@id/button_gunsan"
+        app:layout_constraintTop_toTopOf="@id/button_gunsan"
+        />
+    <TextView
+        android:id="@+id/gunsan_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 군산카츠 \n gunsan"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:fontFamily="@font/scoredream_medium"
+        android:textSize="17dp"
+        app:layout_constraintStart_toEndOf="@id/gunsan_iv"
+        app:layout_constraintTop_toTopOf="@id/button_gunsan"
+        />
+    <TextView
+        android:id="@+id/pp_gs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="45dp"
+        android:text="대기인원 : "
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/gunsan_tv"
+        app:layout_constraintTop_toTopOf="@id/button_gunsan"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+    <TextView
+        android:id="@+id/text_il"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="69dp"
+        android:fontFamily="@font/scoredream_bold"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@id/pp_gs"
+        app:layout_constraintTop_toTopOf="@id/button_gunsan"/>
 
-            <FrameLayout
-                android:layout_width="195dp"
-                android:layout_height="150dp">
-
-                <Button
-                    android:id="@+id/button_pasta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableStart="@drawable/pasta"
-                    android:background="@drawable/menupan_round"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="8dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"></LinearLayout>
-
-            <FrameLayout
-                android:layout_width="195dp"
-                android:layout_height="150dp">
-
-                <Button
-                    android:id="@+id/button_gunsan"
-                    android:layout_width="196dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/menupan_round"
-                    android:drawableStart="@drawable/gunsan"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="파스타 / 대기인원 : "
-                    android:fontFamily="@font/scoredream_bold"
-                    android:layout_marginLeft="10dp"/>
-
-                <TextView
-                    android:id="@+id/text_han"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="명" />
-            </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="45dp"
+        android:text="명"
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/pp_gs"
+        app:layout_constraintTop_toTopOf="@id/button_gunsan"/>
 
 
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="군산카츠 / 대기인원 : "
-                    android:fontFamily="@font/scoredream_bold"
-                    android:layout_marginLeft="10dp"/>
-                <TextView
-                    android:id="@+id/text_il"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="명" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
+    <Button
+        android:id="@+id/button_ttok"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:orientation="vertical">
+        android:layout_height="110dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/backline"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/button_gunsan"
+        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/ttok_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ttok_iv"
+        app:layout_constraintStart_toStartOf="@id/button_ttok"
+        app:layout_constraintTop_toTopOf="@id/button_ttok"
+        />
+    <TextView
+        android:id="@+id/ttok_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마성떡볶이\n tteokbokki"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:fontFamily="@font/scoredream_medium"
+        android:textSize="17dp"
+        app:layout_constraintStart_toEndOf="@id/ttok_iv"
+        app:layout_constraintTop_toTopOf="@id/button_ttok"
+        />
+    <TextView
+        android:id="@+id/pp_ttok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="45dp"
+        android:text="대기인원 : "
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/ttok_tv"
+        app:layout_constraintTop_toTopOf="@id/button_ttok"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <FrameLayout
-                android:layout_width="195dp"
-                android:layout_height="150dp">
-
-                <Button
-                    android:id="@+id/button_ttok"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/menupan_round"
-                    android:drawableStart="@drawable/masung"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
-
-            <LinearLayout
-                android:layout_width="8dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"></LinearLayout>
-
-            <FrameLayout
-                android:layout_width="195dp"
-                android:layout_height="150dp">
-
-                <Button
-                    android:id="@+id/button_toast"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/menupan_round"
-                    android:drawableStart="@drawable/toast"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="마성떡볶이 / 대기인원 : " />
-
-                <TextView
-                    android:id="@+id/text_joong"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="명" />
-            </LinearLayout>
+    <TextView
+        android:id="@+id/text_joong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="69dp"
+        android:fontFamily="@font/scoredream_bold"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@id/pp_ttok"
+        app:layout_constraintTop_toTopOf="@id/button_ttok"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="45dp"
+        android:text="명"
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/pp_ttok"
+        app:layout_constraintTop_toTopOf="@id/button_ttok"/>
 
 
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="토스트 / 대기인원 : " />
-                <TextView
-                    android:id="@+id/text_yang"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="명" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
+    <Button
+        android:id="@+id/button_toast"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:orientation="vertical">
+        android:layout_height="110dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/backline"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/button_ttok"
+        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/toast_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/toast_iv"
+        app:layout_constraintStart_toStartOf="@id/button_toast"
+        app:layout_constraintTop_toTopOf="@id/button_toast"
+        />
+    <TextView
+        android:id="@+id/toast_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="토스트 \n toast"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:fontFamily="@font/scoredream_medium"
+        android:textSize="17dp"
+        app:layout_constraintStart_toEndOf="@id/toast_iv"
+        app:layout_constraintTop_toTopOf="@id/button_toast"
+        />
+    <TextView
+        android:id="@+id/pp_tst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="45dp"
+        android:text="대기인원 : "
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/toast_tv"
+        app:layout_constraintTop_toTopOf="@id/button_toast"/>
+
+    <TextView
+        android:id="@+id/text_yang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="69dp"
+        android:fontFamily="@font/scoredream_bold"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@id/pp_tst"
+        app:layout_constraintTop_toTopOf="@id/button_toast"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="45dp"
+        android:text="명"
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/pp_tst"
+        app:layout_constraintTop_toTopOf="@id/button_toast"/>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/button_mara"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/backline"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/button_toast"
+        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/mara_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/mara_iv"
+        app:layout_constraintStart_toStartOf="@id/button_mara"
+        app:layout_constraintTop_toTopOf="@id/button_mara"
+        />
 
-            <FrameLayout
-                android:layout_width="195dp"
-                android:layout_height="150dp">
+    <TextView
+        android:id="@+id/mara_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한우사골마라탕\n maratang"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="33dp"
+        android:fontFamily="@font/scoredream_medium"
+        android:textSize="17dp"
+        app:layout_constraintStart_toEndOf="@id/mara_iv"
+        app:layout_constraintTop_toTopOf="@id/button_mara"
+        />
+    <TextView
+        android:id="@+id/pp_mara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="45dp"
+        android:text="대기인원 : "
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/mara_tv"
+        app:layout_constraintTop_toTopOf="@id/button_mara"/>
 
-                <Button
-                    android:id="@+id/button_mara"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/menupan_round"
-                    android:drawableStart="@drawable/mara"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
+    <TextView
+        android:id="@+id/text_boon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="69dp"
+        android:fontFamily="@font/scoredream_bold"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@id/pp_mara"
+        app:layout_constraintTop_toTopOf="@id/button_mara"/>
 
-            <LinearLayout
-                android:layout_width="8dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"></LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="45dp"
+        android:text="명"
+        android:fontFamily="@font/scoredream_medium"
+        app:layout_constraintStart_toStartOf="@id/pp_mara"
+        app:layout_constraintTop_toTopOf="@id/button_mara"/>
 
-            <FrameLayout
-                android:layout_width="195dp"
-                android:layout_height="150dp">
-
-                <Button
-                    android:id="@+id/button_blank"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/menupan_round"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="250dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="한우사골 마라탕 / 대기인원 : " />
-                <TextView
-                    android:id="@+id/text_boon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/scoredream_bold"
-                    android:text="명" />
-            </LinearLayout>
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
