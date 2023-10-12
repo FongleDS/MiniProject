@@ -46,6 +46,8 @@ public class SelectSeat extends AppCompatActivity {
     TextView seatName;
     String selectedSeat;
 
+    private int count = 0;
+
     //hello
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +100,22 @@ public class SelectSeat extends AppCompatActivity {
             seatButtons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (count >= 1) {
+                        if (choiceButtonStates[index]) {
+                            choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
+                            seatName.setText("");
+                            seatID = String.valueOf(index);
+                            seatOFF(seatID);
+                            System.out.println(seatID);
+
+                            count--;
+                        } else {
+                            // Display a toast message when a second seat is selected
+                            Toast.makeText(SelectSeat.this, "하나의 좌석만 예약이 가능합니다", Toast.LENGTH_SHORT).show();
+                        }
+                        return; // Return early, do not proceed with seat selection
+                    }
+
                     // 해당 seatButton이 클릭되었을 때 해당 choiceButton을 화면에 보이도록 설정
                     choiceButtons[index].setVisibility(View.VISIBLE);
                     // 상태를 토글하고 바로 색상을 변경
@@ -109,22 +127,29 @@ public class SelectSeat extends AppCompatActivity {
                         switch (index) {
                             case 0:
                                 Alpha = "A";
+                                break;
                             case 1:
                                 Alpha = "A";
+                                break;
                             case 2:
                                 Alpha = "B";
+                                break;
                             case 3:
                                 Alpha = "C";
+                                break;
                             case 4:
                                 Alpha = "E";
+                                break;
                         }
 
-                        String seat = Alpha.concat(String.valueOf(index+1));
+                        String seat = Alpha.concat(String.valueOf(index + 1));
                         selectedSeat = seat;
                         seatName.setText(seat);
                         seatID = String.valueOf(index);
                         seatON(seatID);
                         System.out.println(seatID);
+
+                        count++;
 
                     } else {
                         choiceButtons[index].setBackgroundResource(R.drawable.green_seat_sero); // 초록색으로 변경
@@ -132,11 +157,12 @@ public class SelectSeat extends AppCompatActivity {
                         seatID = String.valueOf(index);
                         seatOFF(seatID);
                         System.out.println(seatID);
+
+                        count--;
                     }
                 }
             });
         }
-
 
 
         choice = findViewById(R.id.select_seat);
@@ -198,15 +224,31 @@ public class SelectSeat extends AppCompatActivity {
 
 
         try {
+            //mSocket = IO.socket("http://192.168.35.188:5000");
             mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
+        mSocket.on("pickup_alarm", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                String data = (String) args[0];  // 문자열 바로 처리
+                System.out.println(data);
+
+                if (data.equals("ALARM")) {
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
+                        startActivity(intent);
+                    });
+                }
+            }
+        });
     }
 
     OkHttpClient client = new OkHttpClient();
+
     public void seatOFF(String seatID) {
         RequestBody formBody = new FormBody.Builder()
                 .add("seatID", seatID)
@@ -220,6 +262,7 @@ public class SelectSeat extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
@@ -259,6 +302,7 @@ public class SelectSeat extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
@@ -299,6 +343,7 @@ public class SelectSeat extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
@@ -337,6 +382,7 @@ public class SelectSeat extends AppCompatActivity {
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final ArrayList<String> SeatInfo = new ArrayList<>();
