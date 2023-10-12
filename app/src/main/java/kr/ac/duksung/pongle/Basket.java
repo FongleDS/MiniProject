@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -128,8 +129,8 @@ public class Basket extends AppCompatActivity {
             if (response.isSuccessful()) {
                 try {
                     String responseBody = response.body().string();
-                    JSONObject jsonResponse = new JSONObject(responseBody);
-                    String orderID = jsonResponse.getString("orderID");
+                    JSONArray jsonResponse = new JSONArray(responseBody);
+                    String orderID = jsonResponse.getJSONObject(0).getString("orderID");
                     runOnUiThread(() -> {
                         MyApplication app = (MyApplication) getApplicationContext();
                         app.setOrderID(orderID);

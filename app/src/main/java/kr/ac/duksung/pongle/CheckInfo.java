@@ -89,23 +89,7 @@ public class CheckInfo extends AppCompatActivity {
         mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                String dataString = (String) args[0];
-                try {
-                    JSONObject data = new JSONObject(dataString);
-                    String result = data.getString("Result");
-                    System.out.println(result);
-                    if (result.equals("ALARM")) {
-                        // orderManager.addOrder(orderID, menuName, "1");
-                        sendNotification();
-                        runOnUiThread(() -> {
-                            sendNotification(); //알람 notification
-                            //Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                            //startActivity(intent);
-                        });
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                sendNotification();
             }
         });
 
