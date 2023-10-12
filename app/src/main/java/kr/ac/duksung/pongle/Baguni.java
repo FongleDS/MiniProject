@@ -70,8 +70,8 @@ public class Baguni extends AppCompatActivity {
 
     public void getBasket(Intent intent) {
         Request request = new Request.Builder()
-                //.url("http://10.0.2.2:5000/getBasket")
-                .url("http://192.168.35.88:5000/getBasket")
+                .url("http://10.0.2.2:5000/getBasket")
+               //.url("http://192.168.35.88:5000/getBasket")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -111,9 +111,7 @@ public class Baguni extends AppCompatActivity {
                         }
 
                         else {
-                            runOnUiThread(() -> {
-                                Baguni.setText("장바구니가 비어있습니다!");
-                            });
+                            Baguni.setText("장바구니가 비어있습니다!");
                         }
 
                         System.out.println(stringBuilder);

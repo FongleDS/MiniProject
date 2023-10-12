@@ -11,11 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
-import io.socket.client.IO;
-import io.socket.client.Socket;
-import io.socket.emitter.Emitter;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -36,7 +32,6 @@ public class MenuPan extends Activity {
     TextView bun_waiting;
     TextView testing;
 
-    Socket mSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,36 +56,11 @@ public class MenuPan extends Activity {
         String stdID = bundle.getString("stdNum");
         String seatID = bundle.getString("seatNum");
 
-        try {
-            //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
-            //mSocket = IO.socket("http://172.20.10.5:5000");
-            mSocket.connect();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-
-
-        mSocket.on("pickup_alarm", new Emitter.Listener() {
-            @Override
-            public void call(Object... args) {
-                String data = (String) args[0];  // 문자열 바로 처리
-                System.out.println(data);
-
-                if (data.equals("ALARM")) {
-                    runOnUiThread(() -> {
-                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                        startActivity(intent);
-                    });
-                }
-            }
-        });
-
         //데이터 베이스 연동 해놓은 코드!! 조심해주세욤!!
         OkHttpClient client = new OkHttpClient();
 
-        //String url = "http://192.168.35.188:5000/restCount";
-        String url = "http://192.168.35.188:5000/restCount";
+        String url = "http://10.0.2.2:5000/restCount";
+
         Request request = new Request.Builder()
                 .url(url)
                 .build();
