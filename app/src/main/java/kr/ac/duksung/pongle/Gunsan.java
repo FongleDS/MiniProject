@@ -173,7 +173,7 @@ public class Gunsan extends AppCompatActivity {
                 .build();
         Request request = new Request.Builder()
                 .url("http://10.0.2.2:5000/basketUpdate")
-                //.url("http://192.168.35.88:5000/basketUpdate")
+                //.url("http://10.0.2.2:5000/basketUpdate")
 
                 .post(formBody)
                 .build();
