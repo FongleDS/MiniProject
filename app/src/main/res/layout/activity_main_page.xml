@@ -97,7 +97,7 @@
                     android:layout_width="90dp"
                     android:layout_height="100dp"
                     android:alpha="0.8"
-                    android:background="@drawable/img"
+                    android:background="@drawable/img_seat3"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -112,7 +112,7 @@
                     android:layout_width="90dp"
                     android:layout_height="100dp"
                     android:alpha="0.8"
-                    android:background="@drawable/img_2"
+                    android:background="@drawable/img_meal2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -127,7 +127,7 @@
                     android:layout_width="90dp"
                     android:layout_height="100dp"
                     android:alpha="0.8"
-                    android:background="@drawable/img_3"
+                    android:background="@drawable/img_info2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
