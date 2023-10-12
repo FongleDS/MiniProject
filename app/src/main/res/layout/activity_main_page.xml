@@ -49,11 +49,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/scoredream_medium"
                 android:gravity="center_horizontal"
+                android:fontFamily="@font/scoredream_medium"
                 android:text="님 환영합니다!🙌"
                 android:textColor="@color/black"
-                android:textSize="17dp" />
+                android:textSize="17dp"/>
 
         </LinearLayout>
 
@@ -67,8 +67,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <TextView
                 android:id="@+id/guidement"
@@ -83,7 +83,7 @@
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="38dp"
                 android:fontFamily="@font/scoredream_medium"
                 android:text="   알았덕의 다양한 서비스를 경험해보세요" />
 
@@ -95,40 +95,40 @@
 
                 <Button
                     android:id="@+id/button_seat"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:alpha="0.6"
-                    android:background="@drawable/seaticon"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.8"
+                    android:background="@drawable/img"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"></LinearLayout>
 
                 <Button
                     android:id="@+id/button_menu"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:alpha="0.6"
-                    android:background="@drawable/mealicon"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.48"
+                    android:background="@drawable/image_food"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <LinearLayout
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"></LinearLayout>
 
                 <Button
                     android:id="@+id/button_info"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:alpha="0.6"
-                    android:background="@drawable/profile"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:alpha="0.48"
+                    android:background="@drawable/image_info"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -150,10 +150,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:fontFamily="@font/scoredream_bold"
                         android:gravity="center"
+                        android:fontFamily="@font/scoredream_bold"
                         android:text="좌석 선택"
-                        android:textColor="#5A5353"
+                        android:textColor="#B70050"
                         android:textSize="16sp" />
 
                     <LinearLayout
@@ -167,8 +167,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:fontFamily="@font/scoredream_bold"
                         android:gravity="center"
+                        android:fontFamily="@font/scoredream_bold"
                         android:text="메뉴판"
                         android:textColor="#5A5353"
                         android:textSize="16sp" />
@@ -184,9 +184,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:fontFamily="@font/scoredream_bold"
                         android:gravity="center"
                         android:text="주문 정보"
+                        android:fontFamily="@font/scoredream_bold"
                         android:textColor="#5A5353"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -209,8 +209,8 @@
                 android:id="@+id/waitingOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/scoredream_medium"
                 android:text="현재 주문 인원 : "
+                android:fontFamily="@font/scoredream_medium"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"

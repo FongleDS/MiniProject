@@ -69,7 +69,8 @@ public class Basket extends AppCompatActivity {
         });
 
         try {
-            mSocket = IO.socket("http://10.0.2.2:5000");
+            //mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://192.168.35.188:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -125,7 +126,7 @@ public class Basket extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
 
-        sendRequest("http://10.0.2.2:5000/orderUpdate", formBody, response -> {
+        sendRequest("http://192.168.35.188:5000/orderUpdate", formBody, response -> {
             if (response.isSuccessful()) {
                 try {
                     String responseBody = response.body().string();
@@ -144,7 +145,7 @@ public class Basket extends AppCompatActivity {
     }
 
     public void BasketInit() {
-        sendRequest("http://10.0.2.2:5000/basketInit", null, response -> {
+        sendRequest("http://192.168.35.188:5000/basketInit", null, response -> {
             if (response.isSuccessful()) {
                 runOnUiThread(() -> {
                     Toast.makeText(getApplicationContext(), "Basket Init", Toast.LENGTH_SHORT).show();
@@ -167,7 +168,7 @@ public class Basket extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/orderUpdate")
+                .url("http://192.168.35.188:5000/orderUpdate")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -200,7 +201,7 @@ public class Basket extends AppCompatActivity {
 
     public void BasketInit() {
         Request request = new Request.Builder()
-                .url("http://10.0.2.2:5000/basketInit")
+                .url("http://192.168.35.188:5000/basketInit")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
