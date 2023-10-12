@@ -66,28 +66,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         try {
-            //mSocket = IO.socket("http://10.0.2.2:5000");
-            mSocket = IO.socket("http://192.168.35.88:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            //mSocket = IO.socket("http://192.168.35.88:5000");
             //mSocket = IO.socket("http://172.20.10.5:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
-        mSocket.on("pickup_alarm", new Emitter.Listener() {
-            @Override
-            public void call(Object... args) {
-                String data = (String) args[0];  // 문자열 바로 처리
-                System.out.println(data);
-
-                if (data.equals("ALARM")) {
-                    runOnUiThread(() -> {
-                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                        startActivity(intent);
-                    });
-                }
-            }
-        });
     }
 
 
@@ -100,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         Request request = new Request.Builder()
                 //.url("http://172.20.10.5:5000/get_password")
-                .url("http://192.168.35.88:5000/get_password")
-                //.url("http://10.0.2.2:5000/get_password")
+                //.url("http://192.168.35.88:5000/get_password")
+                .url("http://10.0.2.2:5000/get_password")
                 // .url("http://192.168.137.100:5000/get_password")
                 .post(formBody)
                 .build();

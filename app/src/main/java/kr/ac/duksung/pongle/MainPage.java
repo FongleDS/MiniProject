@@ -9,6 +9,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -149,7 +152,28 @@ public class MainPage extends Activity {
                 // 선택한 요일의 최대 이용객 수와 시간 표시
                 int maxPassenger = getMaxPassenger(dataByDay.get(position));
                 String maxPassengerTime = getMaxPassengerTime(dataByDay.get(position));
-                maxPassengerText.setText("혼잡도 가장 높은 시간: " + maxPassengerTime +"\n최대 이용객 수: " + maxPassenger + "명");
+                SpannableString spannable = new SpannableString("혼잡도 가장 높은 시간: " + maxPassengerTime + "\n최대 이용객 수: " + maxPassenger + "명");
+
+// "혼잡도 가장 높은 시간" 텍스트를 검은색으로 지정
+                ForegroundColorSpan blackSpan = new ForegroundColorSpan(Color.BLACK);
+                spannable.setSpan(blackSpan, 0, 13, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+// "최대 이용객 수" 텍스트를 검은색으로 지정
+                ForegroundColorSpan blackSpan2 = new ForegroundColorSpan(Color.BLACK);
+                spannable.setSpan(blackSpan2, 18, 29, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                String maxPassengerStr = String.valueOf(maxPassenger);
+
+// maxPassengerTime 변수를 빨간색으로 지정
+                ForegroundColorSpan redSpan1 = new ForegroundColorSpan(Color.parseColor("#B70050"));
+                spannable.setSpan(redSpan1, 14, 14 + maxPassengerTime.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+// maxPassenger 변수를 빨간색으로 지정
+                ForegroundColorSpan redSpan2 = new ForegroundColorSpan(Color.parseColor("#B70050"));
+                spannable.setSpan(redSpan2, 31, 31 + maxPassengerStr.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                maxPassengerText.setText(spannable);
+
             }
 
             @Override
@@ -162,15 +186,15 @@ public class MainPage extends Activity {
 
 
         try {
-            //mSocket = IO.socket("http://10.0.2.2:5000");
-            mSocket = IO.socket("http://192.168.35.88:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
+            //mSocket = IO.socket("http://192.168.35.88:5000");
             //mSocket = IO.socket("http://172.20.10.5:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
-
+/*
         mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
@@ -185,7 +209,7 @@ public class MainPage extends Activity {
                 }
             }
         });
-
+*/
 
 
         //PackageManager pm = getPackageManager();
@@ -249,12 +273,13 @@ public class MainPage extends Activity {
     private void updateChart(List<Entry> entries) {
         LineDataSet dataSet = new LineDataSet(entries, "이용객 수");
         dataSet.setAxisDependency(YAxis.AxisDependency.LEFT);
-        dataSet.setColor(ColorTemplate.getHoloBlue());
+        dataSet.setColor(Color.parseColor("#961B44"));
         dataSet.setValueTextColor(Color.BLACK);
         dataSet.setValueTextSize(10f);
         dataSet.setLineWidth(2f);
         dataSet.setDrawCircles(true);
         dataSet.setDrawValues(false);
+        dataSet.setCircleColor(Color.parseColor("#961B44"));
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(dataSet);
@@ -343,8 +368,8 @@ public class MainPage extends Activity {
     OkHttpClient client = new OkHttpClient();
     public void LeftSeat() {
         Request request = new Request.Builder()
-                //.url("http://10.0.2.2:5000/countSeat")
-                .url("http://192.168.35.88:5000/countSeat")
+                .url("http://10.0.2.2:5000/countSeat")
+                //.url("http://192.168.35.88:5000/countSeat")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -373,8 +398,8 @@ public class MainPage extends Activity {
 
     public void Waiting() {
         Request request = new Request.Builder()
-                //.url("http://10.0.2.2:5000/countWaiting")
-                .url("http://192.168.35.88:5000/countWaiting")
+                .url("http://10.0.2.2:5000/countWaiting")
+                //.url("http://192.168.35.88:5000/countWaiting")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -403,8 +428,8 @@ public class MainPage extends Activity {
 
     public void BasketInit() {
         Request request = new Request.Builder()
-                //.url("http://10.0.2.2:5000/basketInit")
-                .url("http://192.168.35.88:5000/basketInit")
+                .url("http://10.0.2.2:5000/basketInit")
+                //.url("http://192.168.35.88:5000/basketInit")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

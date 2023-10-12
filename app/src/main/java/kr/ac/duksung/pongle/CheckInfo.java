@@ -81,55 +81,22 @@ public class CheckInfo extends AppCompatActivity {
         createNotificationChannel();
 
         try {
-            //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-
         mSocket.on("pickup_alarm", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                String data = (String) args[0];  // 문자열 바로 처리
-                System.out.println(data);
+                sendNotification();
+            }
+        });
 
-                if (data.equals("ALARM")) {
-                    runOnUiThread(() -> {
-                        Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                        startActivity(intent);
-                    });
-                }
-            }
-        });
-        /*
-        mSocket.on("pickup_alarm", new Emitter.Listener() {
-            @Override
-            public void call(Object... args) {
-                String dataString = (String) args[0];
-                try {
-                    JSONObject data = new JSONObject(dataString);
-                    String result = data.getString("Result");
-                    System.out.println(result);
-                    if (result.equals("ALARM")) {
-                        // orderManager.addOrder(orderID, menuName, "1");
-                        sendNotification();
-                        runOnUiThread(() -> {
-                            sendNotification(); //알람 notification
-                            //Intent intent = new Intent(getApplicationContext(), AlarmActivity.class);
-                            //startActivity(intent);
-                        });
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-*/
 
         /*
         try {
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -279,7 +246,7 @@ public class CheckInfo extends AppCompatActivity {
                 .add("orderID", orderID)
                 .build();
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/getOrderInfo")
+                .url("http://10.0.2.2:5000/getOrderInfo")
                 .post(formBody)
                 .build();
         client.newCall(request).enqueue(new Callback() {
@@ -328,7 +295,7 @@ public class CheckInfo extends AppCompatActivity {
 
     public void basketInit(Intent intent) {
         Request request = new Request.Builder()
-                .url("http://192.168.35.188:5000/basketInit")
+                .url("http://10.0.2.2:5000/basketInit")
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override

@@ -69,8 +69,7 @@ public class Basket extends AppCompatActivity {
         });
 
         try {
-            //mSocket = IO.socket("http://192.168.35.188:5000");
-            mSocket = IO.socket("http://192.168.35.188:5000");
+            mSocket = IO.socket("http://10.0.2.2:5000");
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();
@@ -126,7 +125,7 @@ public class Basket extends AppCompatActivity {
                 .add("seatID", seatID)
                 .build();
 
-        sendRequest("http://192.168.35.188:5000/orderUpdate", formBody, response -> {
+        sendRequest("http://10.0.2.2:5000/orderUpdate", formBody, response -> {
             if (response.isSuccessful()) {
                 try {
                     String responseBody = response.body().string();
