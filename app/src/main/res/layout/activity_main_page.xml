@@ -67,7 +67,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="76dp">
+            tools:layout_editor_absoluteY="100dp">
 
             <TextView
                 android:id="@+id/guidement"
@@ -149,8 +149,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/scoredream_bold"
+                        android:gravity="center"
                         android:text="좌석 선택"
                         android:textColor="#B70050"
                         android:textSize="16sp" />
@@ -166,8 +166,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
                         android:fontFamily="@font/scoredream_bold"
+                        android:gravity="center"
                         android:text="메뉴판"
                         android:textColor="#B70050"
                         android:textSize="16sp" />
@@ -183,9 +183,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
+                        android:fontFamily="@font/scoredream_bold"
                         android:gravity="center"
                         android:text="주문 정보"
-                        android:fontFamily="@font/scoredream_bold"
                         android:textColor="#B70050"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -201,14 +201,14 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_view"/>
+                app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_view" />
 
             <TextView
                 android:id="@+id/leftseat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="현재 남은 좌석 : "
                 android:fontFamily="@font/scoredream_medium"
+                android:text="현재 남은 좌석 : "
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -219,8 +219,8 @@
                 android:id="@+id/waitingOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="현재 주문 인원 : "
                 android:fontFamily="@font/scoredream_medium"
+                android:text="현재 주문 인원 : "
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
